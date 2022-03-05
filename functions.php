@@ -3,9 +3,12 @@
 require_once __DIR__ . '/Scada/init.php';
 
 
-require get_template_directory() . '/plugin-update-checker/plugin-update-checker.php';
-/*$MyUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-    'http://update.dev.born.lv/aff.json', //Metadata URL.
-    __FILE__, //Full path to the main plugin file.
-    'aff' //Plugin slug. Usually it's the same as the name of the directory.
-);*/
+add_action('init', function(){
+    require get_template_directory() . '/plugin-update-checker/plugin-update-checker.php';
+    $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+        'https://github.com/rogodessa/aff_child',
+        __FILE__,
+        'aff_child'
+    );
+    $myUpdateChecker->setBranch('production');
+});
