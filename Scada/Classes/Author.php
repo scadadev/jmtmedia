@@ -9,7 +9,11 @@ class Author
 
         $this->acf();
 
-        add_action('before_global_block_faq', [$this, 'block_html']);
+        add_filter('acf/load_field/name=show_before_block', [$this, 'acf_add_choices']);
+
+        //add_action('before_global_block_faq', [$this, 'block_html']);
+
+        add_action('before_page_content_block', [$this, 'block_html'], 10, 1);
     }
 
 
@@ -38,6 +42,31 @@ class Author
                     'ui' => 1,
                     'ui_on_text' => '',
                     'ui_off_text' => '',
+                ),
+
+                array(
+                    'key' => 'field_6224f88cd6001',
+                    'label' => 'Show before content block',
+                    'name' => 'show_before_block',
+                    'type' => 'select',
+                    'instructions' => '',
+                    'required' => 0,
+                    'conditional_logic' => 0,
+                    'wrapper' => array(
+                        'width' => '',
+                        'class' => '',
+                        'id' => '',
+                    ),
+                    'choices' => array(
+                        'faq' => 'FAQ',
+                    ),
+                    'default_value' => 'faq',
+                    'allow_null' => 0,
+                    'multiple' => 0,
+                    'ui' => 0,
+                    'return_format' => 'value',
+                    'ajax' => 0,
+                    'placeholder' => '',
                 ),
             ),
             'location' => array(
@@ -105,9 +134,32 @@ class Author
         ));
     }
 
+    public function acf_add_choices($field) {
 
-    public function block_html() {
-        get_template_part('/Scada/templates/author');
+        $screen = get_current_screen();
+
+        if ( is_admin() && ($screen->id == 'page') ) {
+            $post_id = $_REQUEST['post'];
+
+            $post_content = get_field('page_content', $post_id);
+
+            if( !empty($post_content) ) {
+                foreach($post_content as $item) {
+                    $field['choices'][ $item['acf_fc_layout'] ] = $item['acf_fc_layout'];
+                }
+            }
+        }
+
+        return $field;
+    }
+
+    public function block_html( $acf_fc_layout ) {
+        global $post;
+        $field_id = get_post_meta($post->ID, 'show_before_block', true);
+        if( empty($field_id) ) $field_id = 'faq';
+        if( $field_id == $acf_fc_layout ) {
+            get_template_part('/Scada/templates/author');
+        }
     }
 
 }
