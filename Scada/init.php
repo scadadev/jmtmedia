@@ -17,6 +17,5 @@ else {
 
 function scada_init() {
     require_once __DIR__ . '/Classes/Author.php';
-
-    new \Scada\Author();
+    require_once __DIR__ . '/Classes/ToTop.php';
 }

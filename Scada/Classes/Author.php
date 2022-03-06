@@ -163,3 +163,5 @@ class Author
     }
 
 }
+
+new \Scada\Author();
