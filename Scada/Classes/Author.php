@@ -72,9 +72,9 @@ class Author
             'location' => array(
                 array(
                     array(
-                        'param' => 'post_type',
+                        'param' => 'page_template',
                         'operator' => '==',
-                        'value' => 'page',
+                        'value' => 'default',
                     ),
                 ),
             ),
@@ -155,8 +155,14 @@ class Author
 
     public function block_html( $acf_fc_layout ) {
         global $post;
+
+        $enable_block = get_post_meta($post->ID, 'enable_author_page_block', true);
+
+        if( $enable_block != '1' ) return;
+
         $field_id = get_post_meta($post->ID, 'show_before_block', true);
         if( empty($field_id) ) $field_id = 'faq';
+
         if( $field_id == $acf_fc_layout ) {
             get_template_part('/Scada/templates/author');
         }

@@ -5,10 +5,7 @@ if( have_rows('page_content') ):
     // Loop through rows.
     while ( have_rows('page_content') ) : the_row();
 
-        //do_action( 'before_global_block_' . get_row_layout() );
-
         do_action( 'before_page_content_block', get_row_layout() );
-
 
         // Case: Paragraph layout.
         if( get_row_layout() == 'header_with_blocks' ):
