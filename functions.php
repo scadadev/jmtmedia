@@ -6,9 +6,9 @@ require_once __DIR__ . '/Scada/functions/styles-scripts.php';
 add_action('init', function(){
     require get_template_directory() . '/plugin-update-checker/plugin-update-checker.php';
     $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-        'https://github.com/rogodessa/aff_child',
+        'https://github.com/scadadev/jmtmedia',
         __FILE__,
-        'aff_child'
+        'jmtmedia'
     );
     $myUpdateChecker->setBranch('production');
 });
