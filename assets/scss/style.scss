@@ -8,7 +8,7 @@
   background: #dd9933;
   color: #ffffff;
   border-radius: 50%;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   cursor: pointer;
@@ -23,5 +23,20 @@
 
   &:hover {
     opacity: 0.8;
+  }
+
+  &.show {
+    display: flex;
+  }
+}
+
+
+@media screen and (min-width: 992px) {
+  .sitemap-links {
+    display: flex;
+    flex-wrap: wrap;
+    li {
+      width: 33.3333%;
+    }
   }
 }
