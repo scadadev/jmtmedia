@@ -1,6 +1,6 @@
 <?php
 
-if (!is_singular('page')) return;
+//if (!is_singular('page')) return;
 
 $enable_author_page_block = get_field('enable_author_page_block');
 
@@ -14,7 +14,6 @@ $author_data = get_user_meta($author_id);
 //$author_avatar = get_user_meta($author_id, 'custom_avatar', true);
 
 $author_avatar_url = get_avatar_url($author_id ) ?? '';
-
 
 $author_block_text = $author_data['author_block_text'][0] ?? '';
 

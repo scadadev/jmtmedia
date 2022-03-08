@@ -13,7 +13,6 @@
   justify-content: center;
   cursor: pointer;
   transition: opacity 0.4s;
-  box-shadow: 0 0 6px rgba(0,0,0,0.4);
 
   svg {
     width: 50%;
@@ -30,6 +29,19 @@
   }
 }
 
+.single-products {
+  .to-top {
+    bottom: 170px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .single-products {
+    .to-top {
+      bottom: 120px;
+    }
+  }
+}
 
 @media screen and (min-width: 992px) {
   .sitemap-links {

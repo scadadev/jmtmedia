@@ -13,7 +13,7 @@ class Author
 
         //add_action('before_global_block_faq', [$this, 'block_html']);
 
-        add_action('before_page_content_block', [$this, 'block_html'], 10, 1);
+        add_action('before_page_content_block', [$this, 'block_html'], 10, 2);
     }
 
 
@@ -69,12 +69,20 @@ class Author
                     'placeholder' => '',
                 ),
             ),
+
             'location' => array(
                 array(
                     array(
                         'param' => 'page_template',
                         'operator' => '==',
                         'value' => 'default',
+                    ),
+                ),
+                array(
+                    array(
+                        'param' => 'page_template',
+                        'operator' => '==',
+                        'value' => 'archive-games.php',
                     ),
                 ),
             ),
@@ -153,8 +161,10 @@ class Author
         return $field;
     }
 
-    public function block_html( $acf_fc_layout ) {
-        global $post;
+    public function block_html( $acf_fc_layout, $post_id ) {
+        $post = get_post($post_id);
+
+        if( !$post ) return;
 
         $enable_block = get_post_meta($post->ID, 'enable_author_page_block', true);
 
