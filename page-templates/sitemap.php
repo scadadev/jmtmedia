@@ -36,8 +36,8 @@ while (have_posts()) {
     <?php endif; ?>
     <div class="aff-post">
         <div class="born-container is-wide">
-            <div class="content">
-                <div class="main">
+            <div class="main sitemap-links">
+                <div class="sitemap-links__wrap">
                     <?php
 
                     $post_types = [
@@ -56,31 +56,35 @@ while (have_posts()) {
                             'posts_per_page' => -1
                         ];
 
-                        if( $post_type == 'page' ) {
+                        if ($post_type == 'page') {
                             $args['post__not_in'][] = get_the_ID();
                         }
 
                         $posts_query = new WP_Query($args);
 
-                        if( !empty($posts_query->posts) ) {
-                            echo '<h2>' . $labels->label . '<h2>';
+                        if (!empty($posts_query->posts)) {
+                            echo '<div class="sitemap-links__item">';
+                                echo '<div class="sitemap-links__title">';
+                                    echo '<span class="sitemap-links__count" data-count="'. count($posts_query->posts) .'"></span>';
+                                    echo '<h2>' . $labels->label . '</h2>';
+                                echo '</div>';
 
-                            echo '<ul class="sitemap-links">';
-                            foreach( $posts_query->posts as $p ) {
-                                echo '<li><a href="'. get_the_permalink($p->ID) .'">'. $p->post_title .'</a></li>';
-                            }
-                            echo '</ul>';
+                                echo '<div class="sitemap-links__list">';
+                                foreach ($posts_query->posts as $p) {
+                                    echo '<div class="sitemap-links__list-item"><a href="' . get_the_permalink($p->ID) . '">' . $p->post_title . '</a></div>';
+                                }
+                                echo '</div>';
+                            echo '</div>';
                         }
 
                     }
+
                     ?>
-
-
                 </div>
             </div>
         </div>
     </div>
-<?php
+    <?php
 
 }
 
