@@ -1033,7 +1033,7 @@ if ($total_stars && $total_reviews) {
 
             </div>
             <div class="text">
-                <?php echo $review['review_text']; ?>
+                <?php echo $author_data['description'][0] ?? ''; ?>
             </div>
             <div class="more">
                 <a href="<?php echo get_author_posts_url($author_id); ?>"><?php echo $BORN_FRAMEWORK->Options->Get('author_about' . $lang_code); ?></a>

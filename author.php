@@ -65,7 +65,7 @@ $author_archive = get_pages(
                 <h1><?php echo $user->data->display_name;?></h1>
                 <?php if (!empty($userdata['description'][0])):?>
                 <div class="author-description">
-                <?php echo $userdata['description'][0];?>
+                <?php echo $userdata['description'][0] ?? '';?>
                 </div>
                 <?php endif;?>
 

@@ -1,7 +1,5 @@
 <?php
 
-//if (!is_singular('page')) return;
-
 $enable_author_page_block = get_field('enable_author_page_block');
 
 global $BORN_FRAMEWORK;
@@ -11,11 +9,8 @@ $lang_code = born_get_current_language_code();
 $author_id = get_the_author_meta('ID');
 $userdata = get_user_by('id', $author_id);
 $author_data = get_user_meta($author_id);
-//$author_avatar = get_user_meta($author_id, 'custom_avatar', true);
 
 $author_avatar_url = get_avatar_url($author_id ) ?? '';
-
-$author_block_text = $author_data['author_block_text'][0] ?? '';
 
 ?>
 <div class="aff-item-description aff-is-author">
@@ -70,7 +65,7 @@ $author_block_text = $author_data['author_block_text'][0] ?? '';
 
             </div>
             <div class="text">
-                <?php echo $author_block_text; ?>
+                <?php echo $author_data['description'][0] ?? ''; ?>
             </div>
             <div class="more">
                 <a href="<?php echo get_author_posts_url($author_id); ?>"><?php echo $BORN_FRAMEWORK->Options->Get('author_about' . $lang_code); ?></a>

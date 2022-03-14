@@ -97,6 +97,7 @@ class Author
             'show_in_rest' => 0,
         ));
 
+        /*
         acf_add_local_field_group(array(
             'key' => 'group_6222571093631',
             'title' => 'Author block content',
@@ -140,6 +141,7 @@ class Author
             'description' => '',
             'show_in_rest' => 0,
         ));
+        */
     }
 
     public function acf_add_choices($field) {
