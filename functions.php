@@ -12,3 +12,8 @@ add_action('init', function(){
     );
     $myUpdateChecker->setBranch('production');
 });
+
+add_action('after_setup_theme', function(){
+    require_once __DIR__ . '/Scada/functions/admin.php';
+    require_once __DIR__ . '/Scada/functions/gtm.php';
+});
