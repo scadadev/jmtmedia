@@ -4,7 +4,7 @@
   width: 60px;
   height: 60px;
   right: 25px;
-  bottom: 25px;
+  bottom: 44px;
   background: #dd9933;
   color: #ffffff;
   border-radius: 50%;
@@ -177,6 +177,14 @@
 .aff-news-post-wrapper .aff-post ul.sitemap-links__ul li {
   padding-left: 3rem !important;
   margin-bottom: 0 !important;
+}
+
+.aff-copyright {
+  .labels {
+    img {
+      max-width: 60px;
+    }
+  }
 }
 
 @media screen and (min-width: 768px) {
