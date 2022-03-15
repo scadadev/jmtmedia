@@ -48,7 +48,24 @@ while (have_posts()) {
                     ];
 
                     foreach ($post_types as $post_type) {
-                        $labels = get_post_type_object($post_type);
+
+                        switch ($post_type) {
+                            case 'post':
+                                $block_title = __('Raksti', 'aff');
+                                break;
+                            case 'page':
+                                $block_title = __('Sadaļas', 'aff');
+                                break;
+                            case 'products':
+                                $block_title = __('Apskati', 'aff');
+                                break;
+                            case 'games':
+                                $block_title = __('Spēles', 'aff');
+                                break;
+                            default:
+                                $labels = get_post_type_object($post_type);
+                                $block_title = $labels->label;
+                        }
 
                         $args = [
                             'post_status' => 'publish',
@@ -66,7 +83,7 @@ while (have_posts()) {
                             echo '<div class="sitemap-links__item">';
                                 echo '<div class="sitemap-links__title">';
                                     echo '<span class="sitemap-links__count" data-count="'. count($posts_query->posts) .'"></span>';
-                                    echo '<h2>' . $labels->label . '</h2>';
+                                    echo '<h2>' . $block_title . '</h2>';
                                 echo '</div>';
 
                                 echo '<div class="sitemap-links__list">';
