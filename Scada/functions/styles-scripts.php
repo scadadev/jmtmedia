@@ -11,14 +11,14 @@ function add_theme_css() {
 }
 add_action( 'wp_enqueue_scripts', 'add_theme_css' );
 
-
+/*
 add_action('wp_head', function(){
     global $BORN_FRAMEWORK;
     $global_background = $BORN_FRAMEWORK->Options->Get('background_color_global') ?? '#162e4c';
-    echo '<meta name="theme-color" content="'. $global_background .'" >' . "\n";
-    echo '<meta name="msapplication-navbutton-color" content="'. $global_background .'" >' . "\n";
-    echo '<meta name="apple-mobile-web-app-status-bar-style" content="black" >' . "\n";
-});
+    echo PHP_EOL;
+    echo '<meta name="theme-color" content="'. $global_background .'">' . PHP_EOL;
+    echo '<meta name="apple-mobile-web-app-status-bar-style" content="black">' . PHP_EOL;
+});*/
 
 
 add_action('wp_footer', function(){
