@@ -28,7 +28,7 @@ function aff_set_contrast_color($styles){
         $global_accent = '#E7A736';
     }
 
-    $styles .= '.author-expert__item svg{fill:'. $global_accent .'}';
+    $styles .= '.author-expert__item svg, .title-meta__item svg{fill:'. $global_accent .'}';
 
     return $styles;
 }

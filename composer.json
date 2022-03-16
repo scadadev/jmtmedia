@@ -1,0 +1,15 @@
+{
+  "name": "scada/aff-child",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "user",
+      "email": "email@example.com"
+    }
+  ],
+  "require": {
+    "geoip2/geoip2": "~2.0"
+  }
+}
