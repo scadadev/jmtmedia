@@ -11,18 +11,24 @@ function add_theme_css() {
 }
 add_action( 'wp_enqueue_scripts', 'add_theme_css' );
 
-/*
-add_action('wp_head', function(){
-    global $BORN_FRAMEWORK;
-    $global_background = $BORN_FRAMEWORK->Options->Get('background_color_global') ?? '#162e4c';
-    echo PHP_EOL;
-    echo '<meta name="theme-color" content="'. $global_background .'">' . PHP_EOL;
-    echo '<meta name="apple-mobile-web-app-status-bar-style" content="black">' . PHP_EOL;
-});*/
-
-
 add_action('wp_footer', function(){
     echo '<style>';
         echo apply_filters('aff_inline_footer_styles', '');
     echo '</style>';
 }, 100);
+
+
+add_filter('aff_inline_footer_styles', 'aff_set_contrast_color');
+function aff_set_contrast_color($styles){
+    global $BORN_FRAMEWORK;
+
+    //accent color
+    $global_accent = $BORN_FRAMEWORK->Options->Get('accent_color_global');
+    if( !$global_accent ) {
+        $global_accent = '#E7A736';
+    }
+
+    $styles .= '.author-expert__item svg{fill:'. $global_accent .'}';
+
+    return $styles;
+}

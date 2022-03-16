@@ -97,16 +97,15 @@ class Author
             'show_in_rest' => 0,
         ));
 
-        /*
         acf_add_local_field_group(array(
-            'key' => 'group_6222571093631',
-            'title' => 'Author block content',
+            'key' => 'group_6231f0bf8878e',
+            'title' => 'User expert data',
             'fields' => array(
                 array(
-                    'key' => 'field_62225740ba0b5',
-                    'label' => 'Author block text',
-                    'name' => 'author_block_text',
-                    'type' => 'text',
+                    'key' => 'field_6231f0cd76e16',
+                    'label' => 'Expert data',
+                    'name' => 'expert',
+                    'type' => 'group',
                     'instructions' => '',
                     'required' => 0,
                     'conditional_logic' => 0,
@@ -115,11 +114,109 @@ class Author
                         'class' => '',
                         'id' => '',
                     ),
-                    'default_value' => '',
-                    'placeholder' => '',
-                    'prepend' => '',
-                    'append' => '',
-                    'maxlength' => '',
+                    'layout' => 'block',
+                    'sub_fields' => array(
+                        array(
+                            'key' => 'field_6231f11b76e17',
+                            'label' => 'Is expert',
+                            'name' => 'is_expert',
+                            'type' => 'true_false',
+                            'instructions' => '',
+                            'required' => 0,
+                            'conditional_logic' => 0,
+                            'wrapper' => array(
+                                'width' => '',
+                                'class' => '',
+                                'id' => '',
+                            ),
+                            'message' => '',
+                            'default_value' => 0,
+                            'ui' => 0,
+                            'ui_on_text' => '',
+                            'ui_off_text' => '',
+                        ),
+                        array(
+                            'key' => 'field_6231f741edf4e',
+                            'label' => 'Keen journalist',
+                            'name' => 'type_1',
+                            'type' => 'text',
+                            'instructions' => '',
+                            'required' => 0,
+                            'conditional_logic' => array(
+                                array(
+                                    array(
+                                        'field' => 'field_6231f11b76e17',
+                                        'operator' => '==',
+                                        'value' => '1',
+                                    ),
+                                ),
+                            ),
+                            'wrapper' => array(
+                                'width' => '33.3333',
+                                'class' => '',
+                                'id' => '',
+                            ),
+                            'default_value' => '',
+                            'placeholder' => '',
+                            'prepend' => '',
+                            'append' => '',
+                            'maxlength' => '',
+                        ),
+                        array(
+                            'key' => 'field_6231f796edf4f',
+                            'label' => 'Esports nut',
+                            'name' => 'type_2',
+                            'type' => 'text',
+                            'instructions' => '',
+                            'required' => 0,
+                            'conditional_logic' => array(
+                                array(
+                                    array(
+                                        'field' => 'field_6231f11b76e17',
+                                        'operator' => '==',
+                                        'value' => '1',
+                                    ),
+                                ),
+                            ),
+                            'wrapper' => array(
+                                'width' => '33.3333',
+                                'class' => '',
+                                'id' => '',
+                            ),
+                            'default_value' => '',
+                            'placeholder' => '',
+                            'prepend' => '',
+                            'append' => '',
+                            'maxlength' => '',
+                        ),
+                        array(
+                            'key' => 'field_6231f7baedf50',
+                            'label' => 'Lovers tennis and soccer',
+                            'name' => 'type_3',
+                            'type' => 'text',
+                            'instructions' => '',
+                            'required' => 0,
+                            'conditional_logic' => array(
+                                array(
+                                    array(
+                                        'field' => 'field_6231f11b76e17',
+                                        'operator' => '==',
+                                        'value' => '1',
+                                    ),
+                                ),
+                            ),
+                            'wrapper' => array(
+                                'width' => '33.3333',
+                                'class' => '',
+                                'id' => '',
+                            ),
+                            'default_value' => '',
+                            'placeholder' => '',
+                            'prepend' => '',
+                            'append' => '',
+                            'maxlength' => '',
+                        ),
+                    ),
                 ),
             ),
             'location' => array(
@@ -133,7 +230,7 @@ class Author
             ),
             'menu_order' => 0,
             'position' => 'normal',
-            'style' => 'seamless',
+            'style' => 'default',
             'label_placement' => 'top',
             'instruction_placement' => 'label',
             'hide_on_screen' => '',
@@ -141,7 +238,6 @@ class Author
             'description' => '',
             'show_in_rest' => 0,
         ));
-        */
     }
 
     public function acf_add_choices($field) {
