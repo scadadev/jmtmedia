@@ -1,14 +1,18 @@
 .aff-is-author {
-  .heading {
-    .name {
-      a {
-        display: inline-flex;
-        align-items: flex-start;
-        white-space: nowrap;
-      }
+  &.is-expert {
+    .heading {
+      align-items: flex-start;
 
-      svg {
-        margin-left: 5px;
+      .name {
+        a {
+          display: inline-flex;
+          align-items: flex-start;
+          white-space: nowrap;
+        }
+
+        svg {
+          margin-left: 5px;
+        }
       }
     }
   }
@@ -44,8 +48,10 @@
 
 @media screen and (max-width: 1199px) {
   .aff-is-author {
-    .heading {
-      flex-wrap: wrap;
+    &.is-expert {
+      .heading {
+        flex-wrap: wrap;
+      }
     }
   }
 
