@@ -1170,7 +1170,7 @@ endif;
 ?>
 
     </style>
-    <meta name="theme-color" content="<?php echo $global_accent; ?>">
+    <meta name="theme-color" content="<?php echo $global_background; ?>">
 </head>
 
 <?php
