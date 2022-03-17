@@ -20,8 +20,8 @@
   &__wrap {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    margin-right: 2vw;
+    justify-content: flex-start;
+    margin-left: 2vw;
   }
 
   &__item {
@@ -57,6 +57,7 @@
       justify-content: flex-start;
       flex-wrap: wrap;
       margin-top: 5px;
+      margin-left: 0;
     }
 
     &__item {
