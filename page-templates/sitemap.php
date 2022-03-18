@@ -4,6 +4,8 @@
  */
 
 get_header();
+global $BORN_FRAMEWORK;
+$lang_code = born_get_current_language_code();
 
 while (have_posts()) {
     the_post();
@@ -49,22 +51,12 @@ while (have_posts()) {
 
                     foreach ($post_types as $post_type) {
 
-                        switch ($post_type) {
-                            case 'post':
-                                $block_title = __('Raksti', 'aff');
-                                break;
-                            case 'page':
-                                $block_title = __('Sadaļas', 'aff');
-                                break;
-                            case 'products':
-                                $block_title = __('Apskati', 'aff');
-                                break;
-                            case 'games':
-                                $block_title = __('Spēles', 'aff');
-                                break;
-                            default:
-                                $labels = get_post_type_object($post_type);
-                                $block_title = $labels->label;
+                        if( in_array($post_type, $post_types) ) {
+                            $block_title = $BORN_FRAMEWORK->Options->Get('sitemap_name_'. $post_type .'_'.$lang_code);
+                        }
+                        else {
+                            $labels = get_post_type_object($post_type);
+                            $block_title = $labels->label;
                         }
 
                         $args = [

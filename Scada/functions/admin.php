@@ -11,7 +11,7 @@ if (class_exists('\Redux')) {
         'id' => 'gtm',
         'desc' => '',
         'icon' => 'el el-signal',
-        'priority' => 101,
+        'priority' => 102,
         //'callback' => 'test_redux_callback',
         'fields' => array(
             array(
@@ -33,15 +33,43 @@ if (class_exists('\Redux')) {
             $translations_child[] = [
                 "id" => $prefix . "page_meta_country_" . $lng['code'],
                 "type" => "text",
-                "title" => __('Text before country (page top icons)', BORN_NAME) . ' (' . $lng['translated_name'] . ')',
+                "title" => __('Text before country (page top icons)', BORN_NAME) . ' (' . $lng['code'] . ')',
                 "default" => "Licenced in"
             ];
 
             $translations_child[] = [
                 "id" => $prefix . "page_meta_safe_" . $lng['code'],
                 "type" => "text",
-                "title" => __('"Safe & expert" text (page top icons)', BORN_NAME) . ' (' . $lng['translated_name'] . ')',
+                "title" => __('"Safe & expert" text (page top icons)', BORN_NAME) . ' (' . $lng['code'] . ')',
                 "default" => "Safe & expert reviewed"
+            ];
+
+            $translations_child[] = [
+                "id" => $prefix . "sitemap_name_post_" . $lng['code'],
+                "type" => "text",
+                "title" => 'Sitemap name for "Posts"' . ' (' . $lng['code'] . ')',
+                "default" => 'Raksti'
+            ];
+
+            $translations_child[] = [
+                "id" => $prefix . "sitemap_name_page_" . $lng['code'],
+                "type" => "text",
+                "title" => 'Sitemap name for "Pages"' . ' (' . $lng['code'] . ')',
+                "default" => 'Sadaļas'
+            ];
+
+            $translations_child[] = [
+                "id" => $prefix . "sitemap_name_products_" . $lng['code'],
+                "type" => "text",
+                "title" => 'Sitemap name for "Products"' . ' (' . $lng['code'] . ')',
+                "default" => 'Apskati'
+            ];
+
+            $translations_child[] = [
+                "id" => $prefix . "sitemap_name_games_" . $lng['code'],
+                "type" => "text",
+                "title" => 'Sitemap name for "Games"' . ' (' . $lng['code'] . ')',
+                "default" => 'Spēles'
             ];
         }
     }
