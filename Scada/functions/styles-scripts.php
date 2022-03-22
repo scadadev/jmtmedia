@@ -2,7 +2,7 @@
 
 function add_theme_css() {
     $theme_version = wp_get_theme()->get( 'Version' );
-    wp_enqueue_style( 'flags', get_stylesheet_directory_uri() . '/assets/css/style.css' );
+    wp_enqueue_style( 'flags', get_stylesheet_directory_uri() . '/assets/css/style.css', ['aff'] );
 
     wp_deregister_script('my_loadmore');
     wp_register_script( 'my_loadmore', get_stylesheet_directory_uri() . '/assets/js/loadmore.js', ['jquery'] );
