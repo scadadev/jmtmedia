@@ -31,12 +31,17 @@
 
   &__item {
     margin-right: 2vw;
-    white-space: nowrap;
     display: flex;
     align-items: center;
+    white-space: nowrap;
 
     svg {
+      flex: 0 0 22px;
       margin-right: 4px;
+    }
+
+    span {
+      flex: 0 0 calc(100% - 26px);
     }
   }
 }
@@ -70,6 +75,21 @@
     &__item {
       margin-right: 25px;
       margin-top: 7px;
+    }
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .author-expert {
+    &__item {
+      align-items: flex-start;
+      white-space: pre-wrap;
+      width: 100%;
+      margin-right: 0;
+
+      svg {
+        margin-top: 5px;
+      }
     }
   }
 }
