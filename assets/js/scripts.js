@@ -13,4 +13,12 @@
         $('html, body').animate({scrollTop:0}, '300');
     });
 
+    $( document ).ajaxComplete(function( event, xhr, settings ) {
+        // reload after add review
+        console.log(xhr);
+        if( settings.data && settings.data.indexOf('action=review_form') !== -1 ){
+            window.location.reload();
+        }
+    });
+
 })(jQuery);
