@@ -197,10 +197,10 @@
 
 .aff-bottom-close {
   position: absolute;
-  right: 20px;
+  right: 8px;
   top: 12px;
-  width: 30px;
-  height: 30px;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -226,6 +226,15 @@
     }
   }
 }*/
+
+@media screen and (min-width: 768px) {
+  .aff-bottom-close {
+    right: 20px;
+    top: 12px;
+    width: 30px;
+    height: 30px;
+  }
+}
 
 @media screen and (min-width: 576px) {
   .sitemap-links {
