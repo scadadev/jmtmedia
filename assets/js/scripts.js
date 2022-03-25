@@ -42,4 +42,7 @@
         topBtnPosition();
     });
 
+    // compare gallery
+    new SimpleLightbox('a.compare-gallery');
+
 })(jQuery);
