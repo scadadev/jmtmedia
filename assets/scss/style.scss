@@ -191,19 +191,20 @@
   }
 }
 
+.aff-bottom-cta .content {
+  padding: 35px 10px 10px;
+}
+
 .aff-bottom-close {
   position: absolute;
-  right: 6px;
-  top: -15px;
+  right: 20px;
+  top: 12px;
   width: 30px;
   height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
-  background-color: #e7a736;
   color: #ffffff;
-  box-shadow: 0 0 3px rgba(0,0,0,0.25);
   cursor: pointer;
 }
 
