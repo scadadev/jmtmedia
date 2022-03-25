@@ -192,13 +192,17 @@
 }
 
 .aff-bottom-cta .content {
-  padding: 35px 10px 10px;
+  //padding: 30px 10px 10px;
+}
+
+.aff-bottom-cta .name {
+  padding-right: 30px;
 }
 
 .aff-bottom-close {
   position: absolute;
   right: 8px;
-  top: 12px;
+  top: 10px;
   width: 44px;
   height: 44px;
   display: flex;
@@ -228,9 +232,16 @@
 }*/
 
 @media screen and (min-width: 768px) {
+  .aff-bottom-cta .content {
+    padding: 10px;
+  }
+
+  .aff-bottom-cta .cta {
+    padding-top: 20px;
+  }
+
   .aff-bottom-close {
     right: 20px;
-    top: 12px;
     width: 30px;
     height: 30px;
   }
