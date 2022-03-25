@@ -42,7 +42,33 @@
         topBtnPosition();
     });
 
+
     // compare gallery
-    new SimpleLightbox('a.compare-gallery');
+    let compare_gallery = new SimpleLightbox('a.compare-gallery');
+    let ctaBlock = $('#compare_cta_block');
+    if( ctaBlock.length ) {
+        function setBannerHtml(e) {
+            let botLink = JSON.parse(e.target.dataset.botLink);
+
+            if (botLink.title && botLink.title !== '') {
+                ctaBlock.removeClass('hide').addClass('is-visible');
+                ctaBlock.find('#compare_cta_icon a').attr('href', botLink.link.url).html('<img src="' + botLink.logo + '">');
+                ctaBlock.find('#compare_cta_name').html('<a href="' + botLink.link.url + '" target="_blank">' + botLink.title + '</a>');
+                ctaBlock.find('#compare_cta_cta').html('<a href="' + botLink.link.url + '" target="_blank" class="button">' + botLink.btn + '</a>');
+            }
+        }
+
+        compare_gallery.on('shown.simplelightbox', function (e) {
+            setBannerHtml(e);
+        });
+
+        compare_gallery.on('nextDone.simplelightbox', function (e) {
+            setBannerHtml(e);
+        });
+
+        compare_gallery.on('close.simplelightbox', function () {
+            ctaBlock.addClass('hide').removeClass('is-visible');
+        });
+    }
 
 })(jQuery);

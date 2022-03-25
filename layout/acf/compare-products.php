@@ -483,7 +483,15 @@ $lang_code = born_get_current_language_code();
                                 <?php
                                     $thumbnail_id = get_post_thumbnail_id($product->ID);
                                     if($thumbnail_id) {
-                                        echo '<a href="'. wp_get_attachment_url($thumbnail_id) .'" rel="gallery-1" class="compare-gallery">';
+
+                                        $scrolldown = [
+                                            'link' => get_field('scrolldown_cta_button_link', $product->ID),
+                                            'logo' => wp_get_attachment_url(get_field('logo', $product->ID)),
+                                            'title' => get_field('cta_title', $product->ID),
+                                            'btn' => get_field('scrolldown_cta_button_text', $product->ID),
+                                        ];
+
+                                        echo '<a href="'. wp_get_attachment_url($thumbnail_id) .'" rel="gallery-1" class="compare-gallery" data-bot-link="'. esc_attr(json_encode($scrolldown)) .'">';
                                     }
                                     echo born_acf_image($thumbnail_id,'compare-img',true);
                                     if($thumbnail_id) {
@@ -530,6 +538,19 @@ $lang_code = born_get_current_language_code();
 
             </tbody>
         </table>
+    </div>
+
+    <div class="aff-bottom-cta compare-cta hide" id="compare_cta_block">
+        <span class="close aff-bottom-close">
+            <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M193.94 256L296.5 153.44l21.15-21.15c3.12-3.12 3.12-8.19 0-11.31l-22.63-22.63c-3.12-3.12-8.19-3.12-11.31 0L160 222.06 36.29 98.34c-3.12-3.12-8.19-3.12-11.31 0L2.34 120.97c-3.12 3.12-3.12 8.19 0 11.31L126.06 256 2.34 379.71c-3.12 3.12-3.12 8.19 0 11.31l22.63 22.63c3.12 3.12 8.19 3.12 11.31 0L160 289.94 262.56 392.5l21.15 21.15c3.12 3.12 8.19 3.12 11.31 0l22.63-22.63c3.12-3.12 3.12-8.19 0-11.31L193.94 256z"></path></svg>
+        </span>
+        <div class="content">
+            <div class="icon" id="compare_cta_icon">
+                <a href="#" target="_blank" class="image"></a>
+            </div>
+            <div class="name" id="compare_cta_name"></div>
+            <div class="cta" id="compare_cta_cta"></div>
+        </div>
     </div>
 
 </div>
