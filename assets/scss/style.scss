@@ -1,6 +1,7 @@
 @import "fixes";
 @import "author-expert";
 @import "title-meta";
+@import "page-menu";
 
 .to-top {
   position: fixed;
@@ -223,6 +224,12 @@ body {
 
 .aff-bottom-cta.compare-cta.hide {
   display: none!important;
+}
+
+.has-lightbox {
+  .aff-menu-btn-mobile {
+    z-index: 1021;
+  }
 }
 
 @media screen and (min-width: 768px) {

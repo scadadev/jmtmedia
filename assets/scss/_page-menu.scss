@@ -1,0 +1,56 @@
+.aff-custom-menu.aff-page-menu {
+  padding-bottom: 0;
+}
+
+.aff-page-menu .menu {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: inherit;
+  height: 60px;
+}
+
+.aff-page-menu .menu::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  cursor: pointer;
+}
+
+.aff-page-menu .menu::-webkit-scrollbar-thumb {
+  background: #E8E8E8;
+  border-radius: 4px;
+}
+
+.aff-page-menu.aff-custom-menu .menu ul {
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+}
+
+.aff-page-menu.aff-custom-menu .menu ul li {
+  margin: 0 3px !important;
+}
+
+.aff-page-menu.aff-custom-menu .menu ul a {
+  white-space: nowrap;
+  transition: all 0.4s linear;
+  font-size: 18px;
+  padding: 0.5556em 0.6667em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.aff-page-menu.aff-custom-menu .menu ul a.active {
+  background: #F8EAD5;
+}
+
+@media (hover: hover) {
+  .aff-page-menu.aff-custom-menu .menu ul a:not(.active):hover {
+    background: #FAF2E5;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .aff-page-menu .menu {
+    height: 70px;
+  }
+}

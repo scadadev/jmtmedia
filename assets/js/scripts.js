@@ -66,6 +66,10 @@
             setBannerHtml(e);
         });
 
+        compare_gallery.on('prevDone.simplelightbox', function (e) {
+            setBannerHtml(e);
+        });
+
         compare_gallery.on('close.simplelightbox', function () {
             ctaBlock.addClass('hide').removeClass('is-visible');
         });

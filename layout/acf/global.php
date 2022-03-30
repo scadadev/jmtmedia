@@ -86,6 +86,8 @@ if( have_rows('page_content') ):
         // End loop.
     endwhile;
 
+    do_action( 'after_page_content_global', get_the_ID() );
+
 // No value.
 else :
     // Do something...

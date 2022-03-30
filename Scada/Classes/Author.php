@@ -9,11 +9,9 @@ class Author
 
         $this->acf();
 
-        add_filter('acf/load_field/name=show_before_block', [$this, 'acf_add_choices']);
+        //add_filter('acf/load_field/name=show_before_block', [$this, 'acf_add_choices']);
 
-        //add_action('before_global_block_faq', [$this, 'block_html']);
-
-        add_action('before_page_content_block', [$this, 'block_html'], 10, 2);
+        add_action('after_page_content_global', [$this, 'block_html'], 10);
     }
 
 
@@ -44,7 +42,7 @@ class Author
                     'ui_off_text' => '',
                 ),
 
-                array(
+                /*array(
                     'key' => 'field_6224f88cd6001',
                     'label' => 'Show before content block',
                     'name' => 'show_before_block',
@@ -67,7 +65,7 @@ class Author
                     'return_format' => 'value',
                     'ajax' => 0,
                     'placeholder' => '',
-                ),
+                ),*/
             ),
 
             'location' => array(
@@ -240,26 +238,26 @@ class Author
         ));
     }
 
-    public function acf_add_choices($field) {
+//    public function acf_add_choices($field) {
+//
+//        $screen = get_current_screen();
+//
+//        if ( is_admin() && ($screen->id == 'page') ) {
+//            $post_id = $_REQUEST['post'];
+//
+//            $post_content = get_field('page_content', $post_id);
+//
+//            if( !empty($post_content) ) {
+//                foreach($post_content as $item) {
+//                    $field['choices'][ $item['acf_fc_layout'] ] = $item['acf_fc_layout'];
+//                }
+//            }
+//        }
+//
+//        return $field;
+//    }
 
-        $screen = get_current_screen();
-
-        if ( is_admin() && ($screen->id == 'page') ) {
-            $post_id = $_REQUEST['post'];
-
-            $post_content = get_field('page_content', $post_id);
-
-            if( !empty($post_content) ) {
-                foreach($post_content as $item) {
-                    $field['choices'][ $item['acf_fc_layout'] ] = $item['acf_fc_layout'];
-                }
-            }
-        }
-
-        return $field;
-    }
-
-    public function block_html( $acf_fc_layout, $post_id ) {
+    public function block_html( $post_id ) {
         $post = get_post($post_id);
 
         if( !$post ) return;
@@ -268,12 +266,7 @@ class Author
 
         if( $enable_block != '1' ) return;
 
-        $field_id = get_post_meta($post->ID, 'show_before_block', true);
-        if( empty($field_id) ) $field_id = 'faq';
-
-        if( $field_id == $acf_fc_layout ) {
-            get_template_part('/Scada/templates/author');
-        }
+        get_template_part('/Scada/templates/author');
     }
 
 }
