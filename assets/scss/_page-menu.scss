@@ -1,11 +1,24 @@
 .aff-custom-menu.aff-page-menu {
-  padding-bottom: 0;
+  padding: 10px 0;
+  margin-top: 25px;
+  margin-bottom: -25px;
+}
+
+.aff-page-menu .inner{
+  background-color: #fff;
+  margin: 0 -30px;
+  padding: 25px 30px;
+}
+
+.aff-page-menu h2 {
+  margin-top: 0;
 }
 
 .aff-page-menu .menu {
   width: 100%;
-  overflow-x: auto;
-  overflow-y: inherit;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
   height: 60px;
 }
 
@@ -13,10 +26,12 @@
   width: 6px;
   height: 6px;
   cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
 }
 
 .aff-page-menu .menu::-webkit-scrollbar-thumb {
-  background: #E8E8E8;
+  background: #cecece;
   border-radius: 4px;
 }
 
@@ -50,7 +65,8 @@
 }
 
 @media screen and (min-width: 768px) {
-  .aff-page-menu .menu {
-    height: 70px;
+  .aff-custom-menu.aff-page-menu {
+    margin-top: 60px;
+    margin-bottom: 0;
   }
 }

@@ -160,6 +160,8 @@ if( have_rows('page_content',$fake_page_id) ):
         // End loop.
     endwhile;
 
+    do_action( 'after_page_content_global', $fake_page_id );
+
 // No value.
 else :
 

@@ -19,6 +19,7 @@ add_action('init', function(){
 add_action('after_setup_theme', function(){
     require_once __DIR__ . '/Scada/functions/admin.php';
     require_once __DIR__ . '/Scada/functions/gtm.php';
+    require_once __DIR__ . '/Scada/functions/user.php';
 });
 
 

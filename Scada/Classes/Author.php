@@ -9,8 +9,6 @@ class Author
 
         $this->acf();
 
-        //add_filter('acf/load_field/name=show_before_block', [$this, 'acf_add_choices']);
-
         add_action('after_page_content_global', [$this, 'block_html'], 10);
     }
 
@@ -81,6 +79,13 @@ class Author
                         'param' => 'page_template',
                         'operator' => '==',
                         'value' => 'archive-games.php',
+                    ),
+                ),
+                array(
+                    array(
+                        'param' => 'page_template',
+                        'operator' => '==',
+                        'value' => 'archive-products.php',
                     ),
                 ),
             ),
@@ -238,25 +243,6 @@ class Author
         ));
     }
 
-//    public function acf_add_choices($field) {
-//
-//        $screen = get_current_screen();
-//
-//        if ( is_admin() && ($screen->id == 'page') ) {
-//            $post_id = $_REQUEST['post'];
-//
-//            $post_content = get_field('page_content', $post_id);
-//
-//            if( !empty($post_content) ) {
-//                foreach($post_content as $item) {
-//                    $field['choices'][ $item['acf_fc_layout'] ] = $item['acf_fc_layout'];
-//                }
-//            }
-//        }
-//
-//        return $field;
-//    }
-
     public function block_html( $post_id ) {
         $post = get_post($post_id);
 
@@ -264,7 +250,7 @@ class Author
 
         $enable_block = get_post_meta($post->ID, 'enable_author_page_block', true);
 
-        if( $enable_block != '1' ) return;
+        if( is_null($enable_block) || $enable_block != '1' ) return;
 
         get_template_part('/Scada/templates/author');
     }

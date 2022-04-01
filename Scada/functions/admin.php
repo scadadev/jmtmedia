@@ -71,6 +71,13 @@ if (class_exists('\Redux')) {
                 "title" => 'Sitemap name for "Games"' . ' (' . $lng['code'] . ')',
                 "default" => 'Spēles'
             ];
+
+            $translations_child[] = [
+                "id" => $prefix . "table_of_contents_" . $lng['code'],
+                "type" => "text",
+                "title" => 'Table of contents title"' . ' (' . $lng['code'] . ')',
+                "default" => 'Table of contents'
+            ];
         }
     }
 

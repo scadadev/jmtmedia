@@ -157,7 +157,7 @@ if (!$gtm_id) $gtm_id = '';
         /* updates 20.09.2021 */
 
         .aff-authors .item .cta a,
-        .aff-is-author .more a,
+        .aff-is-author .more a:not(.is-button),
         .aff-is-author .heading .cta .articles,
         .aff-header .account a,
         .aff-text .wys p a {
