@@ -5,3 +5,29 @@
 .aff-sidebar .offer .card-wrapper .card .cta a {
   width: 100%;
 }
+
+/* fix logo */
+@media (max-width: 767px) {
+  .aff-header .content {
+    padding: 8px 16px;
+  }
+
+  .aff-header .logo {
+    position: relative;
+    left: auto;
+    top: auto;
+    flex: 0 0 60%;
+    display: flex;
+    align-items: center;
+  }
+
+  .aff-header.is-mobile .logo img {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 414px) {
+  .aff-profile-wrapper .aff-header .controls {
+    right: 10px;
+  }
+}
