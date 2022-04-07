@@ -22,8 +22,19 @@
     padding: 8px 16px;
   }
 
+  .aff-header.is-mobile .logo {
+    height: auto;
+    max-height: none;
+  }
+
+  .aff-header.is-mobile .logo > a {
+    max-height: inherit;
+  }
+
   .aff-header.is-mobile .logo img {
     max-width: 100%;
+    max-height: none;
+    height: auto;
   }
 }
 
