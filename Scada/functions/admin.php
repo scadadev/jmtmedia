@@ -91,15 +91,14 @@ if (class_exists('\Redux')) {
         'fields' => $translations_child
     ));
 
-//    Redux::setField(
-//        'born_options',
-//        array(
-//            "section_id" => "gtm",
-//            "id" => $prefix . "page_meta_country_222",
-//            "type" => "text",
-//            "title" => __('TEST', BORN_NAME),
-//            "default" => "Licenced in"
-//        )
-//    );
-
 }
+
+
+add_filter('redux/args/born_options', function($args){
+    $theme    = wp_get_theme();
+
+    $args['display_name'] = $theme->get('Name');
+    $args['display_version'] = $theme->get('Version');
+
+    return $args;
+});
