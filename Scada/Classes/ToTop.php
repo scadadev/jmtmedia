@@ -21,5 +21,3 @@ class ToTop
         return $styles;
     }
 }
-
-new \Scada\ToTop();

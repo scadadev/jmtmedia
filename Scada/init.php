@@ -1,8 +1,10 @@
 <?php
 
+add_action('init', function(){
+    define('LANG_CODE', function_exists('born_get_current_language_code') ? born_get_current_language_code() : 'lv');
+});
 
 if( class_exists('acf') ) {
-
     add_action('init', 'scada_init');
 }
 
@@ -18,4 +20,8 @@ else {
 function scada_init() {
     require_once __DIR__ . '/Classes/Author.php';
     require_once __DIR__ . '/Classes/ToTop.php';
+    require_once __DIR__ . '/Classes/SiteMap.php';
+
+    new \Scada\ToTop();
+    new \Scada\SiteMap();
 }

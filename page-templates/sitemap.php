@@ -41,45 +41,19 @@ while (have_posts()) {
             <div class="main sitemap-links">
                 <div class="sitemap-links__wrap">
                     <?php
-
-                    $post_types = [
-                        'post',
-                        'page',
-                        'products',
-                        'games',
-                    ];
-
+                    $post_types = \Scada\SiteMap::getUseTypes();
                     foreach ($post_types as $post_type) {
+                        $posts = \Scada\SiteMap::getPosts($post_type);
 
-                        if( in_array($post_type, $post_types) ) {
-                            $block_title = $BORN_FRAMEWORK->Options->Get('sitemap_name_'. $post_type .'_'.$lang_code);
-                        }
-                        else {
-                            $labels = get_post_type_object($post_type);
-                            $block_title = $labels->label;
-                        }
-
-                        $args = [
-                            'post_status' => 'publish',
-                            'post_type' => $post_type,
-                            'posts_per_page' => -1
-                        ];
-
-                        if ($post_type == 'page') {
-                            $args['post__not_in'][] = get_the_ID();
-                        }
-
-                        $posts_query = new WP_Query($args);
-
-                        if (!empty($posts_query->posts)) {
+                        if (!empty($posts)) {
                             echo '<div class="sitemap-links__item">';
                                 echo '<div class="sitemap-links__title">';
-                                    echo '<span class="sitemap-links__count" data-count="'. count($posts_query->posts) .'"></span>';
-                                    echo '<h2>' . $block_title . '</h2>';
+                                    echo '<span class="sitemap-links__count" data-count="'. count($posts) .'"></span>';
+                                    echo '<h2>' . \Scada\SiteMap::blockTitle($post_type) . '</h2>';
                                 echo '</div>';
 
                                 echo '<div class="sitemap-links__list">';
-                                foreach ($posts_query->posts as $p) {
+                                foreach ($posts as $p) {
                                     echo '<div class="sitemap-links__list-item"><a href="' . get_the_permalink($p->ID) . '">' . $p->post_title . '</a></div>';
                                 }
                                 echo '</div>';
@@ -87,7 +61,6 @@ while (have_posts()) {
                         }
 
                     }
-
                     ?>
                 </div>
             </div>

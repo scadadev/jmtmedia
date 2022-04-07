@@ -7,18 +7,19 @@
 }
 
 /* fix logo */
+.aff-header .logo {
+  max-width: 270px;
+}
+
+@media (max-width: 1024px) {
+  .aff-header .logo {
+    max-width: 250px;
+  }
+}
+
 @media (max-width: 767px) {
   .aff-header .content {
     padding: 8px 16px;
-  }
-
-  .aff-header .logo {
-    position: relative;
-    left: auto;
-    top: auto;
-    flex: 0 0 60%;
-    display: flex;
-    align-items: center;
   }
 
   .aff-header.is-mobile .logo img {
@@ -29,5 +30,8 @@
 @media (max-width: 414px) {
   .aff-profile-wrapper .aff-header .controls {
     right: 10px;
+  }
+  .aff-header .logo {
+    max-width: 50%;
   }
 }
