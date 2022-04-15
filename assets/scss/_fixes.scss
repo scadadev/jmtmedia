@@ -11,6 +11,19 @@
   max-width: 270px;
 }
 
+.custom-sroll-bar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.custom-sroll-bar::-webkit-scrollbar-thumb {
+  background: #e8e8e8;
+  border-radius: 4px;
+}
+
 @media (max-width: 1024px) {
   .aff-header .logo {
     max-width: 250px;

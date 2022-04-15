@@ -10,7 +10,7 @@ $block_title = $BORN_FRAMEWORK->Options->Get('table_of_contents_'.$lang_code);
         <div class="inner">
             <h2><?php echo $block_title; ?></h2>
             <div class="content">
-                <div class="menu">
+                <div class="menu custom-sroll-bar">
                     <ul class="born-reset">
                     </ul>
                 </div>

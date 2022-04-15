@@ -35,7 +35,10 @@ $lang_code = born_get_current_language_code();
                             <div class="row">
                                 <div class="logo">
                                     <a href="<?php echo get_permalink($product->ID); ?>" class="image">
-                                        <?php echo born_acf_image(get_field('logo', $product->ID), 'icons-small-128', true); ?>
+                                        <?php
+                                        echo wp_get_attachment_image(get_field('logo',$product->ID), 'icons-small-128');
+                                        //echo born_acf_image(get_field('logo', $product->ID), 'icons-small-128', true);
+                                        ?>
                                     </a>
                                 </div>
                             </div>

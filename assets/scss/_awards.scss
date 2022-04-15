@@ -1,0 +1,85 @@
+.aff-awards {
+  padding-top: 40px;
+  &__title {
+    h2 {
+      text-align: center;
+    }
+  }
+
+  &__wrap {
+    margin-bottom: 20px;
+  }
+
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  &__item {
+    width: 25%;
+  }
+
+  &__item-wrap {
+    max-width: 300px;
+    min-width: 230px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    line-height: 1;
+    font-weight: 600;
+    height: 100%;
+    padding: 20px;
+
+    & * {
+      text-align: center;
+    }
+  }
+
+  &__top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: clamp(140px, 9.27vw, 178px);
+    margin-bottom: 12px;
+    background: url("../img/award-bg.png") 50% 0 / contain no-repeat;
+  }
+
+  &__name {
+    font-size: clamp(26px, 1.667vw, 32px);
+    margin-bottom: 8px;
+  }
+
+  &__small {
+    font-weight: 400;
+  }
+}
+
+@media (max-width: 991px) {
+  .aff-awards {
+    &__item {
+      width: 33.3333%;
+    }
+  }
+}
+
+@media (max-width: 680px) {
+  .aff-awards {
+    &__wrap {
+      width: 100%;
+      overflow-x: scroll;
+    }
+
+    &__row {
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+    }
+
+    &__item {
+      width: 250px;
+    }
+  }
+}

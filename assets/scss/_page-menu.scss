@@ -22,19 +22,6 @@
   height: 60px;
 }
 
-.aff-page-menu .menu::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-  cursor: pointer;
-  appearance: none;
-  -webkit-appearance: none;
-}
-
-.aff-page-menu .menu::-webkit-scrollbar-thumb {
-  background: #cecece;
-  border-radius: 4px;
-}
-
 .aff-page-menu.aff-custom-menu .menu ul {
   flex-wrap: nowrap;
   justify-content: flex-start;

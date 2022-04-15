@@ -93,7 +93,7 @@ if (class_exists('\Redux')) {
 
 }
 
-
+/** Show current template name and version */
 add_filter('redux/args/born_options', function($args){
     $theme    = wp_get_theme();
 
@@ -102,3 +102,86 @@ add_filter('redux/args/born_options', function($args){
 
     return $args;
 });
+
+
+
+/** AWARDS */
+$translations_child = [];
+
+$adward_filelds = [
+    [
+        'id'          => 'award_title',
+        'type'        => 'text',
+        'title'       => 'Title'
+    ],
+    [
+        'id'          => 'award_text_1',
+        'type'        => 'text',
+        'title'       => 'Small text'
+    ],
+    [
+        'id'          => 'award_text_2',
+        'type'        => 'text',
+        'title'       => 'Bottom text'
+    ]
+];
+
+if (!empty($languages)) {
+    foreach ($languages as $lng) {
+        $translations_child[] = [
+            "id" => $prefix . "award_block_title_" . $lng['code'],
+            "type" => "text",
+            "title" => 'Block title' . ' (' . $lng['code'] . ')',
+            "default" => "Awards"
+        ];
+
+        $translations_child[] = [
+            'id'         => $prefix . 'awards_repeater' . $lng['code'],
+            'type'       => 'repeater',
+            'title'      => 'Awards' . ' (' . $lng['code'] . ')',
+            'group_values' => true,
+            'item_name' => 'award'  . ' (' . $lng['code'] . ')',
+            'fields'     => $adward_filelds
+        ];
+    }
+}
+
+
+Redux::setSection('born_options', array(
+    'title' => 'Awards block    ',
+    'id' => 'awards',
+    'desc' => '',
+    'icon' => 'el el-certificate',
+    'priority' => 103,
+    'fields' => $translations_child
+));
+
+
+/** LOGOS SECTION */
+$translations_child = [];
+
+if (!empty($languages)) {
+    foreach ($languages as $lng) {
+        $translations_child[] = [
+            "id" => $prefix . "logos_block_title_" . $lng['code'],
+            "type" => "text",
+            "title" => 'Block title' . ' (' . $lng['code'] . ')',
+            "default" => "As featured in"
+        ];
+    }
+}
+
+$translations_child[] = [
+    'id'       => $prefix . "logos_list",
+    'type'     => 'gallery',
+    'title'    => 'Add/Edit logos list'
+];
+
+Redux::setSection('born_options', array(
+    'title' => 'Logos block    ',
+    'id' => 'logos',
+    'desc' => '',
+    'icon' => 'el el-picture',
+    'priority' => 104,
+    'fields' => $translations_child
+));

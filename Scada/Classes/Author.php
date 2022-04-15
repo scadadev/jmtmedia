@@ -38,32 +38,7 @@ class Author
                     'ui' => 1,
                     'ui_on_text' => '',
                     'ui_off_text' => '',
-                ),
-
-                /*array(
-                    'key' => 'field_6224f88cd6001',
-                    'label' => 'Show before content block',
-                    'name' => 'show_before_block',
-                    'type' => 'select',
-                    'instructions' => '',
-                    'required' => 0,
-                    'conditional_logic' => 0,
-                    'wrapper' => array(
-                        'width' => '',
-                        'class' => '',
-                        'id' => '',
-                    ),
-                    'choices' => array(
-                        'faq' => 'FAQ',
-                    ),
-                    'default_value' => 'faq',
-                    'allow_null' => 0,
-                    'multiple' => 0,
-                    'ui' => 0,
-                    'return_format' => 'value',
-                    'ajax' => 0,
-                    'placeholder' => '',
-                ),*/
+                )
             ),
 
             'location' => array(

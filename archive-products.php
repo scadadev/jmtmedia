@@ -235,4 +235,6 @@ $queried_posts = new WP_Query($args);
     <?php get_template_part('layout/partials/feedback','',array('id' => $fake_page_id));?>
 <?php endif;?>
 
+<?php do_action( 'aff_before_footer', $fake_page_id ); ?>
+
 <?php get_footer(); ?>

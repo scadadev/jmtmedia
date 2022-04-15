@@ -56,7 +56,10 @@ $is_default_page = basename(get_page_template()) === 'page.php';
             <div class="content">
                 <div class="logo">
                     <a href="<?php echo get_permalink($product->ID);?>" class="image">
-                        <?php echo born_acf_image(get_field('logo',$product->ID),'icons-large',true);?>
+                        <?php
+                        echo wp_get_attachment_image(get_field('logo',$product->ID), 'icons-large');
+                        //echo born_acf_image(get_field('logo',$product->ID),'icons-large',true);
+                        ?>
                     </a>
                 </div>
                 <div class="data">
