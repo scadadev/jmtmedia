@@ -1225,7 +1225,7 @@ if ($total_stars && $total_reviews) {
                    <?php if (!empty($scrolldown_bot_link['target'])): ?>target="<?php echo $scrolldown_bot_link['target']; ?>" <?php endif; ?>
                    class="image">
                     <?php
-                    echo wp_get_attachment_image(get_field('logo', $prod->ID), 'icons-large');
+                    echo wp_get_attachment_image(get_field('logo'), 'icons-large');
                     //echo born_acf_image(get_field('logo'), 'icons-large', true);
                     ?>
                 </a>
