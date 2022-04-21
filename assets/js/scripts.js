@@ -77,12 +77,13 @@
 
     $('.load-more-btn').click(function(e){
         e.preventDefault();
+
         var button = $(this),
             settings = $(this).data('settings'),
             data = {
                 'action': 'aff_loadmore',
                 'settings': settings,
-                'page': button.data('page')
+                'page': button.attr('data-page')
             };
 
         $.ajax({
