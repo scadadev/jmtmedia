@@ -1168,33 +1168,25 @@ if ($total_stars && $total_reviews) {
 
                 <div class="grid">
 
-                    <?php while ($news->have_posts()): $news->the_post(); ?>
-
-                        <div class="news-card">
-
-                            <div class="image">
-                                <a href="<?php echo get_the_permalink(); ?>"><?php if (get_post_thumbnail_id()): ?><?php echo born_acf_image(get_post_thumbnail_id(), 'news-img', true); ?><?php endif; ?></a>
-                            </div>
-                            <div class="date">
-                                <?php echo aff_time_ago(); ?>
-                            </div>
-                            <div class="heading">
-                                <h3><a href="<?php echo get_the_permalink(); ?>"><?php echo get_the_title(); ?></a></h3>
-                            </div>
-                            <div class="cta">
-                                <a href="<?php echo get_the_permalink(); ?>"><?php echo $BORN_FRAMEWORK->Options->Get('read_more' . $lang_code); ?></a>
-                            </div>
-                        </div>
-
-                    <?php endwhile; ?>
+                    <?php
+                    while ( $news->have_posts() ) {
+                        $news->the_post();
+                        get_template_part('layout/loop/content', 'post');
+                    }
+                    wp_reset_postdata();
+                    ?>
 
 
                 </div>
 
                 <?php if ($news->max_num_pages > 1): ?>
                     <div class="cta">
-                        <a href="#" class="load-more posts_loadmore button" data-prod="yes"
-                           data-max="<?php echo $news->max_num_pages; ?>"><?php echo $BORN_FRAMEWORK->Options->Get('load_more' . $lang_code); ?></a>
+                        <a href="#" class="load-more-btn button" data-page="1" data-settings="<?php echo esc_attr(json_encode([
+                            'related' => get_the_ID(),
+                            'posts_per_page' => 3,
+                            'section' => 'aff-news-grid',
+                            'grid' => 'grid'
+                        ])); ?>"><?php echo $BORN_FRAMEWORK->Options->Get('load_more' . $lang_code);?></a>
                     </div>
                 <?php endif; ?>
 

@@ -53,30 +53,23 @@ $queried_posts = new WP_Query($args);
     <div class="born-container is-wide">
 
         <div class="games-grid">
-
-            <?php while ( $queried_posts->have_posts() ): $queried_posts->the_post();  ?>
-
-                <div class="game-card">
-                    <div class="image">
-                        <a href="<?php echo get_permalink();?>"><?php if (get_post_thumbnail_id()):?><?php echo born_acf_image(get_post_thumbnail_id(),'game-thumb',true);?><?php endif;?></a>
-                    </div>
-                    <div class="heading">
-                        <h3><a href="<?php echo get_permalink();?>"><?php echo get_the_title();?></a></h3>
-                    </div>
-                    <div class="cta">
-                        <a href="<?php echo get_permalink();?>" class="button"><?php echo $BORN_FRAMEWORK->Options->Get('read_more_games' . $lang_code);?></a>
-                    </div>
-                </div>
-
-            <?php endwhile;?>
-            <?php wp_reset_postdata();?>
-
-
+            <?php
+            while ( $queried_posts->have_posts() ) {
+                $queried_posts->the_post();
+                get_template_part('layout/loop/content', 'games');
+            }
+            wp_reset_postdata();
+            ?>
         </div>
 
         <?php if ($queried_posts->max_num_pages > 1):?>
         <div class="load-more cta">
-            <a href="#" class="load-more-games button" data-max="<?php echo $queried_posts->max_num_pages;?>"><?php echo $BORN_FRAMEWORK->Options->Get('load_more' . $lang_code);?></a>
+            <a href="#" class="load-more-btn button" data-page="1" data-settings="<?php echo esc_attr(json_encode([
+                'post_type' => 'games',
+                'posts_per_page' => 12,
+                'section' => 'aff-games-grid',
+                'grid' => 'games-grid'
+            ])); ?>"><?php echo $BORN_FRAMEWORK->Options->Get('load_more' . $lang_code);?></a>
         </div>
         <?php endif;?>
 

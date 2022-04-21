@@ -101,93 +101,24 @@ $queried_posts = new WP_Query($args);
         <div class="born-container is-wide">
             <div class="items-grid">
 
-                <?php while ( $queried_posts->have_posts() ): $queried_posts->the_post();  ?>
-
-
-                    <?php
-                    $text_gray = get_field('text_gray');
-                    $text_orange= get_field('text_orange');
-                    ?>
-                    <div class="item">
-
-                        <?php get_template_part('layout/partials/label','',array('id' => get_the_ID()));?>
-                        <?php get_template_part('layout/partials/favorites','',array('id' => get_the_ID()));?>
-                        <div class="data">
-                            <div class="row">
-                                <div class="logo">
-                                    <a href="<?php echo get_permalink();?>" class="image">
-                                        <?php echo born_acf_image(get_field('logo'),'icons-large',true);?>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <a href="<?php echo get_permalink();?>" class="name"><?php echo get_the_title();?></a>
-                            </div>
-                            <div class="row">
-                                <?php get_template_part('layout/partials/rating','',array('id' => get_the_ID()));?>
-                            </div>
-                        </div>
-
-                        <div class="details">
-                            <?php if ($text_gray || $text_orange):?>
-                                <div class="desc">
-                                    <div class="text">
-                                        <?php if ($text_orange):?><span style="color: #e7a736;"><?php echo $text_orange;?></span><br><?php endif;?> <?php if ($text_gray):?><?php echo $text_gray;?><?php endif;?>
-                                    </div>
-                                </div>
-                            <?php endif;?>
-
-
-                            <?php
-                            $parameter_settings = get_field('parameters_settings');
-                            ?>
-
-                            <?php if (!empty($parameter_settings['parameters'])):?>
-                                <div class="table">
-
-                                    <?php
-                                    foreach ($parameter_settings as $parameters){
-
-                                        foreach ($parameters as $parameter):?>
-
-                                            <div class="row">
-                                                <div class="cell">
-                                                    <?php echo get_term( $parameter['parameter_select'] )->name;?>
-                                                </div>
-                                                <div class="cell">
-                                                    <?php echo $parameter['Parameter_value'];?>
-                                                </div>
-                                            </div>
-                                        <?php endforeach;?>
-                                        <?php
-                                    }
-                                    ?>
-
-                                </div>
-                            <?php endif;?>
-
-
-                            <div class="cta">
-                                <a href="<?php echo get_permalink();?>" class="button"><?php echo $BORN_FRAMEWORK->Options->Get('go_to_profile'.$lang_code);?></a>
-                            </div>
-                        </div>
-
-                        <?php if (get_field('main_link')):?>
-                            <div class="cta">
-                                <a href="<?php echo get_field('main_link');?>" class="button"><?php echo $BORN_FRAMEWORK->Options->Get('play'.$lang_code);?></a>
-                            </div>
-                        <?php endif;?>
-                    </div>
-
-                <?php endwhile;?>
-                <?php wp_reset_postdata();?>
-
-
+                <?php
+                while ( $queried_posts->have_posts() ) {
+                    $queried_posts->the_post();
+                    get_template_part('layout/loop/content', 'products');
+                }
+                wp_reset_postdata();
+                ?>
 
             </div>
             <?php if ($queried_posts->max_num_pages > 1):?>
                 <div class="load-more cta">
-                    <a href="#" class="load-more-products-author button" data-max="<?php echo $queried_posts->max_num_pages;?>"><?php echo $BORN_FRAMEWORK->Options->Get('load_more' . $lang_code);?></a>
+                    <a href="#" class="load-more-btn button" data-page="1" data-settings="<?php echo esc_attr(json_encode([
+                        'post_type' => 'products',
+                        'author' => $user_id,
+                        'posts_per_page' => 12,
+                        'section' => 'aff-main-items-grid',
+                        'grid' => 'items-grid'
+                    ])); ?>"><?php echo $BORN_FRAMEWORK->Options->Get('load_more' . $lang_code);?></a>
                 </div>
             <?php endif;?>
 
@@ -225,33 +156,27 @@ $queried_posts = new WP_Query($args);
 
 
 
-        <div class="born-container is-wide">
+        <div class="born-container container-author-games is-wide">
 
             <div class="games-grid">
-
-                <?php while ( $queried_posts->have_posts() ): $queried_posts->the_post();  ?>
-
-                    <div class="game-card">
-                        <div class="image">
-                            <a href="<?php echo get_permalink();?>"><?php if (get_post_thumbnail_id()):?><?php echo born_acf_image(get_post_thumbnail_id(),'game-thumb',true);?><?php endif;?></a>
-                        </div>
-                        <div class="heading">
-                            <h3><a href="<?php echo get_permalink();?>"><?php echo get_the_title();?></a></h3>
-                        </div>
-                        <div class="cta">
-                            <a href="<?php echo get_permalink();?>" class="button"><?php echo $BORN_FRAMEWORK->Options->Get('read_more_games' . $lang_code);?></a>
-                        </div>
-                    </div>
-
-                <?php endwhile;?>
-                <?php wp_reset_postdata();?>
-
-
+                <?php
+                while ( $queried_posts->have_posts() ) {
+                    $queried_posts->the_post();
+                    get_template_part('layout/loop/content', 'games');
+                }
+                wp_reset_postdata();
+                ?>
             </div>
 
             <?php if ($queried_posts->max_num_pages > 1):?>
                 <div class="load-more cta">
-                    <a href="#" class="load-more-games button" data-max="<?php echo $queried_posts->max_num_pages;?>"><?php echo $BORN_FRAMEWORK->Options->Get('load_more' . $lang_code);?></a>
+                    <a href="#" class="load-more-btn button" data-page="1" data-settings="<?php echo esc_attr(json_encode([
+                        'post_type' => 'games',
+                        'author' => $user_id,
+                        'posts_per_page' => 12,
+                        'section' => 'container-author-games',
+                        'grid' => 'games-grid'
+                    ])); ?>"><?php echo $BORN_FRAMEWORK->Options->Get('load_more' . $lang_code);?></a>
                 </div>
             <?php endif;?>
 
@@ -287,50 +212,29 @@ $queried_posts = new WP_Query($args);
     </div>
 
     <div class="born-container is-wide">
-        <?php if( have_posts() ): ?>
             <div class="content">
                 <div class="grid">
 
-
-
-
                     <?php
-                    while(have_posts()):
-                        the_post();?>
-
-
-                        <div class="news-card">
-                            <?php if (has_post_thumbnail()):?>
-                                <div class="image">
-                                    <a href="<?php the_permalink();?>"><?php echo born_acf_image(get_post_thumbnail_id(), 'news-img', true); ?></a>
-                                </div>
-                            <?php endif;?>
-                            <div class="date">
-                                <?php echo aff_time_ago();?>
-                            </div>
-                            <div class="heading">
-                                <h3><a href="<?php the_permalink();?>"><?php the_title();?></a></h3>
-                            </div>
-                            <div class="cta">
-                                <a href="<?php the_permalink();?>"><?php echo $BORN_FRAMEWORK->Options->Get('read_more' . $lang_code); ?></a>
-                            </div>
-                        </div>
-
-                    <?php
-                    endwhile;
+                    while ( $queried_posts->have_posts() ) {
+                        $queried_posts->the_post();
+                        get_template_part('layout/loop/content', 'post');
+                    }
+                    wp_reset_postdata();
                     ?>
-
+                </div>
                     <?php if ($queried_posts->max_num_pages > 1):?>
                         <div class="load-more cta">
-                            <a href="#" class="load-more-news button" data-max="<?php echo $queried_posts->max_num_pages;?>"><?php echo $BORN_FRAMEWORK->Options->Get('load_more' . $lang_code);?></a>
+                            <a href="#" class="load-more-btn button" data-page="1" data-settings="<?php echo esc_attr(json_encode([
+                                'author' => $user_id,
+                                'posts_per_page' => 12,
+                                'section' => 'aff-news-grid',
+                                'grid' => 'grid'
+                            ])); ?>"><?php echo $BORN_FRAMEWORK->Options->Get('load_more' . $lang_code);?></a>
                         </div>
                     <?php endif;?>
 
-
-                </div>
             </div>
-        <?php endif; ?>
-
     </div>
 </div>
 
@@ -363,43 +267,29 @@ $queried_pages = new WP_Query($args_pages);
             </div>
         </div>
 
-        <div class="born-container is-wide">
+        <div class="born-container container-author-pages is-wide">
 
                 <div class="content">
                     <div class="grid">
-
-
-
-
-                        <?php while ( $queried_pages->have_posts() ): $queried_pages->the_post();  ?>
-
-                            <div class="news-card">
-                                <?php if (has_post_thumbnail()):?>
-                                    <div class="image">
-                                        <a href="<?php the_permalink();?>"><?php echo born_acf_image(get_post_thumbnail_id(), 'news-img', true); ?></a>
-                                    </div>
-                                <?php endif;?>
-                                <div class="heading">
-                                    <h3><a href="<?php the_permalink();?>"><?php the_title();?></a></h3>
-                                </div>
-                                <div class="cta">
-                                    <a href="<?php the_permalink();?>"><?php echo $BORN_FRAMEWORK->Options->Get('read_more' . $lang_code); ?></a>
-                                </div>
-                            </div>
-
                         <?php
-                        endwhile;
+                        while ( $queried_pages->have_posts() ) {
+                            $queried_pages->the_post();
+                            get_template_part('layout/loop/content', 'page');
+                        }
+                        wp_reset_postdata();
                         ?>
-
+                    </div>
                         <?php if ($queried_pages->max_num_pages > 1):?>
                             <div class="load-more cta">
-                                <a href="#" class="load-more-pages button" data-max="<?php echo $queried_pages->max_num_pages;?>"><?php echo $BORN_FRAMEWORK->Options->Get('load_more' . $lang_code);?></a>
+                                <a href="#" class="load-more-btn button" data-page="1" data-settings="<?php echo esc_attr(json_encode([
+                                    'post_type' => 'page',
+                                    'author' => $user_id,
+                                    'posts_per_page' => 12,
+                                    'section' => 'container-author-pages',
+                                    'grid' => 'grid'
+                                ])); ?>"><?php echo $BORN_FRAMEWORK->Options->Get('load_more' . $lang_code);?></a>
                             </div>
                         <?php endif;?>
-
-
-
-                    </div>
                 </div>
 
 

@@ -23,9 +23,11 @@ function scada_init() {
     require_once __DIR__ . '/Classes/SiteMap.php';
     require_once __DIR__ . '/Classes/Awards.php';
     require_once __DIR__ . '/Classes/Logos.php';
+    require_once __DIR__ . '/Classes/Ajax.php';
 
     new \Scada\ToTop();
     new \Scada\SiteMap();
     new \Scada\Awards();
     new \Scada\Logos();
+    new \Scada\Ajax();
 }

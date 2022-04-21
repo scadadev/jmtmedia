@@ -75,4 +75,30 @@
         });
     }
 
+    $('.load-more-btn').click(function(e){
+        e.preventDefault();
+        var button = $(this),
+            settings = $(this).data('settings'),
+            data = {
+                'action': 'aff_loadmore',
+                'settings': settings,
+                'page': button.data('page')
+            };
+
+        $.ajax({
+            url : theme_params.ajaxurl,
+            data : data,
+            type : 'POST',
+            beforeSend : function () {
+                button.text(theme_params.texts.loading);
+            }
+        })
+            .done(function(response){
+                button.text(theme_params.texts.loadmore);
+                $('.' + settings.section + ' .' + settings.grid).append(response.html);
+                response.hide_btn ? button.hide() : button.show();
+                button.attr('data-page', response.page);
+            });
+    });
+
 })(jQuery);

@@ -51,94 +51,22 @@ $queried_posts = new WP_Query($args);
 
         <div class="born-container is-wide">
             <div class="items-grid">
-
-                <?php while ( $queried_posts->have_posts() ): $queried_posts->the_post();  ?>
-
-
-                    <?php
-                    $text_gray = get_field('text_gray');
-                    $text_orange= get_field('text_orange');
-                    ?>
-                    <div class="item">
-
-                        <?php get_template_part('layout/partials/label','',array('id' => get_the_ID()));?>
-                        <?php get_template_part('layout/partials/favorites','',array('id' => get_the_ID()));?>
-                        <div class="data">
-                            <div class="row">
-                                <div class="logo">
-                                    <a href="<?php echo get_permalink();?>" class="image">
-                                        <?php echo born_acf_image(get_field('logo'),'icons-large',true);?>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <a href="<?php echo get_permalink();?>" class="name"><?php echo get_the_title();?></a>
-                            </div>
-                            <div class="row">
-                                <?php get_template_part('layout/partials/rating','',array('id' => get_the_ID()));?>
-                            </div>
-                        </div>
-
-                            <div class="details">
-                                <?php if ($text_gray || $text_orange):?>
-                                    <div class="desc">
-                                        <div class="text">
-                                            <?php if ($text_orange):?><span style="color: #e7a736;"><?php echo $text_orange;?></span><br><?php endif;?> <?php if ($text_gray):?><?php echo $text_gray;?><?php endif;?>
-                                        </div>
-                                    </div>
-                                <?php endif;?>
-
-
-                                <?php
-                                $parameter_settings = get_field('parameters_settings');
-                                ?>
-
-                                <?php if (!empty($parameter_settings['parameters'])):?>
-                                    <div class="table">
-
-                                        <?php
-                                        foreach ($parameter_settings as $parameters){
-
-                                            foreach ($parameters as $parameter):?>
-
-                                                <div class="row">
-                                                    <div class="cell">
-                                                        <?php echo get_term( $parameter['parameter_select'] )->name;?>
-                                                    </div>
-                                                    <div class="cell">
-                                                        <?php echo $parameter['Parameter_value'];?>
-                                                    </div>
-                                                </div>
-                                            <?php endforeach;?>
-                                            <?php
-                                        }
-                                        ?>
-
-                                    </div>
-                                <?php endif;?>
-
-
-                                <div class="cta">
-                                    <a href="<?php echo get_permalink();?>" class="button"><?php echo $BORN_FRAMEWORK->Options->Get('go_to_profile'.$lang_code);?></a>
-                                </div>
-                            </div>
-
-                        <?php if (get_field('main_link')):?>
-                            <div class="cta">
-                                <a href="<?php echo get_field('main_link');?>" class="button"><?php echo $BORN_FRAMEWORK->Options->Get('play'.$lang_code);?></a>
-                            </div>
-                        <?php endif;?>
-                    </div>
-
-                <?php endwhile;?>
-                <?php wp_reset_postdata();?>
-
-
-
+                <?php
+                while ( $queried_posts->have_posts() ) {
+                    $queried_posts->the_post();
+                    get_template_part('layout/loop/content', 'products');
+                }
+                wp_reset_postdata();
+                ?>
             </div>
             <?php if ($queried_posts->max_num_pages > 1):?>
                 <div class="load-more cta">
-                    <a href="#" class="load-more-products button" data-max="<?php echo $queried_posts->max_num_pages;?>"><?php echo $BORN_FRAMEWORK->Options->Get('load_more' . $lang_code);?></a>
+                    <a href="#" class="load-more-btn button" data-page="1" data-settings="<?php echo esc_attr(json_encode([
+                        'post_type' => 'products',
+                        'posts_per_page' => 12,
+                        'section' => 'aff-main-items-grid',
+                        'grid' => 'items-grid'
+                    ])); ?>"><?php echo $BORN_FRAMEWORK->Options->Get('load_more' . $lang_code);?></a>
                 </div>
             <?php endif;?>
 
