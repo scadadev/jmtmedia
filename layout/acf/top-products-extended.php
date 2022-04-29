@@ -41,17 +41,14 @@ $is_default_page = basename(get_page_template()) === 'page.php';
 
     <?php if ($products): ?>
         <div class="items-list">
+            <?php
 
+            foreach ($products as $product):
 
-            <?php foreach ($products as $product): ?>
+                $fields = get_fields($product->ID);
 
-                <?php
-                // $play_link = str_replace('https://', '',get_field('main_link',$product->ID));
-                //   $play_link = str_replace('http://', '',$play_link);
-                $text_gray = get_field('text_gray', $product->ID);
-                $text_orange = get_field('text_orange', $product->ID);
                 ?>
-                <div class="item">
+                <div class="item extended">
                     <div class="born-container is-wide">
                         <div class="item__wrap">
                             <div class="content">
@@ -68,7 +65,9 @@ $is_default_page = basename(get_page_template()) === 'page.php';
                                         <a href="<?php echo get_permalink($product->ID); ?>"
                                            class="name"><?php echo get_the_title($product->ID); ?></a>
                                         <?php get_template_part('layout/partials/favorites', '', array('id' => $product->ID)); ?>
-                                        <!--<a href="<?php /*echo get_field('main_link',$product->ID);*/ ?>" target="_blank" class="link"><?php /*echo $play_link;*/ ?></a>-->
+                                        <!--<a href="<?php /*echo get_field('main_link',$product->ID);*/
+                                        ?>" target="_blank" class="link"><?php /*echo $play_link;*/
+                                        ?></a>-->
                                     </div>
                                     <div class="row">
 
@@ -77,18 +76,18 @@ $is_default_page = basename(get_page_template()) === 'page.php';
 
                                     </div>
                                 </div>
-                                <?php if ($text_gray || $text_orange): ?>
+                                <?php if ($fields['text_gray'] || $fields['text_orange']): ?>
                                     <div class="desc">
                                         <div class="text">
-                                            <?php if ($text_orange): ?>
+                                            <?php if ($fields['text_orange']): ?>
                                                 <span class="orange-icon" style="color: #e7a736;">
                                 <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
                                      fill="currentColor"><path fill="currentColor"
                                                                d="M32 448c0 17.7 14.3 32 32 32h160V320H32v128zm256 32h160c17.7 0 32-14.3 32-32V320H288v160zm192-320h-42.1c6.2-12.1 10.1-25.5 10.1-40 0-48.5-39.5-88-88-88-41.6 0-68.5 21.3-103 68.3-34.5-47-61.4-68.3-103-68.3-48.5 0-88 39.5-88 88 0 14.5 3.8 27.9 10.1 40H32c-17.7 0-32 14.3-32 32v80c0 8.8 7.2 16 16 16h480c8.8 0 16-7.2 16-16v-80c0-17.7-14.3-32-32-32zm-326.1 0c-22.1 0-40-17.9-40-40s17.9-40 40-40c19.9 0 34.6 3.3 86.1 80h-86.1zm206.1 0h-86.1c51.4-76.5 65.7-80 86.1-80 22.1 0 40 17.9 40 40s-17.9 40-40 40z"/></svg>
-                                <?php echo $text_orange; ?>
+                                <?php echo $fields['text_orange']; ?>
                             </span><br>
                                             <?php endif; ?>
-                                            <?php if ($text_gray): ?><?php echo $text_gray; ?><?php endif; ?>
+                                            <?php if ($fields['text_gray']): ?><?php echo $fields['text_gray']; ?><?php endif; ?>
                                         </div>
                                     </div>
                                 <?php endif; ?>
@@ -99,12 +98,80 @@ $is_default_page = basename(get_page_template()) === 'page.php';
                                        class="text"><?php echo $BORN_FRAMEWORK->Options->Get('read_reviews' . $lang_code); ?></a>
                                 </div>
                             </div>
+                            <div class="items-list-hide">
+                                <div class="content">
+                                    <div class="data summary">
+                                        <?php
+                                        if (!empty($fields['summary'])) {
+                                            echo '<div class="small-title">' . $BORN_FRAMEWORK->Options->Get('summary_' . $lang_code) . '</div>';
+                                            echo $fields['summary'];
+                                        }
+
+                                        if (!empty($fields['page_content'])) {
+                                            foreach ($fields['page_content'] as $row) {
+                                                if ($row['acf_fc_layout'] == 'text_with_icon') {
+                                                    if (!empty($row['text_with_icon_elements'][0])) {
+                                                        echo '<div class="license">';
+                                                        if (!empty($row['text_with_icon_elements'][0])) {
+                                                            echo '<div class="license__icon">' . wp_get_attachment_image($row['text_with_icon_elements'][0]['icon']) . '</div>';
+                                                        }
+                                                        echo '<div class="license__text">' . $row['text_with_icon_elements'][0]['text'] . '</div>';
+                                                        echo '</div>';
+                                                    }
+                                                    break;
+                                                }
+                                            }
+                                        }
+                                        ?>
+                                    </div>
+                                    <div class="features">
+                                        <div class="features__content">
+                                            <?php
+                                            echo '<div class="small-title">' . $BORN_FRAMEWORK->Options->Get('main_features_' . $lang_code) . '</div>';
+                                            if (!empty($fields['positives_negatives']['positives'])) {
+                                                echo '<ul class="ul-ignore">';
+                                                foreach ($fields['positives_negatives']['positives'] as $value) {
+                                                    if (!empty($value['feature'])) echo '<li>' . $value['feature'] . '</li>';
+                                                }
+                                                echo '</ul>';
+                                            }
+                                            ?>
+                                        </div>
+                                    </div>
+                                    <div class="cta">
+                                        <?php
+                                        echo '<div class="small-title payment-title">' . $BORN_FRAMEWORK->Options->Get('payment_methods_' . $lang_code) . '</div>';
+                                        if (!empty($fields['payments']['currencies'])) {
+                                            echo '<div class="cta__currencies">';
+                                            foreach ($fields['payments']['currencies'] as $icon) {
+                                                echo '<div class="cta__item">';
+                                                echo wp_get_attachment_image($icon['icon']);
+                                                echo '</div>';
+                                            }
+                                            echo '</div>';
+                                        }
+                                        if (!empty($fields['payments']['payment_methods'])) {
+                                            echo '<div class="cta__payment">';
+                                            foreach ($fields['payments']['payment_methods'] as $icon) {
+                                                echo '<div class="cta__item">';
+                                                echo wp_get_attachment_image($icon['icon']);
+                                                echo '</div>';
+                                            }
+                                            echo '</div>';
+                                        }
+                                        ?>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="items-list-more">
+                                <span class="more"><?php echo $BORN_FRAMEWORK->Options->Get('more_info_' . $lang_code) ?></span>
+                                <span class="less"><?php echo $BORN_FRAMEWORK->Options->Get('less_info_' . $lang_code) ?></span>
+                            </div>
                         </div>
                     </div>
                 </div>
 
             <?php endforeach; ?>
-
 
         </div>
 

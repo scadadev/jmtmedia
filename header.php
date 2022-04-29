@@ -732,7 +732,8 @@ if (!$gtm_id) $gtm_id = '';
         }
 
         .aff-games-grid .load-more .button,
-        .aff-news-grid .load-more .button {
+        .aff-news-grid .load-more .button,
+        .items-list-more span {
             color: <?php echo $global_accent;?>;
         }
 

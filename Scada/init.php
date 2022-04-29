@@ -24,10 +24,14 @@ function scada_init() {
     require_once __DIR__ . '/Classes/Awards.php';
     require_once __DIR__ . '/Classes/Logos.php';
     require_once __DIR__ . '/Classes/Ajax.php';
+    require_once __DIR__ . '/Classes/TopProducts.php';
+    require_once __DIR__ . '/Classes/Payments.php';
 
     new \Scada\ToTop();
     new \Scada\SiteMap();
     new \Scada\Awards();
     new \Scada\Logos();
     new \Scada\Ajax();
+    new \Scada\TopProducts();
+    new \Scada\Payments();
 }

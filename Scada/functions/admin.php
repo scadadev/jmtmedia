@@ -78,6 +78,41 @@ if (class_exists('\Redux')) {
                 "title" => 'Table of contents title"' . ' (' . $lng['code'] . ')',
                 "default" => 'Table of contents'
             ];
+
+            $translations_child[] = [
+                "id" => $prefix . "summary_" . $lng['code'],
+                "type" => "text",
+                "title" => 'Summary' . ' (' . $lng['code'] . ')',
+                "default" => 'Summary'
+            ];
+
+            $translations_child[] = [
+                "id" => $prefix . "main_features_" . $lng['code'],
+                "type" => "text",
+                "title" => 'Main features' . ' (' . $lng['code'] . ')',
+                "default" => 'Main features'
+            ];
+
+            $translations_child[] = [
+                "id" => $prefix . "payment_methods_" . $lng['code'],
+                "type" => "text",
+                "title" => 'Payment methods' . ' (' . $lng['code'] . ')',
+                "default" => 'Payment methods'
+            ];
+
+            $translations_child[] = [
+                "id" => $prefix . "more_info_" . $lng['code'],
+                "type" => "text",
+                "title" => 'More info' . ' (' . $lng['code'] . ')',
+                "default" => 'More info'
+            ];
+
+            $translations_child[] = [
+                "id" => $prefix . "less_info_" . $lng['code'],
+                "type" => "text",
+                "title" => 'Less info' . ' (' . $lng['code'] . ')',
+                "default" => 'Less info'
+            ];
         }
     }
 

@@ -102,4 +102,8 @@
             });
     });
 
+    $('.items-list-more span').on('click', function(){
+        $(this).closest('.item').toggleClass('open');
+    });
+
 })(jQuery);

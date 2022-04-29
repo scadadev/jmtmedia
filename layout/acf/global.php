@@ -1,6 +1,8 @@
 <?php
 // Check value exists.
 
+//var_dump( get_field('page_content') );
+
 if( have_rows('page_content') ):
 
     // Loop through rows.
@@ -21,6 +23,10 @@ if( have_rows('page_content') ):
         elseif( get_row_layout() == 'top_products' ):
 
             get_template_part('layout/acf/top-products');
+
+        elseif( get_row_layout() == 'top_products_extended' ):
+
+            get_template_part('layout/acf/top-products-extended');
 
         elseif( get_row_layout() == 'product_cards' ):
 
