@@ -100,6 +100,10 @@ $queried_posts = new WP_Query($args);
 
                 get_template_part('layout/acf/top-products');
 
+            elseif( get_row_layout() == 'top_products_extended' ):
+
+                get_template_part('layout/acf/top-products-extended');
+
             elseif( get_row_layout() == 'product_cards' ):
 
                 get_template_part('layout/acf/product-cards');

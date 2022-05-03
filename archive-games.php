@@ -100,10 +100,13 @@ if( have_rows('page_content',$fake_page_id) ):
 
             get_template_part('layout/acf/menu');
 
-
         elseif( get_row_layout() == 'top_products' ):
 
             get_template_part('layout/acf/top-products');
+
+        elseif( get_row_layout() == 'top_products_extended' ):
+
+            get_template_part('layout/acf/top-products-extended');
 
         elseif( get_row_layout() == 'product_cards' ):
 
