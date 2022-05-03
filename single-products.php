@@ -198,6 +198,9 @@ $h2_ratings = get_field('ratings_after_h2_titles');
                             <span><?php echo get_field('label_after_logo_tag_text'); ?></span>
                         </span>
                         </a>
+                        <?php $gambleaware = get_field('gambleaware'); if(!empty($gambleaware)) :  ?>
+                            <div class="gambleaware"><?php echo $gambleaware; ?></div>
+                        <?php endif; ?>
                     </div>
                 <?php endif; ?>
             </div>

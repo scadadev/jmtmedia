@@ -47,8 +47,11 @@ $is_default_page = basename(get_page_template()) === 'page.php';
 
                 $fields = get_fields($product->ID);
 
+                $itemClass = ['item', 'extended'];
+                if( $fields['gambleaware'] ) $itemClass[] = 'has-gambleaware';
+
                 ?>
-                <div class="item extended">
+                <div class="<?php echo implode(' ', $itemClass) ?>">
                     <div class="born-container is-wide">
                         <div class="item__wrap">
                             <div class="content">
@@ -167,6 +170,9 @@ $is_default_page = basename(get_page_template()) === 'page.php';
                                 <span class="more"><?php echo $BORN_FRAMEWORK->Options->Get('more_info_' . $lang_code) ?></span>
                                 <span class="less"><?php echo $BORN_FRAMEWORK->Options->Get('less_info_' . $lang_code) ?></span>
                             </div>
+                            <?php if(!empty($fields['gambleaware'])) :  ?>
+                                <div class="gambleaware"><?php echo $fields['gambleaware']; ?></div>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>

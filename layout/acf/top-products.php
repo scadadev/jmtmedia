@@ -50,8 +50,12 @@ $is_default_page = basename(get_page_template()) === 'page.php';
                 //   $play_link = str_replace('http://', '',$play_link);
                 $text_gray = get_field('text_gray', $product->ID);
                 $text_orange = get_field('text_orange', $product->ID);
+                $gambleaware = get_field('gambleaware', $product->ID);
+
+                $itemClass = ['item'];
+                if( $gambleaware ) $itemClass[] = 'has-gambleaware';
                 ?>
-                <div class="item">
+                <div class="<?php echo implode(' ', $itemClass) ?>">
                     <div class="born-container is-wide">
                         <div class="item__wrap">
                             <div class="content">
@@ -99,6 +103,9 @@ $is_default_page = basename(get_page_template()) === 'page.php';
                                        class="text"><?php echo $BORN_FRAMEWORK->Options->Get('read_reviews' . $lang_code); ?></a>
                                 </div>
                             </div>
+                            <?php if(!empty($gambleaware)) :  ?>
+                                <div class="gambleaware"><?php echo $gambleaware; ?></div>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>

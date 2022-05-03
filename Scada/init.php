@@ -26,6 +26,7 @@ function scada_init() {
     require_once __DIR__ . '/Classes/Ajax.php';
     require_once __DIR__ . '/Classes/TopProducts.php';
     require_once __DIR__ . '/Classes/Payments.php';
+    require_once __DIR__ . '/Classes/Gambleaware.php';
 
     new \Scada\ToTop();
     new \Scada\SiteMap();
@@ -34,4 +35,5 @@ function scada_init() {
     new \Scada\Ajax();
     new \Scada\TopProducts();
     new \Scada\Payments();
+    new \Scada\Gambleaware();
 }

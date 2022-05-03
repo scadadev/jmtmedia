@@ -29,7 +29,12 @@
     &__wrap {
       border: 1px solid #F4F4F4;
       padding: 1rem 1rem 1.5rem;
+    }
 
+    &.has-gambleaware {
+      .item__wrap {
+        padding-bottom: 1rem;
+      }
     }
 
     .data {
@@ -227,6 +232,18 @@
   &.payment-title {
     text-align: center;
   }
+}
+
+.gambleaware {
+  font-size: 14px;
+  text-align: center;
+  margin-top: 20px;
+  line-height: 1.1;
+  color: #666666;
+}
+
+.extended .gambleaware {
+  margin-top: -7px;
 }
 
 @media screen and (max-width: 1199px) {
