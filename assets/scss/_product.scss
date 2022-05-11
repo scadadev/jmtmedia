@@ -12,3 +12,28 @@
     }
   }
 }
+
+$bonus_tag_mobile_height: 100px;
+
+@media only screen and (max-width: 767px) {
+  .aff-bonus-tag,
+  .aff-bonus-tag .text,
+  .aff-bonus-tag .tag,
+  .aff-bonus-tag .text::before {
+    height: $bonus_tag_mobile_height;
+  }
+
+  .aff-bonus-tag {
+    font-size: 1rem;
+
+    .text,
+    .tag {
+      -webkit-mask-size: auto $bonus_tag_mobile_height;
+      mask-size: auto $bonus_tag_mobile_height;
+    }
+
+    .tag {
+      width: 60px;
+    }
+  }
+}
