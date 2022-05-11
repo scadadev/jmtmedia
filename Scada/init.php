@@ -18,6 +18,8 @@ else {
 
 
 function scada_init() {
+    require_once __DIR__ . '/functions/cpt.php';
+
     require_once __DIR__ . '/Classes/Author.php';
     require_once __DIR__ . '/Classes/ToTop.php';
     require_once __DIR__ . '/Classes/SiteMap.php';

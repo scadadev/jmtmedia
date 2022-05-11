@@ -29,7 +29,7 @@ $queried_posts = new WP_Query($args);
                     <ul class="breadcrumb">
                         <li><a href="<?php echo get_home_url();?>"><?php echo $BORN_FRAMEWORK->Options->Get('breadcrumb_home' . $lang_code);?></a></li>
                         <li>
-                            <a href="<?php echo get_home_url(); ?>/<?php echo born_get_archive_slug('games'); ?>/"><?php echo born_get_archive_title('games'); ?></a>
+                            <a href="<?php echo get_post_type_archive_link('games'); ?>"><?php echo born_get_archive_title('games'); ?></a>
                         </li>
                     </ul>
                 </div>

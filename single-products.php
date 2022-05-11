@@ -93,8 +93,8 @@ $h2_ratings = get_field('ratings_after_h2_titles');
                 "name": "<?php echo born_get_archive_title('products'); ?>",
                 "item": {
                     "@type": "Thing",
-                    "url": "<?php echo get_home_url(); ?>/<?php echo born_get_archive_slug('products'); ?>/",
-                    "@id": "<?php echo get_home_url(); ?>/<?php echo born_get_archive_slug('products'); ?>/"
+                    "url": "<?php echo get_post_type_archive_link('products'); ?>",
+                    "@id": "<?php echo get_post_type_archive_link('products'); ?>"
                 }
             },
             {
@@ -162,7 +162,7 @@ $h2_ratings = get_field('ratings_after_h2_titles');
                         <a href="<?php echo get_home_url(); ?>"><?php echo $BORN_FRAMEWORK->Options->Get('breadcrumb_home' . $lang_code); ?></a>
                     </li>
                     <li>
-                        <a href="<?php echo get_home_url(); ?>/<?php echo born_get_archive_slug('products'); ?>/"><?php echo born_get_archive_title('products'); ?></a>
+                        <a href="<?php echo get_post_type_archive_link('products'); ?>"><?php echo born_get_archive_title('products'); ?></a>
                     </li>
                     <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
                 </ul>
