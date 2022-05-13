@@ -8,7 +8,7 @@ class TopProducts
     public function __construct() {
 
         /** ADD layout "Top products extended" to flexible content "Product content"  */
-        add_action('acf/load_field/name=page_content', [$this, 'acf']);
+        add_action('acf/load_field/name=page_content', [$this, 'acf'], 21);
 
     }
 
@@ -20,6 +20,15 @@ class TopProducts
 
             $new_layout = false;
 
+            // remove top_products_extended
+            foreach($field['layouts'] as $key => $item) {
+                if( $item['name'] == 'top_products_extended' ) {
+                    unset($field['layouts'][$key]);
+                    break;
+                }
+            }
+
+            // add new top_products_extended
             foreach($field['layouts'] as $key => $item) {
                 if( $item['name'] == 'top_products' ) {
                     $new_layout = $item;

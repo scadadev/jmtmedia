@@ -8,6 +8,8 @@ if( have_rows('page_content') ):
     // Loop through rows.
     while ( have_rows('page_content') ) : the_row();
 
+        $index = get_row_index();
+
         do_action( 'before_page_content_block', get_row_layout(), get_the_ID() );
 
         // Case: Paragraph layout.
@@ -87,6 +89,10 @@ if( have_rows('page_content') ):
         elseif( get_row_layout() == 'anchor_in_content_end' ):
 
             get_template_part('layout/acf/anchor-in-content-end');
+
+        elseif( get_row_layout() == 'how_to_block' ):
+
+            get_template_part('layout/acf/how-to-block', null, ['index' => $index]);
 
         endif;
         // End loop.
