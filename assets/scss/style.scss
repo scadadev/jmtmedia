@@ -8,6 +8,10 @@
 @import "top-products";
 @import "product";
 
+html,
+body {
+  scroll-behavior: smooth;
+}
 
 .to-top {
   position: fixed;

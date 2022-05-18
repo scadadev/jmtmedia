@@ -7,6 +7,9 @@ class Ajax
     public function __construct() {
         add_action('wp_ajax_aff_loadmore', [$this, 'loadmore']);
         add_action('wp_ajax_nopriv_aff_loadmore', [$this, 'loadmore']);
+
+        add_action('wp_ajax_get_menu_slugs', [$this, 'get_menu_slugs']);
+        add_action('wp_ajax_nopriv_get_menu_slugs', [$this, 'get_menu_slugs']);
     }
 
 
@@ -65,5 +68,20 @@ class Ajax
         }
 
         wp_send_json($response);
+    }
+
+
+
+    public function get_menu_slugs(){
+        $anchors = $_POST['anchors'];
+        $out = [];
+
+        if( !empty($anchors) ) {
+            foreach($anchors as $key => $item) {
+                $item['slug'] = sanitize_title($item['anchor']);
+                $out[] = $item;
+            }
+        }
+        wp_send_json_success($out);
     }
 }

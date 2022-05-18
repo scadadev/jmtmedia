@@ -21,23 +21,33 @@ $block_title = $BORN_FRAMEWORK->Options->Get('table_of_contents_'.$lang_code);
 
 <script>
     jQuery(function () {
-        var list = jQuery('.aff-custom-menu ul');
+        var list = jQuery('.aff-custom-menu ul'),
+            anchors = [];
 
-        jQuery(".can-anchor h2").each(function () {
+        jQuery(".can-anchor h2").each(function (i,v) {
+            var id = 'menu-element-' + i;
 
-            var anchor = jQuery(this).text().replace(/\s+/g, '-');
-            anchor = anchor.replace(".", "");
-            anchor = anchor.replace("?", "");
-            anchor = anchor.replace("!", "");
-            anchor = anchor.replace(".", "");
-            anchor = anchor.replace(",", "");
-            anchor = anchor.replace("/", "");
-            anchor = anchor.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+            anchors.push({
+                id: id,
+                anchor: jQuery(this).text(),
+                slug: null
+            });
 
-
-            jQuery(this).prepend('<a name="' + anchor + '"></a>');
-            jQuery(list).append('<li><a href="#' + anchor + '">' + jQuery(this).text() + '</a></li>');
+            jQuery(this).addClass(id);
         });
+
+        if( anchors.length ) {
+            jQuery.post(theme_params.ajaxurl, {action:'get_menu_slugs', anchors:anchors})
+            .done(function(response){
+                if( response.data.length ) {
+                    for( let i=0; i<response.data.length; i++ ) {
+                        jQuery(list).append('<li><a href="#' + response.data[i].slug + '">' + response.data[i].anchor + '</a></li>');
+                        //jQuery('.'+ response.data[i].id).prepend('<a name="' + response.data[i].slug + '"></a>');
+                        jQuery('.'+ response.data[i].id).attr('id', response.data[i].slug);
+                    }
+                }
+            });
+        }
 
         jQuery('.aff-custom-menu.aff-page-menu a').on('click', function () {
             jQuery.each(jQuery('.aff-custom-menu.aff-page-menu a'), function (i, v) {
