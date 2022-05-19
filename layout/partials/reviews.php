@@ -386,7 +386,7 @@ $registration_page = get_permalink($BORN_FRAMEWORK->Options->Get('registration_p
                             <div class="form-group">
                                 <div class="input-wrapper is-req">
                                     <div class="input-wrapper is-req review-name">
-                                        <label for="review-name"><?php echo $BORN_FRAMEWORK->Options->Get('review_name'.$lang_code);?></label>
+                                        <label for="review-name"><?php echo $BORN_FRAMEWORK->Options->Get('review_name_'.$lang_code);?></label>
                                         <input type="text" id="review-name" name="review-name" data-error="<?php echo $BORN_FRAMEWORK->Options->Get('form_req'.$lang_code);?>" required>
                                     </div>
                                     <div class="help-block with-errors"></div>
