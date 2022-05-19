@@ -113,6 +113,13 @@ if (class_exists('\Redux')) {
                 "title" => 'Less info' . ' (' . $lng['code'] . ')',
                 "default" => 'Less info'
             ];
+
+            $translations_child[] = [
+                "id" => $prefix . "review_name_" . $lng['code'],
+                "type" => "text",
+                "title" => 'Review name label' . ' (' . $lng['code'] . ')',
+                "default" => 'Vārds'
+            ];
         }
     }
 
