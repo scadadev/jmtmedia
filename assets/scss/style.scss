@@ -250,6 +250,14 @@ body {
   z-index: 10040 !important;
 }
 
+.profile{
+  display: none;
+}
+
+.save{
+  top: 35px
+}
+
 @media screen and (min-width: 768px) {
   .aff-bottom-cta .content {
     padding: 10px;
