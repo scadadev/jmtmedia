@@ -17,7 +17,6 @@ add_filter('post_type_archive_link', function($link, $post_type){
     
 }, 10, 2);
 
-
 /** fix  */
 add_filter('wpml_alternate_hreflang', function($url, $lang_code){
 
