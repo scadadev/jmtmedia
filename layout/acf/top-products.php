@@ -82,9 +82,7 @@ $is_default_page = basename(get_page_template()) === 'page.php';
                                     </div>
                                 </div>
                                 <?php if ($text_gray || $text_orange): ?>
-                                    <div class="desc">
-                                    <a href="<?php echo get_field('main_link', $product->ID); ?>" target="_blank">
-                
+                                    <a class="desc" href="<?php echo get_field('main_link', $product->ID); ?>" target="_blank" >
                                         <div class="text">
                                             <?php if ($text_orange): ?>
                                                 <span class="orange-icon" style="color: #e7a736;">
@@ -98,7 +96,6 @@ $is_default_page = basename(get_page_template()) === 'page.php';
                                             <?php if ($text_gray): ?><p style="color: #000; font-size: 20px"><?php echo $text_gray; ?></p><?php endif; ?>
                                         </div>
                                         </a>
-                                    </div>
                                 <?php endif; ?>
                                 <div class="cta">
                                     <a href="<?php echo get_field('main_link', $product->ID); ?>" target="_blank"

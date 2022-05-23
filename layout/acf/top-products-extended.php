@@ -56,7 +56,7 @@ $is_default_page = basename(get_page_template()) === 'page.php';
                         <div class="item__wrap">
                             <div class="content">
                                 <div class="logo">
-                                    <a href="<?php echo get_permalink($product->ID); ?>" class="image">
+                                    <a href="<?php echo get_field('main_link', $product->ID); ?>" class="image" target="_blank">
                                         <?php
                                         echo wp_get_attachment_image(get_field('logo', $product->ID), 'icons-large');
                                         //echo born_acf_image(get_field('logo',$product->ID),'icons-large',true);
@@ -80,7 +80,7 @@ $is_default_page = basename(get_page_template()) === 'page.php';
                                     </div>
                                 </div>
                                 <?php if ($fields['text_gray'] || $fields['text_orange']): ?>
-                                    <div class="desc">
+                                    <a class="desc" href="<?php echo get_field('main_link', $product->ID); ?>" target="_blank">
                                         <div class="text">
                                             <?php if ($fields['text_orange']): ?>
                                                 <span class="orange-icon" style="color: #e7a736;">
@@ -90,9 +90,9 @@ $is_default_page = basename(get_page_template()) === 'page.php';
                                 <?php echo $fields['text_orange']; ?>
                             </span><br>
                                             <?php endif; ?>
-                                            <?php if ($fields['text_gray']): ?><?php echo $fields['text_gray']; ?><?php endif; ?>
+                                            <?php if ($fields['text_gray']): ?><p style="color: #000; font-size: 20px"><?php echo $fields['text_gray']; ?></p><?php endif; ?>
                                         </div>
-                                    </div>
+                                        </a>
                                 <?php endif; ?>
                                 <div class="cta">
                                     <a href="<?php echo get_field('main_link', $product->ID); ?>" target="_blank"
