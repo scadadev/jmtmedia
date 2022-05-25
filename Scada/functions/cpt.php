@@ -88,9 +88,9 @@ function get_cpt_archive_link($lang_code)
     return false;
 }
 
-function get_cpt_single_link($lang_code) {
+function get_cpt_single_link($lang_code, $object = false) {
 
-    $object = get_queried_object();
+    $object = $object ?? get_queried_object();
 
     global $born_options;
 

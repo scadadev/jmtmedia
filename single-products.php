@@ -639,7 +639,7 @@ $h2_ratings = get_field('ratings_after_h2_titles');
                         <div class="video">
                             <?php if (get_field('video_placeholder_image')): ?>
                                 <div class="thumb"
-                                     style="background-image: url(<?php echo born_acf_image(get_field('video_placeholder_image'), 'yt-placeholder', false); ?>">
+                                     style="background-image: url(<?php echo born_acf_image(get_field('video_placeholder_image'), 'yt-placeholder', false); ?>)">
                                     <button class="play"></button>
                                 </div>
                             <?php endif; ?>
