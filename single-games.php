@@ -153,7 +153,13 @@ $queried_posts = new WP_Query($args);
 
         <?php if ($queried_posts->max_num_pages > 1):?>
             <div class="load-more cta">
-                <a href="#" class="load-more-games-other button" data-max="<?php echo $queried_posts->max_num_pages;?>"><?php echo $BORN_FRAMEWORK->Options->Get('load_more' . $lang_code);?></a>
+                <a href="#" class="load-more-btn button" data-page="1" data-settings="<?php echo esc_attr(json_encode([
+                    'post_type' => 'games',
+                    'posts_per_page' => 4,
+                    'section' => 'aff-games-grid',
+                    'grid' => 'games-grid',
+                    'post__in' => $other_games
+                ])); ?>"><?php echo $BORN_FRAMEWORK->Options->Get('load_more' . $lang_code);?></a>
             </div>
         <?php endif;?>
 

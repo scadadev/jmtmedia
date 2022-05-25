@@ -40,6 +40,10 @@ class Ajax
             $args['post__not_in'] = $_POST['settings']['post__not_in'];
         }
 
+        if( !empty( $_POST['settings']['post__in'] ) ) {
+            $args['post__in'] = $_POST['settings']['post__in'];
+        }
+
         if( !empty( $_POST['settings']['related'] ) ) {
             $args['meta_query'] = [
                 [
