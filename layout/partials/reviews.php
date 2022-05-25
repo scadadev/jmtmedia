@@ -416,8 +416,7 @@ $registration_page = get_permalink($BORN_FRAMEWORK->Options->Get('registration_p
                             </div>
                         </div>
                         <div class="submit">
-                            <!--<a href="#" class="button">Add review</a>-->
-                            <input type="submit" value="<?php echo $BORN_FRAMEWORK->Options->Get('add_review' . $lang_code);?>">
+                            <input type="submit" class="button" value="<?php echo $BORN_FRAMEWORK->Options->Get('add_review' . $lang_code);?>">
                         </div>
                     </div>
 
