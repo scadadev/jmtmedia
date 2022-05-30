@@ -20,13 +20,13 @@ add_filter('post_type_archive_link', function ($link, $post_type) {
 /** fix  */
 add_filter('wpml_alternate_hreflang', function ($url, $lang_code) {
 
-    if (is_post_type_archive(['games', 'product'])) {
+    if (is_post_type_archive(['games', 'products'])) {
         if ($archive_url = get_cpt_archive_link($lang_code)) {
             return $archive_url;
         }
     }
 
-    elseif (is_singular(['games', 'product'])) {
+    elseif (is_singular(['games', 'products'])) {
         if ($single_url = get_cpt_single_link($lang_code)) {
             return $single_url;
         }
@@ -39,12 +39,12 @@ add_filter('wpml_alternate_hreflang', function ($url, $lang_code) {
 add_filter('icl_ls_languages', function ($languages) {
     foreach ($languages as $key => $language) {
         if (!empty($language['code'])) {
-            if (is_post_type_archive(['games', 'product'])) {
+            if (is_post_type_archive(['games', 'products'])) {
                 if ($archive_url = get_cpt_archive_link($language['code'])) {
                     $languages[$key]['url'] = $archive_url;
                 }
             }
-            elseif (is_singular(['games', 'product'])) {
+            elseif (is_singular(['games', 'products'])) {
                 if ($single_url = get_cpt_single_link($language['code'])) {
                     $languages[$key]['url'] = $single_url;
                 }
@@ -67,8 +67,8 @@ function get_cpt_archive_link($lang_code)
     if( $object->name == 'games' ) {
         $slug = $born_options['aff_games_archive_slug_' . $lang_code];
     }
-    elseif( $object->name == 'product' ) {
-        $slug = $born_options['aff_games_product_slug_' . $lang_code];
+    elseif( $object->name == 'products' ) {
+        $slug = $born_options['aff_products_archive_slug_' . $lang_code];
     }
 
     $post_type_obj = get_post_type_object($object->name);
@@ -88,7 +88,7 @@ function get_cpt_archive_link($lang_code)
     return false;
 }
 
-function get_cpt_single_link($lang_code, $object = false) {
+function get_cpt_single_link($lang_code, $object = null) {
 
     $object = $object ?? get_queried_object();
 
@@ -99,7 +99,7 @@ function get_cpt_single_link($lang_code, $object = false) {
     $default_lang = apply_filters('wpml_default_language', NULL );
 
     if( $object->post_type == 'games' ) $slug = $born_options['aff_games_archive_slug_' . $lang_code];
-    elseif( $object->post_type == 'product' ) $slug = $born_options['aff_product_archive_slug_' . $lang_code];
+    elseif( $object->post_type == 'products' ) $slug = $born_options['aff_products_archive_slug_' . $lang_code];
 
     $post_type_obj = get_post_type_object($object->post_type);
 
