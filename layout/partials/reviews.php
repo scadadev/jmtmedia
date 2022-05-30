@@ -176,9 +176,9 @@ $registration_page = get_permalink($BORN_FRAMEWORK->Options->Get('registration_p
                         <?php echo $BORN_FRAMEWORK->Options->Get('sort_by'.$lang_code);?>
                     </div>
                     <ul class="born-reset">
-                        <li class="has-dropdown" >
-                            <a href="#" class="dropdown-trigger" id="dropdownLink">
-                                <span id="dropdownSpan"><?php echo $BORN_FRAMEWORK->Options->Get('sort_by_date'.$lang_code);?></span>
+                        <li class="has-dropdown">
+                            <a href="#" class="dropdown-trigger">
+                                <span><?php echo $BORN_FRAMEWORK->Options->Get('sort_by_date'.$lang_code);?></span>
                             </a>
                             <ul class="born-reset dropdown-content">
                                 <li><a href="#" data-sortby="date"><?php echo $BORN_FRAMEWORK->Options->Get('sort_by_date'.$lang_code);?></a></li>
@@ -432,31 +432,19 @@ $registration_page = get_permalink($BORN_FRAMEWORK->Options->Get('registration_p
 <script>
 
     jQuery('.sorting ul li a').click(function(e) {
-        
         e.preventDefault();
-        
-        var sortby = jQuery(this).data('sortby');
+       var sortby = jQuery(this).data('sortby');
        if (sortby === 'rating-desc') {
            jQuery('.reviews-list').isotope({ sortBy: 'rating',sortAscending: false })
        }else if(sortby === 'date'){
            jQuery('.reviews-list').isotope({ sortBy: 'date' })
        }else if(sortby === 'rating-asc'){
            jQuery('.reviews-list').isotope({ sortBy: 'rating',sortAscending: true })
-       } 
-        
+       }
+
        jQuery('.sorting .dropdown-trigger').text(jQuery(this).text());
 
     });
-
-
-    // jQuery(window).click(function(e) {
-    //     e.preventDefault();
-    //     if (!jQuery(e.target).is("#dropdownLink") && !jQuery(e.target).is("#dropdownSpan") && jQuery('.has-dropdown').hasClass("is-visible")) {
-    //         jQuery('.has-dropdown').removeClass('is-visible')
-    //     }
-    //
-    // });
-
 
     jQuery(window).on('load', function() {
 

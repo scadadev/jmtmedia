@@ -1204,7 +1204,7 @@ if ($total_stars && $total_reviews) {
 
 
 
-<?php if (get_field('add_scroll_down_cta')): ?>
+<?php if (get_field('add_scroll_down_cta') ): ?>
 
     <?php
     $scrolldown_bot_link = get_field('scrolldown_cta_button_link');
