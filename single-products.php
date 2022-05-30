@@ -639,7 +639,7 @@ $h2_ratings = get_field('ratings_after_h2_titles');
                         <div class="video">
                             <?php if (get_field('video_placeholder_image')): ?>
                                 <div class="thumb"
-                                     style="background-image: url(<?php echo born_acf_image(get_field('video_placeholder_image'), 'yt-placeholder', false); ?>">
+                                     style="background-image: url(<?php echo born_acf_image(get_field('video_placeholder_image'), 'yt-placeholder', false); ?>)">
                                     <button class="play"></button>
                                 </div>
                             <?php endif; ?>
@@ -1204,7 +1204,7 @@ if ($total_stars && $total_reviews) {
 
 
 
-<?php if (get_field('add_scroll_down_cta')): ?>
+<?php if (get_field('add_scroll_down_cta') ): ?>
 
     <?php
     $scrolldown_bot_link = get_field('scrolldown_cta_button_link');
