@@ -24,7 +24,7 @@ $main_menu = born_render_menu(array(
     'theme_location' => 'main-menu',
     'depth' => 3,
     'items_wrap' => '<div class="menu"><ul class="born-reset">%3$s</ul></div>',
-    'walker' => 'Born\Core\Walkers\Born_Main_Menu_Walker',
+    'walker' => '\Scada\ScadaMainMenuWalker',
 ));
 
 
@@ -32,7 +32,8 @@ $main_menu_mobile = born_render_menu(array(
     'theme_location' => 'mobile-menu',
     'depth' => 3,
     'items_wrap' => '<ul class="born-reset menu">%3$s</ul>',
-    'walker' => 'Born\Core\Walkers\Born_Main_Menu_Mobile_Walker',
+    //'walker' => 'Born\Core\Walkers\Born_Main_Menu_Mobile_Walker',
+    'walker' => '\Scada\ScadaMainMenuMobileWalker',
 ));
 
 if (is_page_template('template-login.php') || is_page_template('template-registration.php')){
