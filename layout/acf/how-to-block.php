@@ -13,6 +13,8 @@ if( !empty($list) ) {
         if( !isset($item['title']) ) {
             $list_has_keys = false;
         }
+
+        $totalTime += !empty($item['duration']) ? (int) $item['duration'] : 1;
     }
 }
 
@@ -41,6 +43,15 @@ if( !$list_has_keys && !empty($args['index']) ) {
                                 if( !empty($item['title']) ) {
                                     echo '<strong>'. $item['title'] .'</strong>';
                                 }
+
+                                if( !empty( $item['image'] ) && $imageData = wp_get_attachment_image_src( $item['image'], 'full' ) ) {
+                                    echo '<div class="how-to-image">';
+                                    echo '<a class="thumb" href="'. $imageData[0] .'" rel="gallery-how-to">';
+                                    echo wp_get_attachment_image($item['image'], 'medium');
+                                    echo '</a>';
+                                    echo '</div>';
+                                }
+
                                 echo wpautop($item['text']);
                             echo '</li>';
                         }
