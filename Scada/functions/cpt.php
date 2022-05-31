@@ -76,9 +76,9 @@ function get_cpt_archive_link($lang_code)
     $struct = (true === $post_type_obj->has_archive) ? $post_type_obj->rewrite['slug'] : $post_type_obj->has_archive;
 
     if( $lang_code !== $default_lang ) {
-        $link = get_site_url() . '/' . $lang_code . '/' . user_trailingslashit($struct, 'post_type_archive');
+        $link = get_site_url() . '/' . $lang_code . '/' . user_trailingslashit($struct, 'post_type_archive') . '/';
     } else {
-        $link = get_site_url() . '/' . user_trailingslashit($struct, 'post_type_archive');
+        $link = get_site_url() . '/' . user_trailingslashit($struct, 'post_type_archive') . '/';
     }
 
     if (!empty($slug)) {
