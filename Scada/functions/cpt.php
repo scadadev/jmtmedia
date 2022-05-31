@@ -105,9 +105,9 @@ function get_cpt_single_link($lang_code, $object = null) {
 
     if( !empty($slug) && !empty($post_type_obj->rewrite['slug']) ) {
         if( $lang_code !== $default_lang ) {
-            $link = get_site_url() . '/' . $lang_code . '/' . user_trailingslashit($post_type_obj->rewrite['slug'], 'post_type_archive') . $object->post_name;
+            $link = get_site_url() . '/' . $lang_code . '/' . user_trailingslashit($post_type_obj->rewrite['slug'], 'post_type_archive') . $object->post_name . '/';
         } else {
-            $link = get_site_url() . '/' . user_trailingslashit($post_type_obj->rewrite['slug'], 'post_type_archive') . $object->post_name;
+            $link = get_site_url() . '/' . user_trailingslashit($post_type_obj->rewrite['slug'], 'post_type_archive') . $object->post_name . '/';
         }
         return str_replace($post_type_obj->rewrite['slug'], $slug, $link);
     }
