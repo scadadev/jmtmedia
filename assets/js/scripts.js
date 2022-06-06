@@ -106,4 +106,10 @@
         $(this).closest('.item').toggleClass('open');
     });
 
+    $('.js-wpml-ls-item-toggle').on('click', function(){
+        $(this).toggleClass('wpml-open');
+    });
+
+
+
 })(jQuery);

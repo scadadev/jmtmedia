@@ -7,6 +7,7 @@ function add_theme_css() {
     $theme_version = wp_get_theme()->get( 'Version' );
 
     wp_enqueue_style( 'theme-child', get_stylesheet_directory_uri() . '/assets/css/style.css', ['aff'], $theme_version );
+    wp_enqueue_style( 'custom', get_stylesheet_directory_uri() . '/assets/css/custom.css', ['aff'], $theme_version );
 
     wp_deregister_script('my_loadmore');
     wp_dequeue_script('my_loadmore');

@@ -24,6 +24,25 @@ if (class_exists('\Redux')) {
         )
     ));
 
+    // Redux::setSection('born_options', array(
+    //     'title' => __('test', BORN_NAME),
+    //     'id' => 'test',
+    //     'desc' => '',
+    //     'icon' => 'el el-signal',
+    //     'priority' => 100,
+    //     //'callback' => 'test_redux_callback',
+    //     'fields' => array(
+    //         array(
+    //             "id" => $prefix . "foo_test",
+    //             "desc" => "",
+    //             'type' => 'editor',
+    //             'title' => __('footer text', BORN_NAME),
+    //             "default" => ""
+    //         )
+    //     )
+    // ));
+
+
     /** Section for child theme translations */
     $translations_child = [];
 
@@ -225,5 +244,111 @@ Redux::setSection('born_options', array(
     'desc' => '',
     'icon' => 'el el-picture',
     'priority' => 104,
+    'fields' => $translations_child
+));
+
+
+
+/** foo SECTION */
+
+$translations_child = [];
+
+if (!empty($languages)) {
+    foreach ($languages as $lng) {
+        $translations_child[] = [
+            "id" => $prefix . "foo_" . $lng['code'],
+            "type" => "editor",
+            "title" => 'Footer text' . ' (' . $lng['code'] . ')',
+            "default" => ""
+        ];
+
+    }
+}
+
+$foo_logos_filelds = [
+    [
+        'id'          => 'foo_logo',
+        "default" => false,
+        "type"    => "media",
+        'title'       => 'Logo image'
+    ],
+    [
+        'id'          => 'foo_logo_link',
+        'type'        => 'text',
+        'title'       => 'Logo link'
+    ]
+];
+
+$translations_child[] = [
+    'id'         => $prefix . 'foo_logo_repeater',
+    'type'       => 'repeater',
+    'title'      => 'Logos in footer',
+    'group_values' => true,
+    'item_name' => 'logo_footer',
+    'fields'     => $foo_logos_filelds
+];
+
+Redux::setSection('born_options', array(
+    'title' => 'Footer text block    ',
+    'id' => 'footer_text',
+    'desc' => '',
+    'icon' => 'el el-certificate',
+    'priority' => 105,
+    'fields' => $translations_child
+));
+
+/** social links */
+
+$translations_child = [];
+
+
+$translations_child[] = [
+    "id" => $prefix . "soc_fb",
+    "type" => "text",
+    "title" => 'facebook',
+    "default" => ""
+];
+
+$translations_child[] = [
+    "id" => $prefix . "soc_tw",
+    "type" => "text",
+    "title" => 'twitter',
+    "default" => ""
+];
+
+$translations_child[] = [
+    "id" => $prefix . "soc_insta",
+    "type" => "text",
+    "title" => 'instagram',
+    "default" => ""
+];
+
+$translations_child[] = [
+    "id" => $prefix . "soc_yout",
+    "type" => "text",
+    "title" => 'youtube',
+    "default" => ""
+];
+
+$translations_child[] = [
+    "id" => $prefix . "soc_in",
+    "type" => "text",
+    "title" => 'linkedin',
+    "default" => ""
+];
+
+$translations_child[] = [
+    "id" => $prefix . "soc_tik",
+    "type" => "text",
+    "title" => 'tiktok',
+    "default" => ""
+];
+
+Redux::setSection('born_options', array(
+    'title' => 'Social links ',
+    'id' => 'social_links',
+    'desc' => '',
+    'icon' => 'el el-certificate',
+    'priority' => 106,
     'fields' => $translations_child
 ));
