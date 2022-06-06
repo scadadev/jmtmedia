@@ -112,17 +112,25 @@
 
 .footer-logos-inner a {
     display: inline-block;
-    margin-right: 20px;
-    margin-bottom: 20px;
+    /* margin-right: 20px;
+    margin-bottom: 20px; */
     width: fit-content;
 }
 
-.footer-logos-inner a>img {
+.footer-logos-inner img {
     max-height: 42px;
     width: auto;
     max-width: max-content;
+    margin-right: 20px;
+    margin-bottom: 20px;
 }
 
+.footer-logos-inner a img {
+    transition: opacity 0.3s ease;
+}
+.footer-logos-inner a:hover img{
+    opacity: 0.9;
+}
 .social-links {
     display: flex;
     align-items: center;

@@ -24,25 +24,6 @@ if (class_exists('\Redux')) {
         )
     ));
 
-    // Redux::setSection('born_options', array(
-    //     'title' => __('test', BORN_NAME),
-    //     'id' => 'test',
-    //     'desc' => '',
-    //     'icon' => 'el el-signal',
-    //     'priority' => 100,
-    //     //'callback' => 'test_redux_callback',
-    //     'fields' => array(
-    //         array(
-    //             "id" => $prefix . "foo_test",
-    //             "desc" => "",
-    //             'type' => 'editor',
-    //             'title' => __('footer text', BORN_NAME),
-    //             "default" => ""
-    //         )
-    //     )
-    // ));
-
-
     /** Section for child theme translations */
     $translations_child = [];
 
@@ -259,7 +240,11 @@ if (!empty($languages)) {
             "id" => $prefix . "foo_" . $lng['code'],
             "type" => "editor",
             "title" => 'Footer text' . ' (' . $lng['code'] . ')',
-            "default" => ""
+            "default" => "",
+            'args'   => array(
+                "wpautop" => "true"
+            )
+            
         ];
 
     }

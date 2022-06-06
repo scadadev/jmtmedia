@@ -71,7 +71,8 @@ wp_reset_query();
         <div class="footer-text-block">
             <?php
             global $BORN_FRAMEWORK;
-            echo $BORN_FRAMEWORK->Options->Get('foo_' . $lang_code);
+            $wrap_foo = $BORN_FRAMEWORK->Options->Get('foo_' . $lang_code);
+            echo wpautop($wrap_foo);
             ?>
         </div>
         <div class="footer-logos">
@@ -89,9 +90,13 @@ wp_reset_query();
                     }
                 }
                 foreach($foo_gallery as $item) : ?>
-                    <a href="<?php echo $item['f_link'] ?>" target="_blank">
+                   <?php if ($item['f_link']):?> <a href="<?php echo $item['f_link'] ?>" target="_blank">
                     <?php echo wp_get_attachment_image($item['f_img']['id'], 'full'); ?>
                     </a>
+                    <?php else: ?>
+                        <?php echo wp_get_attachment_image($item['f_img']['id'], 'full'); ?>
+                    <?php endif;?>
+
                 <?php endforeach; ?>
             </div>
         </div>
