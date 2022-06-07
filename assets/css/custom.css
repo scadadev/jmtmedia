@@ -99,7 +99,7 @@
 
 .footer-logos-inner::-webkit-scrollbar {
     height: 6px;
-    background-color: #000;
+    background-color: transparent;
 }
 
 .footer-logos-inner::-webkit-scrollbar-thumb {
