@@ -1,9 +1,12 @@
 .wpml-ls-legacy-dropdown-click {
-    width: 6em;    margin-left: 68px;
+    width: 6em;
+    margin-left: 68px;
 }
+
 .aff-footer {
     padding-bottom: 40px;
 }
+
 .wpml-ls-legacy-dropdown-click a {
     border: none;
 }
@@ -53,11 +56,12 @@
     top: calc(50% - 0.12em);
 }
 
-.wpml-ls-legacy-dropdown-click a.wpml-ls-item-toggle.wpml-open:after { 
+.wpml-ls-legacy-dropdown-click a.wpml-ls-item-toggle.wpml-open:after {
 
     /* border: 0.3em solid transparent; */
     border-top: 0.3em solid transparent;
-    border-bottom: 0.3em solid #fff;    top: calc(50% - 0.512em);
+    border-bottom: 0.3em solid #fff;
+    top: calc(50% - 0.512em);
     /* transform: rotate(180deg); */
 }
 
@@ -92,7 +96,7 @@
     align-items: center;
     width: 100%;
     overflow-x: scroll;
-    scrollbar-color: #111111 #000;
+    scrollbar-color: #111111 transparent;
     scrollbar-width: 6px;
     scroll-snap-type: x mandatory;
 }
@@ -112,9 +116,9 @@
 
 .footer-logos-inner a {
     display: inline-block;
-    /* margin-right: 20px;
-    margin-bottom: 20px; */
     width: fit-content;
+    width: -webkit-fit-content;
+    min-width: 42px;
 }
 
 .footer-logos-inner img {
@@ -128,9 +132,11 @@
 .footer-logos-inner a img {
     transition: opacity 0.3s ease;
 }
-.footer-logos-inner a:hover img{
+
+.footer-logos-inner a:hover img {
     opacity: 0.9;
 }
+
 .social-links {
     display: flex;
     align-items: center;
@@ -163,6 +169,89 @@
     box-shadow: 0 2px 0 #000;
 }
 
+.game-cover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.game-cover:before {
+    content: '';
+    position: absolute;
+    width: 104%;
+    height: 104%;
+    top: -2%;
+    left: -2%;
+    display: block;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+
+/* @supports ((-webkit-backdrop-filter: blur(2em)) or (backdrop-filter: blur(2em))) {
+    .game-cover:before {
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+    }
+  } */
+
+
+.game-cover img {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    min-height: 100%;
+    filter: blur(9px);
+}
+
+.game-cover-btns {
+    position: absolute;
+    top: calc(50% - 32px);
+    z-index: 3;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.game-cover-btns .button {
+    width: 203px;
+    height: 56px;
+    background: #DD9933;
+    background-color: #e7a736;
+    color: #fff;
+    font-size: 1.136rem;
+    line-height: 1.4;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.game-cover-btns .button:first-child {
+    margin: 0 30px 0 15px;
+}
+
+.game-cover-btns .button:last-child {
+    margin: 0 15px 0 30px;
+}
+
+.game-cover-btns .button:hover {
+    background-color: #dd9933;
+}
+
+.aff-game-header h1 {
+    color: #fff;
+    margin: 10px 0 20px;
+}
+
+
+@media only screen and (max-width: 1024px) and (min-width: 992px) {
+
+    .game-cover-btns .button:last-child,
+    .game-cover-btns .button:first-child {
+        margin: 0 15px;
+    }
+}
 
 @media only screen and (max-width: 992px) {
 
@@ -175,17 +264,28 @@
         width: 0;
     }
 
-    .aff-copyright .content {
-        flex-flow: row;
-        margin-bottom: 35px;
+    .wpml-ls-legacy-dropdown-click {
+        margin-left: 0;
+    }
+
+    .aff-copyright .copyright {
+        padding-right: 80px;
+        order: 1;
     }
 
     .social-links {
+        order: 0;
         margin-bottom: 24px;
     }
 
-    .wpml-ls-legacy-dropdown-click {
-        margin-left: 0;
+    .aff-copyright .content {
+        flex-flow: column;
+        margin-bottom: 0;
+        align-items: flex-start;
+    }
+
+    .aff-copyright {
+        padding-bottom: 15px;
     }
 
 }
@@ -198,6 +298,21 @@
     .social-links a {
         margin: 0 0 0 20px;
     }
+
+    .game-cover-btns .button:last-child {
+        margin: 0 15px;
+    }
+
+    .game-cover-btns .button:first-child {
+        margin: 0 15px 40px;
+    }
+
+    .game-cover-btns {
+        flex-direction: column;
+        align-items: center;
+        top: calc(50% - 76px);
+    }
+
 
 
 }

@@ -337,3 +337,35 @@ Redux::setSection('born_options', array(
     'priority' => 106,
     'fields' => $translations_child
 ));
+
+
+/** play buttons  */
+
+$translations_child = [];
+
+if (!empty($languages)) {
+    foreach ($languages as $lng) {
+        $translations_child[] = [
+            "id" => $prefix . "play_btn_demo" . $lng['code'],
+            "type" => "text",
+            "title" => 'Play demo btn' . ' (' . $lng['code'] . ')',
+            "default" => "Play demo"
+        ];
+        $translations_child[] = [
+            "id" => $prefix . "play_btn_real" . $lng['code'],
+            "type" => "text",
+            "title" => 'Play real money btn' . ' (' . $lng['code'] . ')',
+            "default" => "Play with real money"
+        ];
+
+    }
+}
+
+Redux::setSection('born_options', array(
+    'title' => 'Play buttons for game',
+    'id' => 'play_btns_game',
+    'desc' => '',
+    'icon' => 'el el-play',
+    'priority' => 106,
+    'fields' => $translations_child
+));

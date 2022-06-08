@@ -36,13 +36,43 @@ $avatar = get_user_meta($user->ID,'custom_avatar',true);
     </div>
 
     <div class="game has-sidebar">
+    <div class="title">
         <div class="born-container is-wide">
+            <h1><?php the_title();?></h1>
+        </div>
+    </div>
+
+
+        <div class="born-container is-wide">
+
             <div class="content">
                 <div class="left">
-                    <div class="iframe-wrapper">
-                        <!--<iframe src="game.html" frameborder="0"></iframe>-->
+                    <!--<iframe src="game.html" frameborder="0"></iframe>-->
+                    <div class="iframe-wrapper" id="iframe-wrapper">
                         <?php if (get_field('iframe')):?>
-                        <?php echo get_field('iframe');?>
+
+                        <div class="game-cover">
+                            
+                            <div class="game-cover-btns">
+                                <a href="#" class="button click-to-game"><?php echo $BORN_FRAMEWORK->Options->Get('play_btn_demo' . $lang_code);?></a>
+                                <a href="<?php echo get_field('main_link',$single_featured->ID);?>"  class="button external-game"><?php echo $BORN_FRAMEWORK->Options->Get('play_btn_real' . $lang_code);?></a>
+                              </div>
+                            <?php  if (get_post_thumbnail_id()):?>
+                                    <?php  echo born_acf_image(get_post_thumbnail_id(),'game-thumb',true);?>
+                            <?php  endif;?>
+
+                        </div> 
+                        <script>
+                            jQuery(document).ready(function() {
+                                let dlockdiv  = jQuery('#iframe-wrapper');
+                                jQuery('.click-to-game').on('click', function(e) {
+                                    e.preventDefault();
+                                    jQuery('.game-cover').hide();
+                                    dlockdiv.append('<?php echo get_field("iframe");?>');
+                                });
+                            });
+                        </script>
+                        
                         <?php endif;?>
                         <div class="report">
                             <a href="#iframe-report" rel="modal:open"><?php echo $BORN_FRAMEWORK->Options->Get('report_problem' . $lang_code);?></a>
