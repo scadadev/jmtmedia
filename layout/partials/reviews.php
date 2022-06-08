@@ -190,10 +190,6 @@ $registration_page = get_permalink($BORN_FRAMEWORK->Options->Get('registration_p
                 </div>
             </div>
 
-
-
-
-
             <?php if ($reviews->found_posts > 0):?>
 
             <div class="reviews-list">
@@ -444,6 +440,17 @@ $registration_page = get_permalink($BORN_FRAMEWORK->Options->Get('registration_p
 
        jQuery('.sorting .dropdown-trigger').text(jQuery(this).text());
 
+    });
+
+    jQuery(window).on("load", function () {
+        jQuery(window).width() < 992 &&
+        jQuery(document).mouseup( function(e){ 
+            var div = jQuery( ".sorting .dropdown-content" ); 
+            if ( !div.is(e.target) 
+                && div.has(e.target).length === 0 ) { 
+                    jQuery('.sorting .has-dropdown').removeClass('is-visible'); 
+            }
+        });
     });
 
     jQuery(window).on('load', function() {

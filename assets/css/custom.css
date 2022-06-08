@@ -118,7 +118,7 @@
     display: inline-block;
     width: fit-content;
     width: -webkit-fit-content;
-    min-width: 42px;
+    /* min-width: 42px; */
 }
 
 .footer-logos-inner img {
@@ -220,10 +220,12 @@
     background-color: #e7a736;
     color: #fff;
     font-size: 1.136rem;
-    line-height: 1.4;
+    line-height: 1.1;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
+    padding: 0 10px;
 
 }
 
