@@ -116,6 +116,8 @@
 
 .footer-logos-inner a {
     display: inline-block;
+    /* margin-right: 20px;
+    margin-bottom: 20px; */
     width: fit-content;
     width: -webkit-fit-content;
     /* min-width: 42px; */
@@ -247,6 +249,10 @@
 }
 
 
+.page-template-sitemap .title {
+    padding: 30px 0;
+}
+
 @media only screen and (max-width: 1024px) and (min-width: 992px) {
 
     .game-cover-btns .button:last-child,
@@ -315,7 +321,9 @@
         top: calc(50% - 76px);
     }
 
-
+    .page-template-sitemap .title {
+        padding: 20px 0 0;
+    }
 
 }
 

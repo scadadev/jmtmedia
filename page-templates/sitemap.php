@@ -36,7 +36,13 @@ while (have_posts()) {
             </div>
         </div>
     <?php endif; ?>
+    
     <div class="aff-post">
+    <div class="title">
+        <div class="born-container is-wide">
+            <h1><?php the_title();?></h1>
+        </div>
+    </div>
         <div class="born-container is-wide">
             <div class="main sitemap-links">
                 <div class="sitemap-links__wrap">
