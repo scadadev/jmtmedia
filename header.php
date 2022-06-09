@@ -1172,6 +1172,7 @@ endif;
 
     </style>
     <meta name="theme-color" content="<?php echo $global_background; ?>">
+    <script src=“https://images.dmca.com/Badges/DMCABadgeHelper.min.js”> </script>
 </head>
 
 <?php

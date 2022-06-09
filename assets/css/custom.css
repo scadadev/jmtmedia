@@ -129,6 +129,7 @@
     max-width: max-content;
     margin-right: 20px;
     margin-bottom: 20px;
+    flex-shrink: 0;
 }
 
 .footer-logos-inner a img {
