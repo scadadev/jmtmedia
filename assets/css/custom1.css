@@ -249,10 +249,68 @@
     margin: 10px 0 20px;
 }
 
-
 .page-template-sitemap .title {
     padding: 30px 0;
 }
+
+.aff-game-details-row {
+    display: flex;
+}
+
+.aff-game-details-tables {
+    width: 28%;
+}
+
+.aff-game-details-tables:last-child {
+    margin-left: 10%;
+}
+
+.aff-game-details-thumb {
+    flex-grow: 0;
+    margin-right: 16px;
+    max-width: 276px;
+}
+
+.aff-game-details {
+    padding: 40px 0 35px;
+    background: #FFFFFF;
+}
+
+.aff-game-details .title h2 {
+    margin-bottom: 39px;
+}
+
+
+table.game-details-table tr td {
+    background: transparent;
+    padding: 7px 8px 7px 0;
+}
+
+table.game-details-table tr td:first-child {
+    width: 68%;
+    opacity: 0.7;
+}
+
+/* table.game-details-table tr td:last-child {
+    width: 45%;
+} */
+
+@media only screen and (max-width: 1199px) and (min-width: 992px) {
+
+    table.game-details-table tr td:first-child {
+        width: 64%;
+    }
+
+    .aff-game-details-tables:last-child {
+        margin-left: 4%;
+    }
+
+    .aff-game-details-tables {
+        width: 30%;
+    }
+
+}
+
 
 @media only screen and (max-width: 1024px) and (min-width: 992px) {
 
@@ -260,6 +318,9 @@
     .game-cover-btns .button:first-child {
         margin: 0 15px;
     }
+
+
+
 }
 
 @media only screen and (max-width: 992px) {
@@ -297,6 +358,32 @@
         padding-bottom: 15px;
     }
 
+
+    .aff-game-details-thumb {
+        margin-bottom: 30px;
+        margin-right: 0;
+        width: 100%;
+        max-width: 100%;
+    }
+    .aff-game-details-thumb img {
+        width: 100%;
+    }
+    .aff-game-details-row {
+        flex-wrap: wrap;
+    }
+
+    .aff-game-details-tables:last-child {
+        margin-left: 0;
+    }
+
+    .aff-game-details-tables {
+        width: 50%;
+    }
+
+    table.game-details-table tr td:first-child {
+        width: 55%;
+    }
+
 }
 
 @media only screen and (max-width: 767px) {
@@ -325,7 +412,19 @@
     .page-template-sitemap .title {
         padding: 20px 0 0;
     }
+    .aff-game-details-tables {
+        width: 100%;
+    }
 
+    .aff-game-details .title h2 {
+        margin-bottom: 19px;
+    }
+    .aff-game-details-thumb {
+        margin-bottom: 10px;
+    }
+    .aff-game-details {
+        padding: 20px 0;
+    }
 }
 
 @media only screen and (max-width: 400px) {
