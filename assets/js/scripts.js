@@ -131,7 +131,7 @@
     let dev = scrImagev.indexOf("DMCA");
 
     if (dev > 0) {
-      jQuery(this).addClass("dmca-badge");
+      jQuery(this).parent().addClass("dmca-badge");
     }
   });
 })(jQuery);
