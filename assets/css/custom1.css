@@ -1,10 +1,12 @@
 .wpml-ls-legacy-dropdown-click {
     width: 6em;
-    margin-left: 68px;
+    /* margin-left: 68px; */
 }
-
+.aff-footer .footer-widgets .widget {
+    margin-bottom: 40px;
+}
 .aff-footer {
-    padding-bottom: 40px;
+    padding-bottom: 10px;
 }
 
 .wpml-ls-legacy-dropdown-click a {
@@ -420,10 +422,14 @@ table.game-details-table tr td:first-child {
         margin-bottom: 19px;
     }
     .aff-game-details-thumb {
-        margin-bottom: 10px;
+        margin-bottom: 10px;    text-align: center;
     }
     .aff-game-details {
         padding: 20px 0;
+    }
+
+    .aff-game-details-thumb img {
+        width: 70%;
     }
 }
 

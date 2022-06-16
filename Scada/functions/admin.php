@@ -277,7 +277,7 @@ Redux::setSection('born_options', array(
     'title' => 'Footer text block    ',
     'id' => 'footer_text',
     'desc' => '',
-    'icon' => 'el el-certificate',
+    'icon' => 'el el-align-justify',
     'priority' => 105,
     'fields' => $translations_child
 ));
@@ -333,7 +333,7 @@ Redux::setSection('born_options', array(
     'title' => 'Social links ',
     'id' => 'social_links',
     'desc' => '',
-    'icon' => 'el el-certificate',
+    'icon' => 'el el-share-alt',
     'priority' => 106,
     'fields' => $translations_child
 ));
@@ -367,5 +367,103 @@ Redux::setSection('born_options', array(
     'desc' => '',
     'icon' => 'el el-play',
     'priority' => 106,
+    'fields' => $translations_child
+));
+
+
+
+/** game info titles  */
+
+$translations_child = [];
+
+if (!empty($languages)) {
+    foreach ($languages as $lng) {
+        $translations_child[] = [
+            "id" => $prefix . "game_name_title" . $lng['code'],
+            "type" => "text",
+            "title" => 'Game name' . ' (' . $lng['code'] . ')',
+            "default" => "Game name"
+        ];
+        $translations_child[] = [
+            "id" => $prefix . "software_provider_title" . $lng['code'],
+            "type" => "text",
+            "title" => 'Software provider' . ' (' . $lng['code'] . ')',
+            "default" => "Software provider"
+        ];
+        $translations_child[] = [
+            "id" => $prefix . "theme_title" . $lng['code'],
+            "type" => "text",
+            "title" => 'Theme' . ' (' . $lng['code'] . ')',
+            "default" => "Theme"
+        ];
+        $translations_child[] = [
+            "id" => $prefix . "paylines_title" . $lng['code'],
+            "type" => "text",
+            "title" => 'Paylines' . ' (' . $lng['code'] . ')',
+            "default" => "Paylines"
+        ];
+        $translations_child[] = [
+            "id" => $prefix . "rtp_title" . $lng['code'],
+            "type" => "text",
+            "title" => 'RTP' . ' (' . $lng['code'] . ')',
+            "default" => "RTP"
+        ];
+        $translations_child[] = [
+            "id" => $prefix . "game_launch_date_title" . $lng['code'],
+            "type" => "text",
+            "title" => 'Game launch date' . ' (' . $lng['code'] . ')',
+            "default" => "Game launch date"
+        ];
+        $translations_child[] = [
+            "id" => $prefix . "jackpot_title" . $lng['code'],
+            "type" => "text",
+            "title" => 'Jackpot' . ' (' . $lng['code'] . ')',
+            "default" => "Jackpot"
+        ];
+        $translations_child[] = [
+            "id" => $prefix . "bonus_feature_title" . $lng['code'],
+            "type" => "text",
+            "title" => 'Bonus feature' . ' (' . $lng['code'] . ')',
+            "default" => "Bonus feature"
+        ];
+        $translations_child[] = [
+            "id" => $prefix . "free_spins_title" . $lng['code'],
+            "type" => "text",
+            "title" => 'Free Spins' . ' (' . $lng['code'] . ')',
+            "default" => "Free Spins"
+        ];
+        $translations_child[] = [
+            "id" => $prefix . "autoplay_title" . $lng['code'],
+            "type" => "text",
+            "title" => 'Autoplay' . ' (' . $lng['code'] . ')',
+            "default" => "Autoplay"
+        ];
+        $translations_child[] = [
+            "id" => $prefix . "minimum_bet_title" . $lng['code'],
+            "type" => "text",
+            "title" => 'Minimum bet' . ' (' . $lng['code'] . ')',
+            "default" => "Minimum bet"
+        ];
+        $translations_child[] = [
+            "id" => $prefix . "maximum_bet_title" . $lng['code'],
+            "type" => "text",
+            "title" => 'Maximum bet' . ' (' . $lng['code'] . ')',
+            "default" => "Maximum bet"
+        ];
+        $translations_child[] = [
+            "id" => $prefix . "biggest_win_title" . $lng['code'],
+            "type" => "text",
+            "title" => 'Biggest win' . ' (' . $lng['code'] . ')',
+            "default" => "Biggest win"
+        ];
+    }
+}
+
+Redux::setSection('born_options', array(
+    'title' => 'Games infotitles',
+    'id' => 'games_infotitles',
+    'desc' => '',
+    'icon' => 'el el-info-circle',
+    'priority' => 107,
     'fields' => $translations_child
 ));

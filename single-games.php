@@ -139,64 +139,65 @@ $avatar = get_user_meta($user->ID,'custom_avatar',true);
 
  </div>
 
-
+ <?php if (get_field('game_name_value')):?>
  <div class="aff-game-details">
-    <?php if (get_field('information_title')):?>
+  
      <div class="title">
          <div class="born-container is-wide">
              <h2><?php echo get_field("information_title");?></h2>
          </div>
      </div>
-     <?php endif;?>
+    
      <div class="born-container is-wide">
          <div class="aff-game-details-row">
-             <div class="aff-game-details-thumb">
+            <div class="aff-game-details-thumb">
                  <?php  if (get_post_thumbnail_id()):?>
                  <?php  echo born_acf_image(get_post_thumbnail_id(),'full',true);?>
                  <?php  endif;?>
              </div>
+         
              <div class="aff-game-details-tables">
                  <table class="game-details-table">
                      <tbody>
                          <?php if (get_field('game_name_value')):?>
                          <tr>
-                             <td><?php echo get_field("game_name");?></td>
+                             <td><?php echo $BORN_FRAMEWORK->Options->Get('game_name_title' . $lang_code);?></td>
                              <td><?php echo get_field("game_name_value");?></td>
                          </tr>
                          <?php endif;?>
                          <?php if (get_field('software_provider_value')):?>
                          <tr>
-                             <td><?php echo get_field("software_provider");?></td>
+                             <td><?php echo $BORN_FRAMEWORK->Options->Get('software_provider_title' . $lang_code);?></td>
                              <td><?php echo get_field("software_provider_value");?></td>
                          </tr>
                          <?php endif;?>
                          <?php if (get_field('theme_value')):?>
                          <tr>
-                             <td><?php echo get_field("theme");?></td>
+                             <td><?php echo $BORN_FRAMEWORK->Options->Get('theme_title' . $lang_code);?></td>
                              <td><?php echo get_field("theme_value");?></td>
                          </tr>
                          <?php endif;?>
-                         <?php if (get_field('game_type_value')):?>
+                         <?php if (get_field('paylines_value')):?>
                          <tr>
-                             <td><?php echo get_field("game_type");?></td>
-                             <td><?php echo get_field("game_type_value");?></td>
+                             <td><?php echo $BORN_FRAMEWORK->Options->Get('paylines_title' . $lang_code);?></td>
+                             <td><?php echo get_field("paylines_value");?></td>
                          </tr>
                          <?php endif;?>
                          <?php if (get_field('rtp_value')):?>
                          <tr>
-                             <td><?php echo get_field("rtp");?></td>
+                             <td><?php echo $BORN_FRAMEWORK->Options->Get('rtp_title' . $lang_code);?></td>
                              <td><?php echo get_field("rtp_value");?></td>
                          </tr>
                          <?php endif;?>
                          <?php if (get_field('game_launch_date_value')):?>
                          <tr>
-                             <td><?php echo get_field("game_launch_date");?></td>
+                             <td><?php echo $BORN_FRAMEWORK->Options->Get('game_launch_date_title' . $lang_code);?></td>
                              <td><?php echo get_field("game_launch_date_value");?></td>
                          </tr>
                          <?php endif;?>
                          <?php if (get_field('jackpot_value')):?>
                          <tr>
-                             <td><?php echo get_field("jackpot");?></td>
+                             <td><?php echo $BORN_FRAMEWORK->Options->Get('jackpot_title' . $lang_code);?></td>
                              <td><?php echo get_field("jackpot_value");?></td>
                          </tr>
                          <?php endif;?>
@@ -206,51 +207,51 @@ $avatar = get_user_meta($user->ID,'custom_avatar',true);
              <div class="aff-game-details-tables">
                  <table class="game-details-table">
                      <tbody>
-                     <?php if (get_field('bonus_feature')):?>
+                     
                          <tr>
-                             <td><?php echo get_field("bonus_feature");?></td>
+                             <td><?php echo $BORN_FRAMEWORK->Options->Get('bonus_feature_title' . $lang_code);?></td>
                              <td><?php if ( get_field( 'bonus_feature_value' ) == 1 ) { ?>
                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/check.svg" alt=""> 
                             <?php    } else { 
                                 echo 'No'; 
                                 } ?></td>
                          </tr>
-                         <?php endif;?>
-                         <?php if (get_field('free_spins')):?>
+                         
+                        
                          <tr>
-                             <td><?php echo get_field("free_spins");?></td>
+                             <td><?php echo $BORN_FRAMEWORK->Options->Get('free_spins_title' . $lang_code);?></td>
                              <td><?php if ( get_field( 'free_spins_value' ) == 1 ) { ?>
                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/check.svg" alt=""> 
                             <?php    } else { 
                                 echo 'No'; 
                                 } ?></td>
                          </tr>
-                         <?php endif;?>
-                         <?php if (get_field('autoplay')):?>
+                        
+                      
                          <tr>
-                             <td><?php echo get_field("autoplay");?></td>
+                             <td><?php echo $BORN_FRAMEWORK->Options->Get('autoplay_title' . $lang_code);?></td>
                              <td><?php if ( get_field( 'autoplay_value' ) == 1 ) { ?>
                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/check.svg" alt=""> 
                             <?php    } else { 
                                 echo 'No'; 
                                 } ?></td>
                          </tr>
-                         <?php endif;?>
+                    
                          <?php if (get_field('minimum_bet_value')):?>
                          <tr>
-                             <td><?php echo get_field("minimum_bet");?></td>
+                             <td><?php echo $BORN_FRAMEWORK->Options->Get('minimum_bet_title' . $lang_code);?></td>
                              <td><?php echo get_field("minimum_bet_value");?></td>
                          </tr>
                          <?php endif;?>
                          <?php if (get_field('maximum_bet_value')):?>
                          <tr>
-                             <td><?php echo get_field("maximum_bet");?></td>
+                             <td><?php echo $BORN_FRAMEWORK->Options->Get('maximum_bet_title' . $lang_code);?></td>
                              <td><?php echo get_field("maximum_bet_value");?></td>
                          </tr>
                          <?php endif;?>
                          <?php if (get_field('biggest_win_value')):?>
                          <tr>
-                             <td><?php echo get_field("biggest_win");?></td>
+                             <td><?php echo $BORN_FRAMEWORK->Options->Get('biggest_win_title' . $lang_code);?></td>
                              <td><?php echo get_field("biggest_win_value");?></td>
                          </tr>
                          <?php endif;?>
@@ -261,7 +262,7 @@ $avatar = get_user_meta($user->ID,'custom_avatar',true);
          </div>
      </div>
  </div>
-
+ <?php endif;?>
 
 
  <?php if ($other_games):?>
