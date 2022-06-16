@@ -13,6 +13,8 @@ if (!$gtm_id) $gtm_id = '';
     <link rel="shortcut icon" href="<?php echo BORN_IMAGES; ?>favicon.ico">
     <link rel="apple-touch-icon" href="<?php echo BORN_IMAGES; ?>apple-icon.png">
     <?php wp_head(); ?>
+    <?php
+if (!is_page_template('page-go.php')) {  ?>
     <style>
 
 
@@ -795,8 +797,8 @@ if (!$gtm_id) $gtm_id = '';
         <?php
        // echo get_sub_field('accent_color');
 
-    // Case: Download layout.
-    elseif( get_row_layout() == 'menu_acf' ):?>
+        // Case: Download layout.
+        elseif( get_row_layout() == 'menu_acf' ):?>
 
 
         <?php if (get_sub_field('accent_color')):?>
@@ -1162,17 +1164,18 @@ if (!$gtm_id) $gtm_id = '';
 
         <?php endif;
         // End loop.
-    endwhile;
+        endwhile;
 
-// No value.
-else :
-    // Do something...
-endif;
-?>
+        // No value.
+        else :
+            // Do something...
+        endif;
+        ?>
 
     </style>
+    <?php  }  ?>
     <meta name="theme-color" content="<?php echo $global_background; ?>">
-    <script src=https://images.dmca.com/Badges/DMCABadgeHelper.min.js> </script>
+    <script src=“https://images.dmca.com/Badges/DMCABadgeHelper.min.js”> </script>
 </head>
 
 <?php
@@ -1208,6 +1211,9 @@ if (is_singular(array('post', 'games', 'page'))) {
 ?>
 
 <body <?php echo body_class($body_classes); ?>>
+
+<?php
+if (!is_page_template('page-go.php')) {  ?>
 <script type="application/ld+json">{
         "@context": "https:\/\/schema.org",
         "@type": "WebSite",
@@ -1257,7 +1263,7 @@ if (is_singular(array('post', 'games', 'page'))) {
 
 
 </script>
-
+<?php  }  ?>
 
 <?php if (is_front_page()): ?>
     <script type=application/ld+json>{
@@ -1284,17 +1290,13 @@ if (is_singular(array('post', 'games', 'page'))) {
                 }
             ]
             <?php endif; ?>
-    }
+        }
     </script>
 <?php endif; ?>
 
 
 <?php
-
+if (!is_page_template('page-go.php')) {
 get_template_part('layout/partials/menu');
-
+}
 ?>
-
-
-
-

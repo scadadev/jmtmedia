@@ -459,11 +459,68 @@ if (!empty($languages)) {
     }
 }
 
+
+
 Redux::setSection('born_options', array(
     'title' => 'Games infotitles',
     'id' => 'games_infotitles',
     'desc' => '',
     'icon' => 'el el-info-circle',
+    'priority' => 107,
+    'fields' => $translations_child
+));
+
+
+/** Go page */
+
+$translations_child = [];
+
+if (!empty($languages)) {
+    foreach ($languages as $lng) {
+
+        $translations_child[] = [
+            "id" => $prefix . "go_title" . $lng['code'],
+            "type" => "text",
+            "title" => 'go title' . ' (' . $lng['code'] . ')',
+            "default" => ""
+        ];
+
+        $translations_child[] = [
+            "id" => $prefix . "go_text" . $lng['code'],
+            "type" => "text",
+            "title" => 'go text' . ' (' . $lng['code'] . ')',
+            "default" => ""
+        ];
+
+        $translations_child[] = [
+            "id" => $prefix . "go_seconds" . $lng['code'],
+            "type" => "text",
+            "title" => 'go seconds' . ' (' . $lng['code'] . ')',
+            "default" => "seconds"
+        ];
+
+        $translations_child[] = [
+            "id" => $prefix . "go_button" . $lng['code'],
+            "type" => "text",
+            "title" => 'go button' . ' (' . $lng['code'] . ')',
+            "default" => ""
+        ];
+    }
+}
+
+$translations_child[] = [
+    "id" => $prefix . "go_logo",
+    "type" => "media",
+    "title" => 'logo',
+    "default" => ""
+];
+
+
+Redux::setSection('born_options', array(
+    'title' => 'Go page',
+    'id' => 'go_page',
+    'desc' => '',
+    'icon' => 'el el-retweet',
     'priority' => 107,
     'fields' => $translations_child
 ));
