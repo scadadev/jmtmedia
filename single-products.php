@@ -127,7 +127,7 @@ $h2_ratings = get_field('ratings_after_h2_titles');
             "@context": "https:\/\/schema.org",
             "@type": "FAQPage",
             "mainEntity": [
-<?php foreach (get_field('faq_settings') as $index => $q): ?>
+            <?php foreach (get_field('faq_settings') as $index => $q): ?>
 
 
                 {
@@ -183,7 +183,6 @@ $h2_ratings = get_field('ratings_after_h2_titles');
                     <a href="<?php echo get_field('main_link'); ?>" target="_blank">
                     <?php
                     echo wp_get_attachment_image(get_field('logo'), 'icons-large');
-                    // echo born_acf_image(get_field('logo'), 'icons-large', true);
                     ?>
                     </a>
                 </span>
@@ -250,8 +249,10 @@ $h2_ratings = get_field('ratings_after_h2_titles');
                     <?php if ($has_gallery): ?>
                         <a rel="gallery-1" href="<?php echo born_acf_image(get_post_thumbnail_id(), 'large', false); ?>"
                            class="thumb">
+                            <?php $thumbnail_id = get_post_thumbnail_id( $post->ID );
+                            $alt = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true); ?>
                             <img rel="gallery-1"
-                                 src="<?php echo born_acf_image(get_post_thumbnail_id(), 'product-gal', false); ?>">
+                                 src="<?php echo born_acf_image(get_post_thumbnail_id(), 'product-gal', false); ?>" alt="<?php echo $alt;?>">
                         </a>
                     <?php else: ?>
 
