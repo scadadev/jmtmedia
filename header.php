@@ -1175,7 +1175,7 @@ if (!is_page_template('page-go.php')) {  ?>
     </style>
     <?php  }  ?>
     <meta name="theme-color" content="<?php echo $global_background; ?>">
-    <script src=“https://images.dmca.com/Badges/DMCABadgeHelper.min.js”> </script>
+    <script src=https://images.dmca.com/Badges/DMCABadgeHelper.min.js> </script>
 </head>
 
 <?php
