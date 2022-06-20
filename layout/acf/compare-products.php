@@ -80,7 +80,8 @@ $lang_code = born_get_current_language_code();
                 <span>
                     <span class="logo">
                         <a href="<?php echo get_permalink($product->ID); ?>" class="image">
-                            <?php echo born_acf_image(get_field('logo', $product->ID), 'icons-small-128', true); ?>
+                            <?php //echo born_acf_image(get_field('logo', $product->ID), 'icons-small-128', true); ?>
+                            <?php  echo wp_get_attachment_image(get_field('logo',$product->ID), 'icons-small-128');  ?>
                         </a>
                     </span>
                     <a href="<?php echo get_permalink($product->ID); ?>" class="name"><?php echo get_the_title($product->ID); ?></a>
@@ -119,7 +120,8 @@ $lang_code = born_get_current_language_code();
                         <span>
                             <span class="logo">
                                 <a href="<?php echo get_permalink($products[0]->ID); ?>" class="image">
-                                    <?php echo born_acf_image(get_field('logo', $products[0]->ID), 'icons-small-128', true); ?>
+                                    <?php //echo born_acf_image(get_field('logo', $products[0]->ID), 'icons-small-128', true); ?>
+                                    <?php  echo wp_get_attachment_image(get_field('logo',$product->ID), 'icons-small');  ?>
                                 </a>
                             </span>
                             <a href="<?php echo get_permalink($products[0]->ID); ?>" class="name"><?php echo get_the_title($products[0]->ID); ?></a>
@@ -149,7 +151,8 @@ $lang_code = born_get_current_language_code();
                         <span>
                             <span class="logo">
                                 <a href="<?php echo get_permalink($products[0]->ID); ?>" class="image">
-                                    <?php echo born_acf_image(get_field('logo', $products[0]->ID), 'icons-small-128', true); ?>
+                                    <?php // echo born_acf_image(get_field('logo', $products[0]->ID), 'icons-small-128', true); ?>
+                                    <?php  echo wp_get_attachment_image(get_field('logo',$product->ID), 'icons-small');  ?>
                                 </a>
                             </span>
                             <a href="<?php echo get_permalink($products[0]->ID); ?>" class="name"><?php echo get_the_title($products[0]->ID); ?></a>
@@ -165,7 +168,9 @@ $lang_code = born_get_current_language_code();
                         <span>
                             <span class="logo">
                                 <a href="<?php echo get_permalink($products[1]->ID); ?>" class="image">
-                                    <?php echo born_acf_image(get_field('logo', $products[1]->ID), 'icons-small-128', true); ?>
+                                    <?php //echo born_acf_image(get_field('logo', $products[1]->ID), 'icons-small-128', true); ?>
+                                    <?php $logo1 = wp_get_attachment_image(get_field('logo',$products[1]->ID), 'icons-small') ?>
+                                    <?php  echo $logo1;  ?>
                                 </a>
                             </span>
                             <a href="<?php echo get_permalink($products[1]->ID); ?>" class="name"><?php echo get_the_title($products[1]->ID); ?></a>
@@ -195,7 +200,9 @@ $lang_code = born_get_current_language_code();
                         <span>
                             <span class="logo">
                                 <a href="<?php echo get_permalink($products[1]->ID); ?>" class="image">
-                                    <?php echo born_acf_image(get_field('logo', $products[1]->ID), 'icons-small-128', true); ?>
+                                    <?php //echo born_acf_image(get_field('logo', $products[1]->ID), 'icons-small-128', true); ?>
+                                    <?php $logo1 = wp_get_attachment_image(get_field('logo',$products[1]->ID), 'icons-small') ?>
+                                    <?php  echo $logo1;  ?>
                                 </a>
                             </span>
                             <a href="<?php echo get_permalink($products[1]->ID); ?>" class="name"><?php echo get_the_title($products[1]->ID); ?></a>
@@ -211,7 +218,9 @@ $lang_code = born_get_current_language_code();
                         <span>
                             <span class="logo">
                                 <a href="<?php echo get_permalink($products[2]->ID); ?>" class="image">
-                                    <?php echo born_acf_image(get_field('logo', $products[2]->ID), 'icons-small-128', true); ?>
+                                    <?php //echo born_acf_image(get_field('logo', $products[2]->ID), 'icons-small-128', true); ?>
+                                    <?php $logo2 = wp_get_attachment_image(get_field('logo',$products[2]->ID), 'icons-small') ?>
+                                    <?php  echo $logo2;  ?>
                                 </a>
                             </span>
                             <a href="<?php echo get_permalink($products[2]->ID); ?>" class="name"><?php echo get_the_title($products[2]->ID); ?></a>
@@ -241,7 +250,9 @@ $lang_code = born_get_current_language_code();
                         <span>
                             <span class="logo">
                                 <a href="<?php echo get_permalink($products[2]->ID); ?>" class="image">
-                                    <?php echo born_acf_image(get_field('logo', $products[2]->ID), 'icons-small-128', true); ?>
+                                    <?php //echo born_acf_image(get_field('logo', $products[2]->ID), 'icons-small-128', true); ?>
+                                    <?php $logo2 = wp_get_attachment_image(get_field('logo',$products[2]->ID), 'icons-small') ?>
+                                    <?php  echo $logo2;  ?>
                                 </a>
                             </span>
                             <a href="<?php echo get_permalink($products[2]->ID); ?>" class="name"><?php echo get_the_title($products[2]->ID); ?></a>
@@ -257,7 +268,9 @@ $lang_code = born_get_current_language_code();
                         <span>
                             <span class="logo">
                                 <a href="<?php echo get_permalink($products[3]->ID); ?>" class="image">
-                                    <?php echo born_acf_image(get_field('logo', $products[3]->ID), 'icons-small-128', true); ?>
+                                    <?php // echo born_acf_image(get_field('logo', $products[3]->ID), 'icons-small-128', true); ?>
+                                    <?php $logo3 = wp_get_attachment_image(get_field('logo',$products[3]->ID), 'icons-small') ?>
+                                    <?php  echo $logo3;  ?>
                                 </a>
                             </span>
                             <a href="<?php echo get_permalink($products[3]->ID); ?>" class="name"><?php echo get_the_title($products[3]->ID); ?></a>
@@ -287,7 +300,9 @@ $lang_code = born_get_current_language_code();
                         <span>
                             <span class="logo">
                                 <a href="<?php echo get_permalink($products[3]->ID); ?>" class="image">
-                                    <?php echo born_acf_image(get_field('logo', $products[3]->ID), 'icons-small-128', true); ?>
+                                    <?php // echo born_acf_image(get_field('logo', $products[3]->ID), 'icons-small-128', true); ?>
+                                    <?php $logo3 = wp_get_attachment_image(get_field('logo',$products[3]->ID), 'icons-small') ?>
+                                    <?php  echo $logo3;  ?>
                                 </a>
                             </span>
                             <a href="<?php echo get_permalink($products[3]->ID); ?>" class="name"><?php echo get_the_title($products[3]->ID); ?></a>
@@ -331,7 +346,8 @@ $lang_code = born_get_current_language_code();
                                 <span>
                                     <span class="logo">
                                         <a href="<?php echo get_permalink($product->ID); ?>" class="image">
-                                    <?php echo born_acf_image(get_field('logo', $product->ID), 'icons-small-128', true); ?>
+                                    <?php // echo born_acf_image(get_field('logo', $product->ID), 'icons-small-128', true); ?>
+                                    <?php  echo wp_get_attachment_image(get_field('logo',$product->ID), 'icons-small');  ?>
                                 </a>
                                     </span>
                                     <a href="<?php echo get_permalink($product->ID); ?>" class="name"><?php echo get_the_title($product->ID); ?></a>
@@ -401,7 +417,8 @@ $lang_code = born_get_current_language_code();
                         <span>
                             <span class="logo">
                                 <a href="<?php echo get_permalink($product->ID); ?>" class="image">
-                                    <?php echo born_acf_image(get_field('logo', $product->ID), 'icons-small-128', true); ?>
+                                    <?php // echo born_acf_image(get_field('logo', $product->ID), 'icons-small-128', true); ?>
+                                    <?php  echo wp_get_attachment_image(get_field('logo',$product->ID), 'icons-small');  ?>
                                 </a>
                             </span>
                             <a href="<?php echo get_permalink($product->ID); ?>" class="name"><?php echo get_the_title($product->ID); ?></a>
@@ -446,7 +463,8 @@ $lang_code = born_get_current_language_code();
                         <span>
                             <span class="logo">
                                 <a href="<?php echo get_permalink($product->ID); ?>" class="image">
-                                    <?php echo born_acf_image(get_field('logo', $product->ID), 'icons-small-128', true); ?>
+                                    <?php // echo born_acf_image(get_field('logo', $product->ID), 'icons-small-128', true); ?>
+                                    <?php  echo wp_get_attachment_image(get_field('logo',$product->ID), 'icons-small');  ?>
                                 </a>
                             </span>
                             <a href="<?php echo get_permalink($product->ID); ?>" class="name"><?php echo get_the_title($product->ID); ?></a>
@@ -474,7 +492,9 @@ $lang_code = born_get_current_language_code();
                         <span>
                             <span class="logo">
                                 <a href="<?php echo get_permalink($product->ID); ?>" class="image">
-                                    <?php echo born_acf_image(get_field('logo', $product->ID), 'icons-small-128', true); ?>
+                                    <?php //echo born_acf_image(get_field('logo', $product->ID), 'icons-small-128', true); ?>
+                                    <?php  echo wp_get_attachment_image(get_field('logo',$product->ID), 'icons-small');  ?>
+                                    
                                 </a>
                             </span>
                             <a href="<?php echo get_permalink($product->ID); ?>" class="name"><?php echo get_the_title($product->ID); ?></a>
@@ -495,12 +515,25 @@ $lang_code = born_get_current_language_code();
                                         ];
 
                                         echo '<a href="'. wp_get_attachment_url($thumbnail_id) .'" rel="gallery-1" class="compare-gallery" data-bot-link="'. esc_attr(json_encode($scrolldown)) .'">';
-                                    }
-                                    echo born_acf_image($thumbnail_id,'compare-img',true);
+                                    } ?>
+
+                                    <?php $thumbnail_id = get_post_thumbnail_id( $product->ID );
+                                    $alt = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true); 
+                                    $thumbnail_attributes = wp_get_attachment_image_src( $thumbnail_id, 'compare-img' ); // возвращает массив параметров миниатюры
+                                    $src = $thumbnail_attributes[0];
+                                    ?>    
+
+                                   <img src="<?php echo $src; ?>" alt="<?php echo $alt;?>" width="190" height="126"> 
+                                  <?php 
                                     if($thumbnail_id) {
                                         echo '</a>';
                                     }
                                 ?>
+
+                           
+
+
+
                             </div>
 
                         <?php endif;?>
@@ -522,7 +555,8 @@ $lang_code = born_get_current_language_code();
                         <span>
                             <span class="logo">
                                 <a href="<?php echo get_permalink($product->ID); ?>" class="image">
-                                    <?php echo born_acf_image(get_field('logo', $product->ID), 'icons-small-128', true); ?>
+                                    <?php // echo born_acf_image(get_field('logo', $product->ID), 'icons-small-128', true); ?>
+                                    <?php  echo wp_get_attachment_image(get_field('logo',$product->ID), 'icons-small');  ?>
                                 </a>
                             </span>
                             <a href="<?php echo get_permalink($product->ID); ?>" class="name"><?php echo get_the_title($product->ID); ?></a>
