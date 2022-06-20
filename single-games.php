@@ -211,7 +211,7 @@ $avatar = get_user_meta($user->ID,'custom_avatar',true);
                          <tr>
                              <td><?php echo $BORN_FRAMEWORK->Options->Get('bonus_feature_title' . $lang_code);?></td>
                              <td><?php if ( get_field( 'bonus_feature_value' ) == 1 ) { ?>
-                               <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/check.svg" alt=""> 
+                               <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/check.svg" alt="Check mark"> 
                             <?php    } else { 
                                 echo 'No'; 
                                 } ?></td>
@@ -221,7 +221,7 @@ $avatar = get_user_meta($user->ID,'custom_avatar',true);
                          <tr>
                              <td><?php echo $BORN_FRAMEWORK->Options->Get('free_spins_title' . $lang_code);?></td>
                              <td><?php if ( get_field( 'free_spins_value' ) == 1 ) { ?>
-                               <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/check.svg" alt=""> 
+                               <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/check.svg" alt="Check mark"> 
                             <?php    } else { 
                                 echo 'No'; 
                                 } ?></td>
@@ -231,7 +231,7 @@ $avatar = get_user_meta($user->ID,'custom_avatar',true);
                          <tr>
                              <td><?php echo $BORN_FRAMEWORK->Options->Get('autoplay_title' . $lang_code);?></td>
                              <td><?php if ( get_field( 'autoplay_value' ) == 1 ) { ?>
-                               <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/check.svg" alt=""> 
+                               <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/check.svg" alt="Check mark"> 
                             <?php    } else { 
                                 echo 'No'; 
                                 } ?></td>
