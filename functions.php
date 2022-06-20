@@ -32,3 +32,24 @@ add_action('wp_insert_post', function($post_ID, $post, $update){
         ]);
     }
 }, 10, 3);
+/**
+ * Убрать из загрузки
+ */
+function plug_disable_emoji() {
+    remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+    remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+    remove_action( 'wp_print_styles', 'print_emoji_styles' );
+    remove_action( 'admin_print_styles', 'print_emoji_styles' );
+    remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+    remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
+    remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+    add_filter( 'tiny_mce_plugins', 'plug_disable_tinymce_emoji' );
+  }
+  add_action( 'init', 'plug_disable_emoji', 1 );
+   
+  /**
+   * Очистить в tinymce
+   */
+  function plug_disable_tinymce_emoji( $plugins ) {
+    return array_diff( $plugins, array( 'wpemoji' ) );
+  }

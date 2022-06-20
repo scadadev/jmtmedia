@@ -41,7 +41,7 @@ $block_title = $BORN_FRAMEWORK->Options->Get('table_of_contents_'.$lang_code);
             jQuery.post(theme_params.ajaxurl, {action:'get_menu_slugs', anchors:anchors})
             .done(function(response){
                 if( response.data.length ) {
-                  console.log(response.data);
+                //   console.log(response.data);
                     for( let i=0; i<response.data.length; i++ ) {
                         jQuery(list).append('<li><a href="#' + response.data[i].slug + '">' + response.data[i].anchor + '</a></li>');
                         //jQuery('.'+ response.data[i].id).prepend('<a name="' + response.data[i].slug + '"></a>');

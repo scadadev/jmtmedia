@@ -7,12 +7,12 @@ function add_theme_css() {
     $theme_version = wp_get_theme()->get( 'Version' );
 
     wp_enqueue_style( 'theme-child', get_stylesheet_directory_uri() . '/assets/css/style.css', ['aff'], $theme_version );
-    wp_enqueue_style( 'custom', get_stylesheet_directory_uri() . '/assets/css/custom1.css', ['aff'], $theme_version );
+   // wp_enqueue_style( 'custom', get_stylesheet_directory_uri() . '/assets/css/custom1.css', ['aff'], $theme_version );
 
     wp_deregister_script('my_loadmore');
     wp_dequeue_script('my_loadmore');
     //wp_register_script( 'my_loadmore', get_stylesheet_directory_uri() . '/assets/js/loadmore.js', ['jquery'] );
-
+  //  wp_enqueue_script('lottie', get_stylesheet_directory_uri() . '/assets/js/lottie.min.js', [], $theme_version, true);
     wp_enqueue_script('theme-child', get_stylesheet_directory_uri() . '/assets/js/scripts.js', ['jquery', 'lightbox'], $theme_version, true);
 
     wp_localize_script( 'theme-child', 'theme_params', array(
@@ -46,3 +46,7 @@ function aff_set_contrast_color($styles){
 
     return $styles;
 }
+function wpassist_remove_block_library_css(){
+	wp_dequeue_style( 'wp-block-library' );
+}
+add_action( 'wp_enqueue_scripts', 'wpassist_remove_block_library_css' );

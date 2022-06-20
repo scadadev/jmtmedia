@@ -10,7 +10,7 @@ if (!$gtm_id) $gtm_id = '';
     <meta http-equiv="content-type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>"/>
     <title><?php wp_title(''); ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="shortcut icon" href="<?php echo BORN_IMAGES; ?>favicon.ico">
+    <!-- <link rel="shortcut icon" href="<?php echo bloginfo('template_url'); ?>/assets/img/tmp/favicon.ico"> -->
     <link rel="apple-touch-icon" href="<?php echo BORN_IMAGES; ?>apple-icon.png">
     <?php wp_head(); ?>
     <?php
