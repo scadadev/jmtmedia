@@ -11,8 +11,6 @@ wp_reset_query();
 
 ?>
 
-
-
     <div id="lottie-test"></div>
     <div class="redirect-page-content">
         <div class="redirect-page--inner">
@@ -43,7 +41,7 @@ wp_reset_query();
         </div>
     </div>
     <style>
-            .page-template-page-go  {
+        .page-template-page-go  {
             box-shadow: none;
             position: relative;
             height: 100vh;
@@ -80,10 +78,10 @@ wp_reset_query();
 
 		.redirect-page--inner p.h2 {
 			font-size: 28px;
-    padding: 0 50px;
-    margin-top: 15px;
-    margin-bottom: 20px;
-    line-height: 1.3;
+            padding: 0 50px;
+            margin-top: 15px;
+            margin-bottom: 20px;
+            line-height: 1.3;
 		}
 
 		.redirect-page--inner .divider {
@@ -92,7 +90,6 @@ wp_reset_query();
 			height: 6px;
             background: rgb(231 167 55 / 27%);
             overflow:hidden;
-            
 		}
 
         .redirect-page--inner .divider span {
@@ -103,9 +100,7 @@ wp_reset_query();
             display: block;
             height: 6px;
             width:100%;
-          
         }
-
 
         @keyframes fill{
             0%    { transform: translateX(-100%); }
@@ -138,6 +133,10 @@ wp_reset_query();
             text-align: center;
         }
 
+        .redirect-page--inner .logo img {
+            max-width:50%;
+        }
+
 		@media only screen and (max-width: 1024px) {
 
 			.redirect-page--inner {
@@ -167,9 +166,7 @@ wp_reset_query();
             }
 		}
 
-
     </style>
-
 
  <!-- animation -->
     <script src="<?php echo get_home_url();?>/wp-content/themes/aff-child/assets/js/lottie.min.js"></script>
@@ -23784,8 +23781,7 @@ wp_reset_query();
         var anim;
         anim = bodymovin.loadAnimation(params);
     </script>
-    
-    <!-- редирект -->
+<!-- редирект -->
     <script>
         var strGET = window.location.search.replace( '?', ''); 
         var sParameterName = strGET.split('=');
