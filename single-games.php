@@ -287,11 +287,8 @@ $queried_posts = new WP_Query($args);
      </div>
 
      <div class="born-container is-wide">
-
          <div class="games-grid">
-
              <?php while ( $queried_posts->have_posts() ): $queried_posts->the_post();  ?>
-
 
              <div class="game-card">
                  <div class="image">
@@ -301,18 +298,33 @@ $queried_posts = new WP_Query($args);
                  <div class="heading">
                      <h3><a href="<?php echo get_permalink();?>"><?php echo get_the_title();?></a></h3>
                  </div>
-
+                <table class="game-details-table game-grid-details-table">
+                    <?php if (get_field('software_provider_value')):?>
+                         <tr>
+                             <td><?php echo $BORN_FRAMEWORK->Options->Get('software_provider_title' . $lang_code);?></td>
+                             <td><?php echo get_field("software_provider_value");?></td>
+                         </tr>
+                    <?php endif;?>   
+                    <?php if (get_field('paylines_value')):?>
+                         <tr>
+                             <td><?php echo $BORN_FRAMEWORK->Options->Get('paylines_title' . $lang_code);?></td>
+                             <td><?php echo get_field("paylines_value");?></td>
+                         </tr>
+                    <?php endif;?>
+                    <?php if (get_field('rtp_value')):?>
+                         <tr>
+                             <td><?php echo $BORN_FRAMEWORK->Options->Get('rtp_title' . $lang_code);?></td>
+                             <td><?php echo get_field("rtp_value");?></td>
+                         </tr>
+                     <?php endif;?>
+                </table>     
                  <div class="cta">
                      <a href="<?php echo get_permalink();?>"
                          class="button"><?php echo $BORN_FRAMEWORK->Options->Get('read_more' . $lang_code); ?></a>
                  </div>
              </div>
-
-
              <?php endwhile;?>
              <?php wp_reset_postdata();?>
-
-
          </div>
 
          <?php if ($queried_posts->max_num_pages > 1):?>
@@ -326,17 +338,13 @@ $queried_posts = new WP_Query($args);
                 ])); ?>"><?php echo $BORN_FRAMEWORK->Options->Get('load_more' . $lang_code);?></a>
          </div>
          <?php endif;?>
-
      </div>
-
  </div>
  <?php endif;?>
 
  <?php endif;?>
 
-
  <div class="aff-post is-review has-sidebar">
-
      <div class="born-container is-wide">
          <div class="content">
              <div class="main">

@@ -563,6 +563,20 @@ table.game-details-table tr td {
   }
 }
 
+table.game-details-table.game-grid-details-table {
+  margin: 0 12px 23px;
+  width: calc(100% - 24px);
+
+  tr td {
+    padding: 2px 8px 2px 0;
+
+    &:first-child {
+      width: 60%;
+    }
+ }
+
+}
+
 
 @media screen and (min-width: 576px) {
   .sitemap-links {
@@ -724,6 +738,10 @@ table.game-details-table tr td {
 
   .aff-game-details-thumb img {
     width: 70%;
+  }
+  table.game-details-table.game-grid-details-table {
+    margin: 0 16px 23px;
+    width: calc(100% - 32px);
   }
 }
 
