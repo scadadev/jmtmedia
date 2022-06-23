@@ -31,6 +31,7 @@ function scada_init() {
     require_once __DIR__ . '/Classes/Payments.php';
     require_once __DIR__ . '/Classes/Gambleaware.php';
     require_once __DIR__ . '/Classes/GameDetails.php';
+    require_once __DIR__ . '/Classes/ProductBadge.php';
 
     require_once __DIR__ . '/Classes/ScadaMainMenuMobileWalker.php';
     require_once __DIR__ . '/Classes/ScadaMainMenuWalker.php';
@@ -45,4 +46,5 @@ function scada_init() {
     new \Scada\Payments();
     new \Scada\Gambleaware();
     new \Scada\GameDetails();
+    new \Scada\ProductBadge();
 }

@@ -19,6 +19,7 @@
     .logo {
       width: 96px;
       height: 96px;
+      position: relative;
 
       .image {
         padding: 0;
@@ -28,7 +29,7 @@
 
     &__wrap {
       border: 1px solid #F4F4F4;
-      padding: 1rem 1rem 1.5rem;
+      padding: 1.2rem 1.2rem 1.5rem;
     }
 
     &.has-gambleaware {
@@ -85,6 +86,7 @@
 
     .items-list-more {
       line-height: 2;
+      margin-top: 10px;
 
       .more {
         display: inline;
@@ -246,6 +248,36 @@
   margin-top: -7px;
 }
 
+.product-extended-badge {
+  position: absolute;
+  right: -10px;
+  background: #FFEAC7;
+  font-size: 12px;
+  bottom: -10px;
+  padding: 6px;
+  line-height: 1.4;
+  z-index: 2;
+}
+
+.product-extended-rating {
+  position: absolute;
+  display: flex;
+  background: #dd9934;
+  z-index: 2;
+  width: 24px;
+  height: 24px;
+  color: #fff;
+  top: -10px;
+  left: -10px;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+}
+
+
+
+
+
 @media screen and (max-width: 1199px) {
   .aff-main-items-list .item .data.summary {
     width: 100%;
@@ -265,7 +297,9 @@
       max-width: 300px;
     }
   }
-
+  .aff-main-items-list .item .items-list-more {
+    margin-top: 0;
+}
 }
 
 @media (min-width: 768px) and (max-width: 1199px) {

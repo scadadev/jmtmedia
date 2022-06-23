@@ -42,8 +42,9 @@ $is_default_page = basename(get_page_template()) === 'page.php';
     <?php if ($products): ?>
         <div class="items-list">
 
-
-            <?php foreach ($products as $product): ?>
+            <?php 
+            $i=1;
+            foreach ($products as $product): ?>
 
                 <?php
                 // $play_link = str_replace('https://', '',get_field('main_link',$product->ID));
@@ -60,12 +61,16 @@ $is_default_page = basename(get_page_template()) === 'page.php';
                         <div class="item__wrap">
                             <div class="content">
                                 <div class="logo">
+                                <span class="product-extended-rating" style="background:<?php echo get_field('rating_color', $product->ID); ?>;"><?php echo $i; ?></span>
                                     <a href="<?php echo get_field('main_link', $product->ID); ?>" class="image" target="_blank">
                                         <?php
                                         echo wp_get_attachment_image(get_field('logo', $product->ID), 'icons-large');
                                         //echo born_acf_image(get_field('logo',$product->ID),'icons-large',true);
                                         ?>
                                     </a>
+                                    <?php if (get_field('product_badge', $product->ID)):?>
+                                         <span class="product-extended-badge"><?php echo get_field('product_badge', $product->ID); ?></span>
+                                    <?php endif;?>
                                 </div>
                                 <div class="data">
                                     <div class="row">
@@ -111,8 +116,9 @@ $is_default_page = basename(get_page_template()) === 'page.php';
                     </div>
                 </div>
 
-            <?php endforeach; ?>
-
+            <?php 
+            $i++;
+            endforeach; ?>
 
         </div>
 
