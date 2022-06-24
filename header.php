@@ -818,11 +818,24 @@ if (!is_page_template('page-go.php')) {  ?>
         <?php if (get_sub_field('accent_color') || get_sub_field('hover_color')):?>
 
         /* Main items list */
+        @media screen and (min-width: 768px){ 
+            .aff-main-items-list .item .name:hover,
+            .aff-main-items-list .item .link:hover {
+                color: <?php echo get_sub_field('accent_color');?> !important;
+            }
+        }
+        @media screen and (max-width: 767px){ 
+            .aff-main-items-list .item .name:hover,
+            .aff-main-items-list .item .link:hover {
+                color: #000 !important;
+            }
 
-        .aff-main-items-list .item .name:hover,
-        .aff-main-items-list .item .link:hover {
+            .aff-main-items-list .item .cta .text:hover {
             color: <?php echo get_sub_field('accent_color');?> !important;
         }
+
+        }
+
 
         .aff-main-items-list .item .desc .text span,
         .aff-main-items-list .item .cta .text {
@@ -832,10 +845,20 @@ if (!is_page_template('page-go.php')) {  ?>
         .aff-main-items-list .item .cta .button {
             background: <?php echo get_sub_field('accent_color');?> !important;
         }
-
+        @media screen and (max-width: 767px){ 
+        
         .aff-main-items-list .item .cta .button:hover {
-            background: <?php echo get_sub_field('hover_color');?> !important;
+            background: <?php echo get_sub_field('accent_color');?> !important;
         }
+
+        }
+
+        @media screen and (min-width: 768px){ 
+            .aff-main-items-list .item .cta .button:hover {
+                background: <?php echo get_sub_field('hover_color');?> !important;
+            }
+        }
+
 
         .aff-slots-wrapper .aff-main-items-list.is-ordered .items-list .item::before {
             background-color: <?php echo get_sub_field('accent_color');?>;
@@ -1101,16 +1124,42 @@ if (!is_page_template('page-go.php')) {  ?>
 
         <?php endif;?>
 
+        .aff-main-items-list .item .cta .text:hover {
+                color:#fff !important;
+            }
+
+
+
+
         <?php elseif( get_row_layout() == 'product_list' ):?>
+
+
+           
 
         <?php if (get_sub_field('accent_color') || get_sub_field('hover_color')):?>
 
         /* Main items list */
-
-        .aff-main-items-list .item .name:hover,
-        .aff-main-items-list .item .link:hover {
-            color: <?php echo get_sub_field('accent_color');?> !important;
+        @media screen and (min-width: 768px) { 
+            
+            .aff-main-items-list .item .name:hover,
+            .aff-main-items-list .item .link:hover {
+                color: <?php echo get_sub_field('accent_color');?> !important;
+            }
         }
+
+        @media screen and (max-width: 767px){ 
+
+
+           
+
+            .aff-main-items-list .item .name:hover,
+            .aff-main-items-list .item .link:hover {
+                color: #000 !important;
+            }
+            
+
+        }
+
 
         .aff-main-items-list .item .desc .text span,
         .aff-main-items-list .item .cta .text {
