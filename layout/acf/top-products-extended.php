@@ -55,7 +55,7 @@ $is_default_page = basename(get_page_template()) === 'page.php';
                         <div class="item__wrap">
                             <div class="content">
                                 <div class="logo">
-                                    <span class="product-extended-rating" style="background:<?php echo get_field('rating_color', $product->ID); ?>;"><?php echo $i; ?></span>
+                                <span class="product-extended-rating" <?php if (get_field('rating_color', $product->ID)):?> style="background:<?php echo get_field('rating_color', $product->ID); ?>;" <?php endif;?>><?php echo $i; ?></span>
                                     <a href="<?php echo get_field('main_link', $product->ID); ?>" class="image" target="_blank">
                                         <?php
                                         echo wp_get_attachment_image(get_field('logo', $product->ID), 'icons-large');
