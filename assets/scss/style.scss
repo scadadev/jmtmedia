@@ -577,6 +577,10 @@ table.game-details-table.game-grid-details-table {
 
 }
 
+.aff-details-table .data > a:last-child > .coma,
+.aff-details-table .data > .coma:last-child {
+      display:none;
+}
 
 @media screen and (min-width: 576px) {
   .sitemap-links {

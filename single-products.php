@@ -598,11 +598,11 @@ $h2_ratings = get_field('ratings_after_h2_titles');
                                     <?php if ($detail_text_arr['link']): ?>
                                         <a href="<?php echo $detail_text_arr['link']; ?>">
                                     <?php endif; ?>
-                                    <?php echo $detail_text_arr['text']; ?>
+                                    <?php echo $detail_text_arr['text']; ?><span class="coma">, </span>
                                     <?php if ($detail_text_arr['link']): ?>
                                         </a>
                                     <?php endif; ?>
-
+                                    
                                 <?php endforeach; ?>
                             </td>
                         </tr>
@@ -1128,7 +1128,7 @@ if ($total_stars && $total_reviews) {
                                     <?php echo $q['title']; ?>
                                     <div class="caret"></div>
                                 </div>
-                                <div id="collapse<?php echo $index; ?>" class="collapse" aria-labelledby="headingOne"
+                                <div id="collapse<?php echo $index; ?>" class="collapse" 
                                      data-parent="#accordionExample">
                                     <div class="desc">
                                         <?php echo $q['value']; ?>
