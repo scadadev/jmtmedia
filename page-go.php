@@ -19,8 +19,8 @@ wp_reset_query();
                 <?php echo wp_get_attachment_image($BORN_FRAMEWORK->Options->Get('go_logo')['id'], ''); ?>
                 <?php endif;?>
             </div>
-            <?php
-                    if( $referer = wp_get_raw_referer() ) {
+     
+            <?php    if( $referer = wp_get_raw_referer() ) {
                         $massstring = explode('/', $referer); 
                         if(in_array('ru', $massstring)) { ?>
 
@@ -31,10 +31,10 @@ wp_reset_query();
 
                       <?php  
                         } else { ?>
-                            <p class="h2"><?php echo $BORN_FRAMEWORK->Options->Get('go_title' . 'lv');?></p>
+                            <p class="h2"><?php echo $BORN_FRAMEWORK->Options->Get('go_title' . $lang_code);?></p>
                             <span class="divider"><span></span></span>
-                            <p><?php echo $BORN_FRAMEWORK->Options->Get('go_text' . 'lv');?> <img src="<?php echo get_home_url();?>/wp-content/themes/aff-child/assets/img/sec.svg" alt=""> <?php echo $BORN_FRAMEWORK->Options->Get('go_seconds' . 'lv');?></p>
-                            <a class="button" onclick="redirectTo();"><?php echo $BORN_FRAMEWORK->Options->Get('go_button' . 'lv');?></a>
+                            <p><?php echo $BORN_FRAMEWORK->Options->Get('go_text' . $lang_code);?> <img src="<?php echo get_home_url();?>/wp-content/themes/aff-child/assets/img/sec.svg" alt=""> <?php echo $BORN_FRAMEWORK->Options->Get('go_seconds' . $lang_code);?></p>
+                            <a class="button" onclick="redirectTo();"><?php echo $BORN_FRAMEWORK->Options->Get('go_button' . $lang_code);?></a>
                             <?php   }
                     }
                 ?>
