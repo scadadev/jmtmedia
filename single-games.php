@@ -213,7 +213,7 @@ $avatar = get_user_meta($user->ID,'custom_avatar',true);
                              <td><?php if ( get_field( 'bonus_feature_value' ) == 1 ) { ?>
                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/check.svg" alt="Check mark"> 
                             <?php    } else { 
-                                echo 'No'; 
+                                echo $BORN_FRAMEWORK->Options->Get('no-value' . $lang_code);
                                 } ?></td>
                          </tr>
                          
@@ -223,7 +223,7 @@ $avatar = get_user_meta($user->ID,'custom_avatar',true);
                              <td><?php if ( get_field( 'free_spins_value' ) == 1 ) { ?>
                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/check.svg" alt="Check mark"> 
                             <?php    } else { 
-                                echo 'No'; 
+                                echo $BORN_FRAMEWORK->Options->Get('no-value' . $lang_code); 
                                 } ?></td>
                          </tr>
                         
@@ -233,7 +233,7 @@ $avatar = get_user_meta($user->ID,'custom_avatar',true);
                              <td><?php if ( get_field( 'autoplay_value' ) == 1 ) { ?>
                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/check.svg" alt="Check mark"> 
                             <?php    } else { 
-                                echo 'No'; 
+                                 echo $BORN_FRAMEWORK->Options->Get('no-value' . $lang_code);
                                 } ?></td>
                          </tr>
                     

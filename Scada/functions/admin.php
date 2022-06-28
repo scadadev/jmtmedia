@@ -439,6 +439,12 @@ if (!empty($languages)) {
             "default" => "Autoplay"
         ];
         $translations_child[] = [
+            "id" => $prefix . "no-value" . $lng['code'],
+            "type" => "text",
+            "title" => 'No' . ' (' . $lng['code'] . ')',
+            "default" => "Nē"
+        ];
+        $translations_child[] = [
             "id" => $prefix . "minimum_bet_title" . $lng['code'],
             "type" => "text",
             "title" => 'Minimum bet' . ' (' . $lng['code'] . ')',
