@@ -530,3 +530,28 @@ Redux::setSection('born_options', array(
     'priority' => 107,
     'fields' => $translations_child
 ));
+
+
+
+/** page header image */
+
+$translations_child = [];
+
+
+
+$translations_child[] = [
+    "id" => $prefix . "header_bg_image",
+    "type" => "media",
+    "title" => 'header bg image',
+    "default" => ""
+];
+
+
+Redux::setSection('born_options', array(
+    'title' => 'Header bg image',
+    'id' => 'header_bg_img',
+    'desc' => '',
+    'icon' => 'el el-picture',
+    'priority' => 108,
+    'fields' => $translations_child
+));
