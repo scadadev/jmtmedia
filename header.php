@@ -17,7 +17,6 @@ if (!$gtm_id) $gtm_id = '';
 if (!is_page_template('page-go.php')) {  ?>
     <style>
 
-
         <?php if (get_field('add_scroll_down_cta')):?>
 
         .aff-bottom-cta .content {
@@ -62,7 +61,6 @@ if (!is_page_template('page-go.php')) {  ?>
         }
 
         <?php endif;?>
-
 
         <?php
 
@@ -185,7 +183,6 @@ if (!is_page_template('page-go.php')) {  ?>
         .aff-is-author .heading .name a:hover {
             color: <?php echo $global_accent;?>;
         }
-
 
         /* News slider */
 
@@ -315,7 +312,6 @@ if (!is_page_template('page-go.php')) {  ?>
             color: <?php echo $global_accent;?> !important;
         }
 
-
         /* Reviews */
 
         .aff-reviews .aff-rating:before,
@@ -334,7 +330,6 @@ if (!is_page_template('page-go.php')) {  ?>
         .aff-item-reviews .review-select .sorting .is-visible .dropdown-trigger {
             color: <?php echo $global_accent;?> !important;
         }
-
 
         .aff-rating-select ul li.hover span {
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='28px' height='26px'%3E%3Cpath fill-rule='evenodd' fill='%23<?php echo str_replace('#','',$global_accent);?>' d='M27.181,11.164 L21.120,16.849 L22.551,24.877 C22.602,25.162 22.479,25.451 22.236,25.621 C21.992,25.791 21.669,25.814 21.402,25.679 L13.911,21.890 L6.419,25.680 C6.304,25.739 6.177,25.767 6.051,25.767 C5.887,25.767 5.724,25.718 5.586,25.621 C5.342,25.451 5.220,25.162 5.271,24.877 L6.701,16.849 L0.641,11.164 C0.425,10.961 0.347,10.659 0.440,10.383 C0.534,10.107 0.781,9.907 1.079,9.865 L9.455,8.693 L13.201,1.390 C13.334,1.130 13.610,0.965 13.911,0.965 C14.212,0.965 14.487,1.130 14.621,1.390 L18.366,8.693 L26.742,9.865 C27.040,9.907 27.288,10.107 27.381,10.383 C27.474,10.659 27.397,10.961 27.181,11.164 Z'/%3E%3C/svg%3E");
@@ -824,19 +819,7 @@ if (!is_page_template('page-go.php')) {  ?>
                 color: <?php echo get_sub_field('accent_color');?> !important;
             }
         }
-        @media screen and (max-width: 767px){ 
-            .aff-main-items-list .item .name:hover,
-            .aff-main-items-list .item .link:hover {
-                color: #000 !important;
-            }
-
-            .aff-main-items-list .item .cta .text:hover {
-            color: <?php echo get_sub_field('accent_color');?> !important;
-        }
-
-        }
-
-
+       
         .aff-main-items-list .item .desc .text span,
         .aff-main-items-list .item .cta .text {
             color: <?php echo get_sub_field('accent_color');?> !important;
@@ -845,20 +828,13 @@ if (!is_page_template('page-go.php')) {  ?>
         .aff-main-items-list .item .cta .button {
             background: <?php echo get_sub_field('accent_color');?> !important;
         }
-        @media screen and (max-width: 767px){ 
-        
-        .aff-main-items-list .item .cta .button:hover {
-            background: <?php echo get_sub_field('accent_color');?> !important;
-        }
 
-        }
 
         @media screen and (min-width: 768px){ 
             .aff-main-items-list .item .cta .button:hover {
                 background: <?php echo get_sub_field('hover_color');?> !important;
             }
         }
-
 
         .aff-slots-wrapper .aff-main-items-list.is-ordered .items-list .item::before {
             background-color: <?php echo get_sub_field('accent_color');?>;
@@ -931,8 +907,6 @@ if (!is_page_template('page-go.php')) {  ?>
 
         <?php endif;?>
 
-
-
         <?php endif;?>
 
         <?php
@@ -979,7 +953,6 @@ if (!is_page_template('page-go.php')) {  ?>
 
         <?php endif;?>
 
-
         <?php elseif( get_row_layout() == 'line' ):
 
           //  get_template_part('layout/acf/line');
@@ -994,7 +967,6 @@ if (!is_page_template('page-go.php')) {  ?>
         }
 
         <?php endif;?>
-
 
         <?php elseif( get_row_layout() == 'compare_products' ):?>
 
@@ -1089,6 +1061,7 @@ if (!is_page_template('page-go.php')) {  ?>
         }
         <?php endif;?>
 
+
         <?php elseif( get_row_layout() == 'recent_news' ):?>
 
         <?php if (get_sub_field('button_color') || get_sub_field('accent_color') || get_sub_field('hover_color')):?>
@@ -1130,6 +1103,7 @@ if (!is_page_template('page-go.php')) {  ?>
 
         <?php elseif( get_row_layout() == 'product_list' ):?>
 
+
         <?php if (get_sub_field('accent_color') || get_sub_field('hover_color')):?>
 
         /* Main items list */
@@ -1140,16 +1114,7 @@ if (!is_page_template('page-go.php')) {  ?>
                 color: <?php echo get_sub_field('accent_color');?> !important;
             }
         }
-
-        @media screen and (max-width: 767px){ 
-
-            .aff-main-items-list .item .name:hover,
-            .aff-main-items-list .item .link:hover {
-                color: #000 !important;
-            }
-            
-        }
-
+        
         .aff-main-items-list .item .desc .text span,
         .aff-main-items-list .item .cta .text {
             color: <?php echo get_sub_field('accent_color');?> !important;
@@ -1205,10 +1170,31 @@ if (!is_page_template('page-go.php')) {  ?>
         endwhile;
 
         // No value.
-        else:
+        else :
             // Do something...
         endif;
         ?>
+
+        @media screen and (max-width: 767px) { 
+        
+            .aff-main-items-list .item .cta .button,
+            .aff-main-items-list .item .cta .button:hover {
+                background: <?php echo $global_accent;?> !important;
+            }
+   
+            .aff-main-items-list .item .cta .text:hover,
+            .aff-main-items-list .item .cta .text {            
+                color: <?php echo $global_accent;?>!important;
+            }
+            
+            .aff-main-items-list .item .name,
+            .aff-main-items-list .item .link,
+            .aff-main-items-list .item .name:hover,
+            .aff-main-items-list .item .link:hover {
+                color: <?php echo $global_background;?>!important;
+            }
+           
+        }
 
     </style>
     <?php  }  ?>
