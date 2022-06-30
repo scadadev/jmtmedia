@@ -298,26 +298,26 @@ $queried_posts = new WP_Query($args);
                  <div class="heading">
                      <h3><a href="<?php echo get_permalink();?>"><?php echo get_the_title();?></a></h3>
                  </div>
-                <table class="game-details-table game-grid-details-table">
+                <div class="game-grid-details-table">
                     <?php if (get_field('software_provider_value')):?>
-                         <tr>
-                             <td><?php echo $BORN_FRAMEWORK->Options->Get('software_provider_title' . $lang_code);?></td>
-                             <td><?php echo get_field("software_provider_value");?></td>
-                         </tr>
+                        <div class="game-details-row">
+                             <span><?php echo $BORN_FRAMEWORK->Options->Get('software_provider_title' . $lang_code);?></span>
+                             <span><?php echo get_field("software_provider_value");?></span>
+                        </div>
                     <?php endif;?>   
                     <?php if (get_field('paylines_value')):?>
-                         <tr>
-                             <td><?php echo $BORN_FRAMEWORK->Options->Get('paylines_title' . $lang_code);?></td>
-                             <td><?php echo get_field("paylines_value");?></td>
-                         </tr>
+                        <div class="game-details-row">
+                             <span><?php echo $BORN_FRAMEWORK->Options->Get('paylines_title' . $lang_code);?></span>
+                             <span><?php echo get_field("paylines_value");?></span>
+                             </div>
                     <?php endif;?>
                     <?php if (get_field('rtp_value')):?>
-                         <tr>
-                             <td><?php echo $BORN_FRAMEWORK->Options->Get('rtp_title' . $lang_code);?></td>
-                             <td><?php echo get_field("rtp_value");?></td>
-                         </tr>
+                        <div class="game-details-row">
+                             <span><?php echo $BORN_FRAMEWORK->Options->Get('rtp_title' . $lang_code);?></span>
+                             <span><?php echo get_field("rtp_value");?></span>
+                        </div>
                      <?php endif;?>
-                </table>     
+                </div>     
                  <div class="cta">
                      <a href="<?php echo get_permalink();?>"
                          class="button"><?php echo $BORN_FRAMEWORK->Options->Get('read_more' . $lang_code); ?></a>

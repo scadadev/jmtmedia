@@ -563,18 +563,37 @@ table.game-details-table tr td {
   }
 }
 
-table.game-details-table.game-grid-details-table {
-  margin: 0 12px 23px;
+// table.game-details-table.game-grid-details-table {
+//   margin: 0 12px 23px;
+//   width: calc(100% - 24px);
+
+//   tr td {
+//     padding: 2px 8px 2px 0;
+
+//     &:first-child {
+//       width: 60%;
+//     }
+//  }
+
+// }
+
+
+.game-grid-details-table {
+  margin: -10px 12px 7px;
   width: calc(100% - 24px);
 
-  tr td {
-    padding: 2px 8px 2px 0;
+  .game-details-row {
+    margin-bottom: 12px;
 
-    &:first-child {
-      width: 60%;
+    span {
+      line-height: 1.05;
+      display: block;
+
+      &:first-child {
+        opacity: 0.7;
+      }
     }
- }
-
+  }
 }
 
 .aff-details-table .data > a:last-child > .coma,
@@ -752,10 +771,27 @@ table.game-details-table.game-grid-details-table {
   .aff-game-details-thumb img {
     width: 70%;
   }
-  table.game-details-table.game-grid-details-table {
-    margin: 0 16px 23px;
-    width: calc(100% - 32px);
-  }
+
+.game-grid-details-table {
+  margin: -10px 16px 10px;
+  width: calc(100% - 32px);
+
+  // .game-details-row {
+  //   margin-bottom: 0;
+
+  //   span {
+  //     display: inline-block;
+
+  //     &:first-child {
+  //       width: 55%;
+  //     }
+  //   }
+    
+  // }
+  
+}
+
+
 }
 
 @media only screen and (max-width: 400px) {
