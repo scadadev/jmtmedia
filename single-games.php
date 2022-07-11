@@ -57,7 +57,7 @@ $avatar = get_user_meta($user->ID,'custom_avatar',true);
                                  <a href="#"
                                      class="button click-to-game"><?php echo $BORN_FRAMEWORK->Options->Get('play_btn_demo' . $lang_code);?></a>
                                  <a href="<?php echo get_field('main_link',$single_featured->ID);?>"
-                                     class="button external-game"><?php echo $BORN_FRAMEWORK->Options->Get('play_btn_real' . $lang_code);?></a>
+                                     class="button external-game" rel="nofollow noopener" ><?php echo $BORN_FRAMEWORK->Options->Get('play_btn_real' . $lang_code);?></a>
                              </div>
                              <?php  if (get_post_thumbnail_id()):?>
                              <?php  echo born_acf_image(get_post_thumbnail_id(),'game-thumb',true);?>
@@ -123,7 +123,7 @@ $avatar = get_user_meta($user->ID,'custom_avatar',true);
                                      <?php get_template_part('layout/partials/favorites','',array('id' => $prod->ID));?>
                                  </div>
                                  <div class="cta"><a
-                                         href="<?php echo get_field('main_link',$prod->ID);?>"><?php echo $BORN_FRAMEWORK->Options->Get('play' . $lang_code);?></a>
+                                         href="<?php echo get_field('main_link',$prod->ID);?>"  rel="nofollow noopener"><?php echo $BORN_FRAMEWORK->Options->Get('play' . $lang_code);?></a>
                                  </div>
                              </div>
 
@@ -450,7 +450,7 @@ $queried_posts = new WP_Query($args);
                                  </div>
                                  <div class="cta">
                                      <a href="<?php echo get_field('main_link',$single_featured->ID);?>"
-                                         class="button"><?php echo $BORN_FRAMEWORK->Options->Get('play' . $lang_code);?></a>
+                                         class="button" rel="nofollow noopener"><?php echo $BORN_FRAMEWORK->Options->Get('play' . $lang_code);?></a>
                                  </div>
                              </div>
 

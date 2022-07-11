@@ -62,7 +62,7 @@ $is_default_page = basename(get_page_template()) === 'page.php';
                             <div class="content">
                                 <div class="logo">
                                 <span class="product-extended-rating" <?php if (get_field('rating_color', $product->ID)):?> style="background:<?php echo get_field('rating_color', $product->ID); ?>;" <?php endif;?>><?php echo $i; ?></span>
-                                    <a href="<?php echo get_field('main_link', $product->ID); ?>" class="image" target="_blank">
+                                    <a href="<?php echo get_field('main_link', $product->ID); ?>" class="image" target="_blank"  rel="nofollow noopener" >
                                         <?php
                                         echo wp_get_attachment_image(get_field('logo', $product->ID), 'icons-large');
                                         //echo born_acf_image(get_field('logo',$product->ID),'icons-large',true);
@@ -87,7 +87,7 @@ $is_default_page = basename(get_page_template()) === 'page.php';
                                     </div>
                                 </div>
                                 <?php if ($text_gray || $text_orange): ?>
-                                    <a class="desc" href="<?php echo get_field('main_link', $product->ID); ?>" target="_blank" >
+                                    <a class="desc" href="<?php echo get_field('main_link', $product->ID); ?>" target="_blank" rel="nofollow noopener"  >
                                         <div class="text">
                                             <?php if ($text_orange): ?>
                                                 <span class="orange-icon" style="color: #e7a736;">
@@ -104,7 +104,7 @@ $is_default_page = basename(get_page_template()) === 'page.php';
                                 <?php endif; ?>
                                 <div class="cta">
                                     <a href="<?php echo get_field('main_link', $product->ID); ?>" target="_blank"
-                                       class="button"><?php echo $BORN_FRAMEWORK->Options->Get('go_to_profile' . $lang_code); ?></a>
+                                       class="button" rel="nofollow noopener" ><?php echo $BORN_FRAMEWORK->Options->Get('go_to_profile' . $lang_code); ?></a>
                                     <a href="<?php echo get_permalink($product->ID); ?>"
                                        class="text"><?php echo $BORN_FRAMEWORK->Options->Get('read_reviews' . $lang_code); ?></a>
                                 </div>

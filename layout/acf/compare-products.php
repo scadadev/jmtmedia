@@ -363,7 +363,7 @@ $lang_code = born_get_current_language_code();
                                                 foreach ($p['detail_value'] as $details){
 
                                                     if ($details['link']){
-                                                        echo '<a href="'.$details['link'].'">';
+                                                        echo '<a href="'.$details['link'].'" rel="nofollow noopener">';
                                                     }
 
                                                     echo $details['text'] . ' ';
@@ -562,7 +562,7 @@ $lang_code = born_get_current_language_code();
                             <a href="<?php echo get_permalink($product->ID); ?>" class="name"><?php echo get_the_title($product->ID); ?></a>
                         </span>
                         <div>
-                            <a href="<?php echo get_field('main_link',$product->ID);?>" target="_blank" class="button"><?php echo $BORN_FRAMEWORK->Options->Get('go_to_profile'.$lang_code);?></a>
+                            <a href="<?php echo get_field('main_link',$product->ID);?>" target="_blank" class="button" rel="nofollow noopener" ><?php echo $BORN_FRAMEWORK->Options->Get('go_to_profile'.$lang_code);?></a>
                             <a href="<?php echo get_permalink($product->ID); ?>" class="link"><?php echo $BORN_FRAMEWORK->Options->Get('write_review'.$lang_code);?></a>
                         </div>
                     </td>

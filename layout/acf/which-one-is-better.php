@@ -111,7 +111,7 @@ if ($products):
                                     </div>
                                 </div>
                                 <div class="cta">
-                                    <a href="<?php echo get_field('main_link',$product->ID);?>" target="_blank" class="button"><?php echo $BORN_FRAMEWORK->Options->Get('go_to_profile'.$lang_code);?></a>
+                                    <a href="<?php echo get_field('main_link',$product->ID);?>" target="_blank" class="button" rel="nofollow noopener" ><?php echo $BORN_FRAMEWORK->Options->Get('go_to_profile'.$lang_code);?></a>
                                 </div>
                             </div>
 

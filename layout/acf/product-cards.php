@@ -106,7 +106,7 @@ $lang_code = born_get_current_language_code();
                     <?php endif;?>
                     <?php if (get_field('main_link',$product->ID)):?>
                     <div class="cta">
-                        <a href="<?php echo get_field('main_link',$product->ID);?>" target="_blank" class="button"><?php echo $BORN_FRAMEWORK->Options->Get('play'.$lang_code);?></a>
+                        <a href="<?php echo get_field('main_link',$product->ID);?>" target="_blank" class="button" rel="nofollow noopener" ><?php echo $BORN_FRAMEWORK->Options->Get('play'.$lang_code);?></a>
                     </div>
                     <?php endif;?>
                 </div>

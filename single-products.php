@@ -180,7 +180,7 @@ $h2_ratings = get_field('ratings_after_h2_titles');
         <div class="content">
             <div class="logo">
                 <span class="image">
-                    <a href="<?php echo get_field('main_link'); ?>" target="_blank">
+                    <a href="<?php echo get_field('main_link'); ?>" target="_blank" rel="nofollow noopener">
                     <?php
                     echo wp_get_attachment_image(get_field('logo'), 'icons-large');
                     ?>
@@ -188,7 +188,7 @@ $h2_ratings = get_field('ratings_after_h2_titles');
                 </span>
                 <?php if (get_field('add_label_after_logo')): ?>
                     <div class="aff-bonus-tag">
-                        <a href="<?php echo get_field('main_link'); ?>" target="_blank">
+                        <a href="<?php echo get_field('main_link'); ?>" target="_blank" rel="nofollow noopener">
                             <span class="text">
                                 <span><?php echo get_field('label_after_logo_title'); ?></span>
                                 <span><?php echo get_field('label_after_logo_text'); ?></span>
@@ -205,7 +205,7 @@ $h2_ratings = get_field('ratings_after_h2_titles');
             </div>
             <div class="data">
                 <div class="title">
-                    <h1><a href="<?php echo get_field('main_link'); ?>" target="_blank"><?php the_title(); ?></a></h1>
+                    <h1><a href="<?php echo get_field('main_link'); ?>" target="_blank" rel="nofollow noopener"><?php the_title(); ?></a></h1>
                     <div class="rating">
                         <?php get_template_part('layout/partials/rating', '', array('id' => get_the_ID())); ?>
                     </div>
@@ -214,7 +214,7 @@ $h2_ratings = get_field('ratings_after_h2_titles');
                 <div class="cta">
                     <div class="action">
                         <a href="<?php echo get_field('main_link'); ?>" target="_blank"
-                           class="button"><?php echo $BORN_FRAMEWORK->Options->Get('play' . $lang_code); ?></a>
+                           class="button" rel="nofollow noopener"><?php echo $BORN_FRAMEWORK->Options->Get('play' . $lang_code); ?></a>
                     </div>
                     <?php get_template_part('layout/partials/favorites', '', array('id' => get_the_ID())); ?>
                     <div class="author">
@@ -448,7 +448,7 @@ $h2_ratings = get_field('ratings_after_h2_titles');
             <div class="cta">
                 <a href="<?php echo $scrolldown_link['url']; ?>"
                    <?php if (!empty($scrolldown_link['target'])): ?>target="<?php echo $scrolldown_link['target']; ?>" <?php endif; ?>
-                   class="button"><?php echo get_field('scrolldown_cta_top_button_title'); ?></a>
+                   class="button" rel="nofollow noopener"><?php echo get_field('scrolldown_cta_top_button_title'); ?></a>
             </div>
 
         <?php endif; ?>
@@ -596,7 +596,7 @@ $h2_ratings = get_field('ratings_after_h2_titles');
                                 <?php foreach ($d['detail_value'] as $detail_text_arr): ?>
 
                                     <?php if ($detail_text_arr['link']): ?>
-                                        <a href="<?php echo $detail_text_arr['link']; ?>">
+                                        <a href="<?php echo $detail_text_arr['link']; ?>" rel="nofollow noopener">
                                     <?php endif; ?>
                                     <?php echo $detail_text_arr['text']; ?><span class="coma">, </span>
                                     <?php if ($detail_text_arr['link']): ?>
@@ -789,8 +789,7 @@ $h2_ratings = get_field('ratings_after_h2_titles');
                                             <?php get_template_part('layout/partials/rating', '', array('id' => $prod->ID)); ?>
 
                                         </div>
-                                        <div class="cta"><a target="_blank"
-                                                            href="<?php echo get_field('main_link', $prod->ID); ?>"><?php echo $BORN_FRAMEWORK->Options->Get('play' . $lang_code); ?></a>
+                                        <div class="cta"><a target="_blank" href="<?php echo get_field('main_link', $prod->ID); ?>" rel="nofollow noopener"><?php echo $BORN_FRAMEWORK->Options->Get('play' . $lang_code); ?></a>
                                         </div>
                                     </div>
                                 <?php endforeach; ?>
@@ -866,7 +865,7 @@ $h2_ratings = get_field('ratings_after_h2_titles');
                                         </div>
                                         <div class="cta">
                                             <a href="<?php echo get_field('play_link', $bonus->ID); ?>" target="_blank"
-                                               class="button"><?php echo $BORN_FRAMEWORK->Options->Get('play' . $lang_code); ?></a>
+                                               class="button" rel="nofollow noopener"><?php echo $BORN_FRAMEWORK->Options->Get('play' . $lang_code); ?></a>
                                         </div>
                                     </div>
 
@@ -1219,7 +1218,7 @@ if ($total_stars && $total_reviews) {
             <div class="icon">
                 <a href="<?php echo $scrolldown_bot_link['url']; ?>"
                    <?php if (!empty($scrolldown_bot_link['target'])): ?>target="<?php echo $scrolldown_bot_link['target']; ?>" <?php endif; ?>
-                   class="image">
+                   class="image" rel="nofollow noopener">
                     <?php
                     echo wp_get_attachment_image(get_field('logo'), 'icons-large');
                     //echo born_acf_image(get_field('logo'), 'icons-large', true);
@@ -1228,12 +1227,12 @@ if ($total_stars && $total_reviews) {
             </div>
             <div class="name">
                 <a href="<?php echo $scrolldown_bot_link['url']; ?>"
-                   <?php if (!empty($scrolldown_bot_link['target'])): ?>target="<?php echo $scrolldown_bot_link['target']; ?>" <?php endif; ?>><?php echo get_field('cta_title'); ?></a>
+                   <?php if (!empty($scrolldown_bot_link['target'])): ?>target="<?php echo $scrolldown_bot_link['target']; ?>" <?php endif; ?> rel="nofollow noopener"><?php echo get_field('cta_title'); ?></a>
             </div>
             <div class="cta">
                 <a href="<?php echo $scrolldown_bot_link['url']; ?>"
                    <?php if (!empty($scrolldown_bot_link['target'])): ?>target="<?php echo $scrolldown_bot_link['target']; ?>" <?php endif; ?>
-                   class="button"><?php echo get_field('scrolldown_cta_button_text'); ?></a>
+                   class="button" rel="nofollow noopener"><?php echo get_field('scrolldown_cta_button_text'); ?></a>
             </div>
         </div>
     </div>
