@@ -790,7 +790,11 @@ table.game-details-table tr td {
   // }
   
 }
-
+.aff-bottom-cta .content .name {
+  font-size: 1.05rem;
+  line-height: 1.4;
+  width: calc(100% - 71px);
+}
 
 }
 
@@ -805,3 +809,9 @@ table.game-details-table tr td {
   }
 
 }
+@media only screen and (max-width: 360px) {
+  .aff-bottom-cta .content .name {
+    font-size: 0.9rem;
+   }
+  
+  }
