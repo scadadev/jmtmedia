@@ -329,6 +329,13 @@ $translations_child[] = [
     "default" => ""
 ];
 
+$translations_child[] = [
+    "id" => $prefix . "soc_telegram",
+    "type" => "text",
+    "title" => 'telegram',
+    "default" => ""
+];
+
 Redux::setSection('born_options', array(
     'title' => 'Social links ',
     'id' => 'social_links',
