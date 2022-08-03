@@ -371,7 +371,7 @@ $h2_ratings = get_field('ratings_after_h2_titles');
 
 
     <div class="menu">
-        <div class="born-container is-wide">
+        <div class="">
             <ul class="born-reset">
                 <li class="active">
                     <div><?php echo $BORN_FRAMEWORK->Options->Get('prod_overview' . $lang_code); ?></div>
@@ -439,19 +439,7 @@ $h2_ratings = get_field('ratings_after_h2_titles');
 
         </div>
 
-        <?php if (get_field('scrolldown_on_top')): ?>
-
-            <?php
-            $scrolldown_link = get_field('scrolldown_cta_top_button_link');
-            ?>
-
-            <div class="cta">
-                <a href="<?php echo $scrolldown_link['url']; ?>"
-                   <?php if (!empty($scrolldown_link['target'])): ?>target="<?php echo $scrolldown_link['target']; ?>" <?php endif; ?>
-                   class="button" rel="nofollow noopener"><?php echo get_field('scrolldown_cta_top_button_title'); ?></a>
-            </div>
-
-        <?php endif; ?>
+      
 
     </div>
     <div class="menu-mobile">

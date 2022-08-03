@@ -18,10 +18,10 @@
     btn.css({ bottom: height });
   }
 
-  btn.on("click", function (e) {
-    e.preventDefault();
-    $("html, body").animate({ scrollTop: 0 }, "300");
-  });
+  // btn.on("click", function (e) {
+  //   e.preventDefault();
+  //   $("html, body").animate({ scrollTop: 0 }, "300");
+  // });
 
   $(document).ajaxComplete(function (event, xhr, settings) {
     // reload after add review
@@ -41,6 +41,33 @@
   $(document).on("click", function () {
     topBtnPosition();
   });
+
+  // fixed header
+  $(window).scroll(function() {
+    if ($(window).scrollTop() >= 100) {
+      $('.aff-header').addClass('fixed');
+    } else {
+      $('.aff-header').removeClass('fixed');
+    }
+  });
+
+  var affHeader = $(".aff-header");
+
+  if (affHeader.next().hasClass("aff-header-title")) {
+    affHeader.addClass("transparent-header");
+  }
+
+
+  // $(document).ready(function(){
+  //   $(".aff-custom-menu.aff-page-menu").on("click","a", function (event) {
+  //     // console.log('nav');
+  //     event.preventDefault(); 
+  //     var id  = $(this).attr('href'), 
+  //       top = $(id).offset().top - 340; 
+  //   $('body,html').animate({scrollTop: top}, 1000); 
+  //   });
+  // });
+
 
   // compare gallery
   let compare_gallery = new SimpleLightbox("a.compare-gallery");

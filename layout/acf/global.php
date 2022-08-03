@@ -15,11 +15,12 @@ if( have_rows('page_content') ):
         // Case: Paragraph layout.
         if( get_row_layout() == 'header_with_blocks' ):
             get_template_part('layout/acf/header-with-blocks');
-
-        // Case: Download layout.
-        elseif( get_row_layout() == 'menu_acf' ):
-
             get_template_part('layout/acf/menu');
+            
+        // Case: Download layout.
+      //  elseif( get_row_layout() == 'menu_acf' ):
+
+          //  get_template_part('layout/acf/menu');
 
 
         elseif( get_row_layout() == 'top_products' ):

@@ -562,3 +562,49 @@ Redux::setSection('born_options', array(
     'priority' => 108,
     'fields' => $translations_child
 ));
+
+
+/** colors for fixed navigation */
+
+$translations_child = [];
+
+$translations_child[] = [
+    "id" => $prefix . "accent-fixed-nav",
+    "type" => "color",
+    "title" => 'font color',
+    "subtitle" => esc_html__('(default: #e7a736)'),
+    "default" => "#e7a736"
+];
+
+$translations_child[] = [
+    "id" => $prefix . "hover-fixed-nav",
+    "type" => "color",
+    "title" => 'font color hover',
+    "subtitle" => esc_html__('(default: #e7a736)'),
+    "default" => "#e7a736"
+];
+
+$translations_child[] = [
+    "id" => $prefix . "hover-bg-fixed-nav",
+    "type" => "color",
+    "title" => 'background color hover',
+    "subtitle" => esc_html__('(default: #FAF2E5)'),
+    "default" => "#FAF2E5"
+];
+
+$translations_child[] = [
+    "id" => $prefix . "active-bg-fixed-nav",
+    "type" => "color",
+    "title" => 'background color active',
+    "subtitle" => esc_html__('(default: #F8EAD5)'),
+    "default" => "#F8EAD5"
+];
+
+Redux::setSection('born_options', array(
+    'title' => 'Colors for fixed navi',
+    'id' => 'colors-fixed-nav',
+    'desc' => '',
+    'icon' => 'el el-picture',
+    'priority' => 109,
+    'fields' => $translations_child
+));

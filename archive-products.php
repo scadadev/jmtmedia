@@ -20,6 +20,8 @@ $args = array(
 $queried_posts = new WP_Query($args);
 ?>
 
+<?php get_template_part('layout/acf/menu'); ?>
+
 <?php if ( $queried_posts->have_posts() ):?>
 
     <?php if (get_field('enable_breadcrumbs')):?>
@@ -87,9 +89,9 @@ $queried_posts = new WP_Query($args);
                 get_template_part('layout/acf/header-with-blocks');
 
             // Case: Download layout.
-            elseif( get_row_layout() == 'menu_acf' ):
+           // elseif( get_row_layout() == 'menu_acf' ):
 
-                get_template_part('layout/acf/menu');
+             //  get_template_part('layout/acf/menu');
 
 
             elseif( get_row_layout() == 'top_products' ):

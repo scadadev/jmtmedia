@@ -10,6 +10,7 @@
 .aff-header .logo {
   max-width: 270px;
 }
+
 .aff-header .logo img {
   width: auto;
 }
@@ -27,16 +28,74 @@
   border-radius: 4px;
 }
 
+.aff-inner-item-header .menu.is-fixed {
+  left: 0;
+  right: 0;
+  top: 70px;
+  z-index: 101;
+}
+
+.admin-bar .aff-inner-item-header .menu.is-fixed {
+  top: 100px;
+}
+
+.aff-game-header .game .report {
+  z-index: 100;
+}
+
+.aff-page-info {
+  z-index: 100;
+}
+
+.aff-inner-item-header .menu ul {
+  justify-content: center;
+  padding: 0 15px !important;
+}
+
+
+@media only screen and (max-width: 1430px) {
+
+  .aff-inner-item-header .menu ul li {
+    margin-right: 4% !important;
+  }
+
+}
+
 @media (max-width: 1024px) {
   .aff-header .logo {
     max-width: 250px;
   }
+
+
+
+
+
 }
+
+@media (max-width: 991px) {
+
+  .aff-inner-item-header .menu-mobile.is-fixed {
+    top: 71px;
+    left: 0;
+    right: 0
+  }
+
+  .aff-header.is-mobile {
+    position: fixed;
+  }
+}
+
 
 @media (min-width: 992px) and (max-width: 1024px) {
   .aff-header .logo {
     max-width: 170px;
   }
+
+  .aff-inner-item-header .menu ul li a {
+    font-size: 18px;
+  }
+
+
 }
 
 @media (max-width: 767px) {
@@ -44,12 +103,17 @@
     padding: 8px 16px;
   }
 
+  .aff-profile-wrapper .aff-header .controls {
+    z-index: 1000;
+  }
+
   .aff-header.is-mobile .logo {
     height: auto;
     max-height: none;
+    z-index: 1001;
   }
 
-  .aff-header.is-mobile .logo > a {
+  .aff-header.is-mobile .logo>a {
     max-height: inherit;
   }
 
@@ -64,6 +128,7 @@
   .aff-profile-wrapper .aff-header .controls {
     right: 10px;
   }
+
   .aff-header .logo {
     max-width: 50%;
   }

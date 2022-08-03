@@ -32,6 +32,14 @@ add_action('wp_insert_post', function($post_ID, $post, $update){
         ]);
     }
 }, 10, 3);
+
+add_action( 'wp_enqueue_scripts', 'load_my_scripts' );
+function load_my_scripts(){
+    wp_deregister_script( 'hoverintent-js' );
+}
+
+
+
 /**
  * Убрать из загрузки
  */

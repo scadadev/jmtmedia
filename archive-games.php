@@ -20,7 +20,7 @@ $args = array(
 $queried_posts = new WP_Query($args);
 ?>
 
-<?php // get_template_part('layout/acf/menu'); ?>
+<?php  get_template_part('layout/acf/menu'); ?>
 
 <?php if ( $queried_posts->have_posts() ):?>
 
@@ -95,9 +95,9 @@ if( have_rows('page_content',$fake_page_id) ):
            
 
         // Case: Download layout.
-        elseif( get_row_layout() == 'menu_acf' ):
+       // elseif( get_row_layout() == 'menu_acf' ):
 
-            get_template_part('layout/acf/menu');
+          //  get_template_part('layout/acf/menu');
 
         elseif( get_row_layout() == 'top_products' ):
 

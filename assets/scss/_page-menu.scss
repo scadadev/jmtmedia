@@ -1,13 +1,13 @@
 .aff-custom-menu.aff-page-menu {
-  padding: 10px 0;
-  margin-top: 25px;
-  margin-bottom: -25px;
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
-.aff-page-menu .inner{
+.aff-page-menu .inner {
   background-color: #fff;
-  margin: 0 -30px;
-  padding: 25px 30px;
+  margin: 0;
+  padding: 25px 40px;
 }
 
 .aff-page-menu h2 {
@@ -25,11 +25,15 @@
 .aff-page-menu.aff-custom-menu .menu ul {
   flex-wrap: nowrap;
   justify-content: flex-start;
+  // background: #F9F9F9;
 }
 
 .aff-page-menu.aff-custom-menu .menu ul li {
-  margin: 0 3px !important;
+  margin: 0!important;
+  // background: #F9F9F9;
+  padding: 0 3px!important;
 }
+
 
 .aff-page-menu.aff-custom-menu .menu ul a {
   white-space: nowrap;
@@ -41,19 +45,91 @@
   justify-content: center;
 }
 
-.aff-page-menu.aff-custom-menu .menu ul a.active {
-  background: #F8EAD5;
+// .aff-page-menu.aff-custom-menu .menu ul a.active {
+//   background: #F8EAD5;
+// }
+
+.aff-header {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 102;
 }
 
-@media (hover: hover) {
-  .aff-page-menu.aff-custom-menu .menu ul a:not(.active):hover {
-    background: #FAF2E5;
+.aff-header.transparent-header {
+  background: transparent !important;
+}
+
+.aff-header.fixed.transparent-header,
+.aff-header.fixed {
+  background: #0c071c !important;
+  position: fixed;
+}
+
+.aff-page-wrapper {
+  padding-top: 96px;
+}
+
+.aff-header.fixed .content {
+  min-height: 70px;
+}
+
+.aff-header.fixed .menu {
+  padding-bottom: 4px;
+}
+
+.aff-custom-menu.aff-page-menu.fixed {
+  position: fixed;
+  top: 70px;
+  z-index: 101;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.aff-main-items-grid .item .aff-fav {
+	z-index: 90;}
+
+  .aff-page-menu .inner {
+    padding-bottom: 10px;
+}
+
+
+@media only screen and (min-width: 992px) {
+  .admin-bar .aff-header {
+    top: 32px;
+  }
+
+  .admin-bar .aff-custom-menu.aff-page-menu.fixed {
+    top: 100px;
+  }
+
+  .aff-page-wrapper {
+    padding-top: 96px;
+  }
+
+}
+
+
+// @media (hover: hover) {
+//   .aff-page-menu.aff-custom-menu .menu ul a:not(.active):hover {
+//     background: #FAF2E5;
+//   }
+// }
+
+@media only screen and (max-width: 991px) {
+  .aff-page-wrapper {
+    padding-top: 70px;
   }
 }
-
-@media screen and (min-width: 768px) {
-  .aff-custom-menu.aff-page-menu {
-    margin-top: 60px;
+@media only screen and (max-width: 767px) {
+  .aff-header-title {
     margin-bottom: 0;
   }
+
+  .aff-page-menu .inner {
+    padding: 20px 20px 0;
+  }
+
 }

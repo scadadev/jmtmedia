@@ -37,14 +37,14 @@ body {
     transform: rotate(90deg);
   }
 
-  &:hover {
-    opacity: 0.8;
-  }
+
 
   &.show {
     display: flex;
   }
 }
+
+
 
 body {
   &.hidden-scroll {
@@ -610,6 +610,9 @@ table.game-details-table tr td {
       color: #fff!important;
  }
 
+
+
+
 @media screen and (min-width: 576px) {
   .sitemap-links {
     &__wrap {
@@ -630,6 +633,12 @@ table.game-details-table tr td {
       width: 33.3333%;
     }
   }
+
+  .to-top:hover {
+    opacity: 0.8;
+  }
+  
+
 }
 
 @media only screen and (max-width: 1024px) and (min-width: 992px) {
@@ -723,7 +732,6 @@ table.game-details-table tr td {
   }
 }
 
-
 @media only screen and (max-width: 767px) {
   .footer-widgets .block {
     width: 50% !important;
@@ -775,21 +783,14 @@ table.game-details-table tr td {
 .game-grid-details-table {
   margin: -10px 16px 10px;
   width: calc(100% - 32px);
-
-  // .game-details-row {
-  //   margin-bottom: 0;
-
-  //   span {
-  //     display: inline-block;
-
-  //     &:first-child {
-  //       width: 55%;
-  //     }
-  //   }
-    
-  // }
-  
 }
+.aff-header-title .ffwd>a:hover svg path {
+  fill: #e7a736!important;
+}
+.aff-header-title .ffwd>a:hover span {
+  color: #e7a736!important;
+}
+
 .aff-bottom-cta .content .name {
   font-size: 1.05rem;
   line-height: 1.4;
@@ -810,8 +811,8 @@ table.game-details-table tr td {
 
 }
 @media only screen and (max-width: 360px) {
-  .aff-bottom-cta .content .name {
-    font-size: 0.9rem;
-   }
-  
-  }
+.aff-bottom-cta .content .name {
+  font-size: 0.9rem;
+ }
+
+}

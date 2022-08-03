@@ -109,7 +109,32 @@ if (!is_page_template('page-go.php')) {  ?>
             $header_bg = '#ffffff';
         }
 
+        $accent_fixednav = $BORN_FRAMEWORK->Options->Get('accent-fixed-nav');
+        $hover_fixednav = $BORN_FRAMEWORK->Options->Get('hover-fixed-nav');
+        $hover_bg_fixednav = $BORN_FRAMEWORK->Options->Get('hover-bg-fixed-nav');
+        $active_bg_fixednav = $BORN_FRAMEWORK->Options->Get('active-bg-fixed-nav');
+
+
+        if (!$accent_fixednav){
+            $accent_fixednav = '#e7a736';
+        }
+        if (!$hover_fixednav){
+            $hover_fixednav = '#e7a736';
+        }
+        if (!$hover_bg_fixednav){
+            $hover_bg_fixednav = '#FAF2E5';
+        }
+        if (!$active_bg_fixednav){
+            $active_bg_fixednav = '#F8EAD5';
+        }
+
         ?>
+
+
+
+
+
+
 
         /* base link color override */
 
@@ -164,11 +189,11 @@ if (!is_page_template('page-go.php')) {  ?>
             color: <?php echo $global_accent;?>;
         }
 
-        .aff-custom-menu .menu ul li a {
+        /* .aff-custom-menu .menu ul li a {
             color: <?php echo $global_accent;?> !important;
-        }
+        } */
 
-        .aff-custom-menu .menu ul li a:hover,
+        /* .aff-custom-menu .menu ul li a:hover, */
         .aff-shortcuts .item:hover h2,
         .aff-shortcuts .item:hover h3,
         .aff-text .wys p a:hover {
@@ -800,9 +825,9 @@ if (!is_page_template('page-go.php')) {  ?>
 
         /* Custom menu */
 
-        body div.aff-custom-menu .menu ul li a {
+        /* body div.aff-custom-menu .menu ul li a {
             color: <?php echo get_sub_field('accent_color');?> !important;
-        }
+        } */
 
         <?php endif;?>
 
@@ -1195,6 +1220,37 @@ if (!is_page_template('page-go.php')) {  ?>
             }
            
         }
+
+
+
+
+
+        .aff-page-menu.aff-custom-menu .menu ul:not(.ul-ignore):not(.dropdown-menu):not(#wp-admin-bar-root-default):not(#wp-admin-bar-top-secondary):not(#wp-admin-bar-user-actions):not(.comment):not(.products):not(.list):not(.product-categories):not(.children):not(.page-numbers):not(.tabs):not(.ab-submenu):not(.select2-results__options):not(.payment_methods):not(.main-menu):not(.menu):not(#shipping_method) li a {
+            color: <?php echo $accent_fixednav;?>;
+        }
+
+        @media screen and (min-width: 768px) { 
+            .aff-page-menu.aff-custom-menu .menu ul li a:hover {
+                color: <?php echo $hover_fixednav;?>!important;
+            }
+            .aff-page-menu.aff-custom-menu .menu ul a:not(.active):hover {
+                background:<?php echo $hover_bg_fixednav;?>;
+            }
+        }
+        .aff-page-menu.aff-custom-menu .menu ul a.active {
+            background:<?php echo $active_bg_fixednav;?>;
+        }
+
+        @media screen and (max-width: 767px) { 
+            .aff-page-menu.aff-custom-menu .menu ul li a:hover {
+            color: <?php echo $accent_fixednav;?>!important;
+        }
+        .aff-page-menu.aff-custom-menu .menu ul a:not(.active):hover {
+            background:transparent;
+        }
+        }
+
+
 
     </style>
     <?php  }  ?>
